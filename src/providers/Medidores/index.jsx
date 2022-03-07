@@ -48,7 +48,7 @@ export const MedidoresPrivider = ({ children }) => {
       })
       .catch((err) => console.log(err));
   };
-
+  
   return (
     <MedidoresContext.Provider
       value={{

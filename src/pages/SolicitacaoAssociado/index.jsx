@@ -8,8 +8,9 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useSolicitacoes } from "../../providers/Solicitacoes";
 import { AiOutlineMenu } from "react-icons/ai";
 import Main from "../../components/Main";
+import { Redirect } from "react-router-dom";
 
-const SolicitacaoAssociado = () => {
+const SolicitacaoAssociado = ({auth}) => {
   const { sendRequest } = useSolicitacoes();
 
   const schema = yup.object().shape({
@@ -27,7 +28,7 @@ const SolicitacaoAssociado = () => {
     resolver: yupResolver(schema),
   });
 
-  const { id } = JSON.parse(localStorage.getItem("ARAP:User:"));
+  const { id } = JSON.parse(localStorage.getItem("ARAP:User:")) || "";
 
   const onSubmit = (data) => {
     sendRequest(data, id);
@@ -37,6 +38,10 @@ const SolicitacaoAssociado = () => {
         tel: ""
     })
   };
+
+  if (!auth) {
+    return <Redirect to="/login" />;
+  }
 
   return (
     <>

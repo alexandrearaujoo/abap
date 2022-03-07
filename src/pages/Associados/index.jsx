@@ -11,13 +11,14 @@ import { BsInfoSquare } from "react-icons/bs";
 import ButtonAdd from "../../components/ButtonAdd";
 import Busca from "../../components/Busca";
 import { AiOutlineMenu } from "react-icons/ai";
-import {MdPersonAdd} from 'react-icons/md'
+import { MdPersonAdd } from "react-icons/md";
 import { useAssociados } from "../../providers/Associados";
 import ModalInfoUser from "../../components/ModalInfoUser";
 import toast from "react-hot-toast";
 import Main from "../../components/Main";
+import { Redirect } from "react-router-dom";
 
-const Associados = () => {
+const Associados = ({ authAdm }) => {
   const [showForm, setShowForm] = useState(false);
   const [showInfos, setShowInfos] = useState(false);
   const { associados, infosUser, infoUser } = useAssociados();
@@ -25,8 +26,10 @@ const Associados = () => {
   const [busca, setBusca] = useState(""); // Armazena dados da busca
   const [arrayBusca, setArrayBusca] = useState([]);
   const [status, setStatus] = useState("");
-
   let array = associados;
+  if (!authAdm) {
+    return <Redirect to="/loginAdm" />;
+  }
 
   // Exibe o Formulario de cadastro associado
   const handleClick = () => {
@@ -74,10 +77,13 @@ const Associados = () => {
       <Main colunm>
         <Container>
           <MotionDiv>
-          <h2>Gerenciar Associados</h2>
+            <h2>Gerenciar Associados</h2>
             {showForm && (
               <Blocker>
-                <FormModalAssociados handleClick={handleClick} setShowForm={setShowForm}/>
+                <FormModalAssociados
+                  handleClick={handleClick}
+                  setShowForm={setShowForm}
+                />
               </Blocker>
             )}
 
@@ -95,7 +101,11 @@ const Associados = () => {
 
             {showInfos && (
               <Blocker>
-                <ModalInfoUser infos={infoUser} handleClick={handleShowInfos} setShowInfos={setShowInfos}/>
+                <ModalInfoUser
+                  infos={infoUser}
+                  handleClick={handleShowInfos}
+                  setShowInfos={setShowInfos}
+                />
               </Blocker>
             )}
             <DivLista
@@ -115,11 +125,13 @@ const Associados = () => {
                       <div className="inativo"></div>
                     )
                   }
-                  info3={itens.status === "Ativo" ? (
-                    <div className="ativo"></div>
-                  ) : (
-                    <div className="inativo"></div>
-                  )}
+                  info3={
+                    itens.status === "Ativo" ? (
+                      <div className="ativo"></div>
+                    ) : (
+                      <div className="inativo"></div>
+                    )
+                  }
                   info4={
                     <div>
                       <ButtonAdd
@@ -136,7 +148,7 @@ const Associados = () => {
               ))}
             </DivLista>
           </MotionDiv>
-          </Container>
+        </Container>
       </Main>
     </>
   );

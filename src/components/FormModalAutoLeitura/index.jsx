@@ -11,7 +11,7 @@ import QrCode from "../QrCode";
 import { toast } from "react-hot-toast";
 
 const AutoLeitura = () => {
-  const [teste, setTeste] = useState("");
+  const [valorInput, setValorInput] = useState("");
 
   const { qrCode, getHistoricoAssociado, gerarQRcode, historicoUser } =
     usePagamentos();
@@ -43,17 +43,23 @@ const AutoLeitura = () => {
   });
 
   const onSubmit = (data) => {
-    if (
-      teste &&
-      Number(teste) > historicoUser[historicoUser.length - 1].medidor
-    ) {
-      const m3 =
-        Number(data.medidor) - historicoUser[historicoUser.length - 1].medidor;
-      const auxM3 = m3 <= 10 ? 18 : 18 + (m3 - 10) * 2;
-      data.valor = auxM3;
-      setValorAPagar(auxM3);
-      gerarQRcode(data, id);
-      toast.success("Autoleitura realizada com sucesso!");
+    if (historicoUser.length > 0 && valorInput &&
+        Number(valorInput) > historicoUser[historicoUser.length - 1].medidor) {
+        const m3 =
+          Number(data.medidor) -
+          historicoUser[historicoUser.length - 1].medidor;
+        const auxM3 = m3 <= 10 ? 18 : 18 + (m3 - 10) * 2;
+        data.valor = auxM3;
+        setValorAPagar(auxM3);
+        gerarQRcode(data, id);
+        toast.success("Autoleitura realizada com sucesso!");
+      
+    } else if(historicoUser.length === 0) {
+        const m3 = 18;
+        data.valor = m3;
+        setValorAPagar(m3);
+        gerarQRcode(data, id);
+        toast.success("Autoleitura realizada com sucesso!");
     } else {
       toast.error(
         "O valor informado deve ser maior que o valor da leitura anterior!"
@@ -73,7 +79,7 @@ const AutoLeitura = () => {
         name="medidor"
         error={errors.medidor?.message}
         register={register}
-        onChange={(e) => setTeste(e.target.value)}
+        onChange={(e) => setValorInput(e.target.value)}
       />
       <InputDefault
         width="90.8%"

@@ -4,9 +4,13 @@ import { AiOutlineMenu } from "react-icons/ai";
 import Main from "../../components/Main";
 import { StyledSection, DivNoticias } from "./style";
 import { Carousel } from "3d-react-carousal";
+import { Redirect } from "react-router-dom";
 
-const DashBoardADM = () => {
+const DashBoardADM = ({ authAdm }) => {
   const adm = JSON.parse(localStorage.getItem("ARAP:ADM"));
+  if (!authAdm) {
+    return <Redirect to="/loginAdm" />;
+  }
 
   let slides = [
     <DivNoticias>

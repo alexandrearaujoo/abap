@@ -1,4 +1,3 @@
-
 import Sidebar from "../../components/Sidebar";
 import MotionDiv from "../../components/MotionDiv";
 import { Container } from "./style";
@@ -15,18 +14,23 @@ import toast from "react-hot-toast";
 import { BsInfoSquare } from "react-icons/bs";
 import ButtonAdd from "../../components/ButtonAdd";
 import ModalInfoSolicitacoes from "../../components/ModalInfoSolicitacoes";
+import { Redirect } from "react-router-dom";
 
-const Solicitacoes = () => {
+const Solicitacoes = ({ authAdm }) => {
   const [showForm, setShowForm] = useState(false);
   const [showInfos, setShowInfos] = useState(false);
-  const { solicitacoes, infosSolicitacoes, infoSolicitacoes} = useSolicitacoes();
-
+  const { solicitacoes, infosSolicitacoes, infoSolicitacoes } =
+    useSolicitacoes();
 
   const [busca, setBusca] = useState(""); // Armazena dados da busca
   const [arrayBusca, setArrayBusca] = useState([]);
   const [status, setStatus] = useState("");
- 
+
   let array = solicitacoes;
+
+  if (!authAdm) {
+    return <Redirect to="/loginAdm" />;
+  }
 
   const handleClick = () => {
     setShowForm(!showForm);
@@ -47,9 +51,7 @@ const Solicitacoes = () => {
     let status = e.target.value;
     status === "Status..." || status === "Todos"
       ? setArrayBusca(solicitacoes)
-      : setArrayBusca(
-          solicitacoes.filter((solic) => solic.status === status)
-        );
+      : setArrayBusca(solicitacoes.filter((solic) => solic.status === status));
   };
 
   arrayBusca.length > 0
@@ -64,7 +66,7 @@ const Solicitacoes = () => {
     infosSolicitacoes(id);
   };
 
-  const options = { year: 'numeric', month: 'long', day: 'numeric' };
+  const options = { year: "numeric", month: "long", day: "numeric" };
 
   return (
     <>
@@ -74,7 +76,7 @@ const Solicitacoes = () => {
         <Container>
           <MotionDiv>
             <Busca
-              handleClick={handleClick} 
+              handleClick={handleClick}
               setBusca={setBusca}
               busca={busca}
               setStatus={setStatus}
@@ -85,12 +87,13 @@ const Solicitacoes = () => {
             />
 
             {showInfos && (
-             <Blocker>
-                <ModalInfoSolicitacoes 
-              setShowInfos={setShowInfos}
-              infos={infoSolicitacoes} 
-              handleClick={handleShowInfos} />
-             </Blocker>
+              <Blocker>
+                <ModalInfoSolicitacoes
+                  setShowInfos={setShowInfos}
+                  infos={infoSolicitacoes}
+                  handleClick={handleShowInfos}
+                />
+              </Blocker>
             )}
             <DivLista
               title1="Nome"
@@ -99,10 +102,17 @@ const Solicitacoes = () => {
               title4="Ações"
             >
               {array.map((itens) => (
-                <Lista key={itens._id}
+                <Lista
+                  key={itens._id}
                   info1={<span>{itens.name}</span>}
-                  info2={<span>{new Date(itens.createdAt).toLocaleDateString("pt-BR", options)
-                }</span>}
+                  info2={
+                    <span>
+                      {new Date(itens.createdAt).toLocaleDateString(
+                        "pt-BR",
+                        options
+                      )}
+                    </span>
+                  }
                   info3={
                     itens.status === "Inativo" ? (
                       <div className="inativo"></div>
@@ -116,8 +126,8 @@ const Solicitacoes = () => {
                         color="#000"
                         icon={BsInfoSquare}
                         onClick={() => {
-                        handleShowInfos();
-                        handleInfoSolicitacoes(itens._id)
+                          handleShowInfos();
+                          handleInfoSolicitacoes(itens._id);
                         }}
                       ></ButtonAdd>
                     </div>
@@ -132,4 +142,4 @@ const Solicitacoes = () => {
   );
 };
 
-export default Solicitacoes
+export default Solicitacoes;

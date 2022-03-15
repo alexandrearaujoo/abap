@@ -16,7 +16,7 @@ const Header = () => {
     <StyledHeader>
       <StyledContainer>
         <img width={40} src={Logo} alt="Logo" />
-        <button onClick={() => handleLogin()}>Login</button>
+        <button onClick={handleLogin}>Login</button>
       </StyledContainer>
     </StyledHeader>
   );

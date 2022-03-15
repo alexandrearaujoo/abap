@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+import styled from "styled-components"
 
 export const GlobalStyle = createGlobalStyle`
 
@@ -15,12 +16,13 @@ article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
+	vertical-align: baseline;
+  box-sizing: border-box;
 	margin: 0;
 	padding: 0;
 	border: 0;
 	font-size: 100%;
 	font: inherit;
-	vertical-align: baseline;
 }
 
 article, aside, details, figcaption, figure,
@@ -46,27 +48,41 @@ table {
 	border-spacing: 0;
 }
 
+body, button, input, textarea, select {
+  font-family: var(--fontfamily-poppins);
+}
+
 :root {
   --color-primary: #272B55;
-  --color-primary-50: #4A5292;
-  --color-secondary: #545CB7;
+  --color-primary-50: #545CB7;
+  --color-secondary: #4A5292;
   
   --black: #13191B;
-  --white: #C9CCD5;
+  --white: #F5F5F5;
+
+  --background-menus: #D9E0F5;
 
   --purple-4: #4C526B;
   --purple-3: #5C5B74;
   --purple-2: #626879;
   --purple-1: #839EAC;
 
-  --fontsize-h1: 30px;
-  --fontsize-h2: 30px;
-  --fontsize-h3: 30px;
+  --fontsize-h1: 2rem;
+  --fontsize-h2: calc(var(--fontsize-h1) - 25%);
+  --fontsize-h3: calc(var(--fontsize-h2) - 50%);
   --headline: 0.75rem;
-  --content-body: 1rem;
+  --body: 1rem;
 
   --fontfamily-poppins: "Poppins", sans-serif;
-  --fontfamily-noto-serif: "Noto Serif", sans-serif;
   
 }
+`
+
+export const StyledContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+  margin: 0 auto;
 `

@@ -1,4 +1,4 @@
-import {Container, Button, SidebarContainer, Logo, SlickBar, Item, Text, Profile, Details, Logout, Name} from './style'
+import {Container, Button, SidebarContainer,SlickBar, Item, Text, Profile, Details, Logout, Name} from './style'
 import {useState} from 'react'
 import {useHistory} from 'react-router-dom'
 
@@ -18,9 +18,6 @@ const Sidebar = () => {
            <Container>
       <Button clicked={click} onClick={() => handleClick()} />
       <SidebarContainer>
-        <Logo>
-          <img alt="logo" />
-        </Logo>
         <SlickBar clicked={click}>
           <Item
             onClick={() => {
@@ -51,6 +48,16 @@ const Sidebar = () => {
             <img src="https://img.icons8.com/external-others-iconmarket/64/000000/external-register-online-learning-others-iconmarket-2.png" alt='Cadastrar Associados'/>
             <Text clicked={click}>Cadastrar Associados</Text>
           </Item>
+          <Item
+            onClick={() => {
+              setClick(false) 
+              history.push('/solicitacoes')
+            }}
+            activeClassName="active"
+          >
+            <img src="https://img.icons8.com/external-vitaliy-gorbachev-fill-vitaly-gorbachev/60/000000/external-invitation-event-vitaliy-gorbachev-fill-vitaly-gorbachev.png" alt='Solicitações'/>
+            <Text clicked={click}>Solicitações</Text>
+          </Item>
         </SlickBar>
 
         <Profile clicked={profileClick}>
@@ -61,7 +68,7 @@ const Sidebar = () => {
           />
           <Details clicked={profileClick}>
             <Name>
-              <h4>Jhon&nbsp;Doe</h4>
+              <h4>Gestor</h4>
               <a href="/#">view&nbsp;profile</a>
             </Name>
 

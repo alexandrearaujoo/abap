@@ -2,6 +2,7 @@ import styled from 'styled-components'
 
 export const Container = styled.section`
   position: fixed;
+  z-index: 1;
 
   .active {
     border-right: 4px solid #fff;
@@ -47,7 +48,7 @@ export const Button = styled.button`
 export const SidebarContainer = styled.div`
   background-color: var(--color-primary);
   width: 3.5rem;
-  height: 80vh;
+  height: 61vh;
   margin-top: 1rem;
   border-radius: 0 30px 30px 0;
   padding: 1rem 0;

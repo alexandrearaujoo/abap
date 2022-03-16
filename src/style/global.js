@@ -31,6 +31,10 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
+
+  ::-webkit-scrollbar {
+             display: none;
+            }
 }
 ol, ul {
 	list-style: none;

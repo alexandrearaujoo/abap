@@ -3,14 +3,14 @@ import MotionDiv from "../../components/MotionDiv"
 import WaveAdm from "../../components/WaveAdm"
 import {Container, List} from './style'
 
-const GerenciarPagamentos = () => {
+const Solicitacoes = () => {
     return (
-        <>
+<>
         <Sidebar />
         
             <Container>
             <MotionDiv>
-                <h2>Gerenciar Pagamentos</h2>
+                <h2>Solicitações</h2>
 
                 <List>
                     <li>
@@ -34,4 +34,4 @@ const GerenciarPagamentos = () => {
     )
 }
 
-export default GerenciarPagamentos
+export default Solicitacoes

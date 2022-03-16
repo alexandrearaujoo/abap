@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const Inputs = styled.div`
     
-    border-bottom: 2px var(--purple-1) solid;
+    border-bottom: 1px var(--purple-1) solid;
     position: relative;
 
 

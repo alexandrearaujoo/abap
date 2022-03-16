@@ -1,7 +1,7 @@
 import {Form, DivInfos, DivLocal} from './style'
 import Button from '../Button'
 
-const FormModal = () => {
+const FormModalAssociados = () => {
     return (
         <section>
             <Form>
@@ -31,4 +31,4 @@ const FormModal = () => {
         </section>
     )
 }
-export default FormModal
+export default FormModalAssociados;

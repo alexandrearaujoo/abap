@@ -46,7 +46,7 @@ const Sidebar = () => {
             activeClassName="active"
           >
             <img src="https://img.icons8.com/external-others-iconmarket/64/000000/external-register-online-learning-others-iconmarket-2.png" alt='Cadastrar Associados'/>
-            <Text clicked={click}>Cadastrar Associados</Text>
+            <Text clicked={click}>Cadastrar</Text>
           </Item>
           <Item
             onClick={() => {

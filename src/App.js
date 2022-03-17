@@ -1,6 +1,6 @@
 import Header from './components/Header';
-import Input from './components/Input';
 import { GlobalStyle } from './style/global';
+import Router from './routes';
 
 function App() {
   return (

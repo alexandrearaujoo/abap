@@ -1,13 +1,19 @@
-import styled from 'styled-components'
+import styled,{css}from 'styled-components'
 
 export const Inputs = styled.div`
     
-    border: 1px red solid;
+    border: 2px solid var(--white);
     border-radius: 3px;
     position: relative;
     height: 30px;
-    width: 200px;
+    width: 90%;
     margin-top: 20px;
+
+    ${(props) =>
+            props.isErrored &&
+            css`
+            border-color: #ff0000;
+        `}
 
 
     input{
@@ -36,7 +42,15 @@ export const Inputs = styled.div`
         margin-top: -23px;
         margin-left: 3px;
         font-size: 15px;
-        color: red;
+        color: var(--white);
+
+        span {
+            ${(props) =>
+            props.isErrored &&
+            css`
+            color: #ff0000;
+        `}
+        }
     }
 
     input:focus + label{
@@ -45,18 +59,15 @@ export const Inputs = styled.div`
         padding-right: 2px;
         background: var(--color-primary);
         font-size: 10px;
-        color:red;
         transition: .2s;
 
 }
 
     input:not(:placeholder-shown) + label{
             margin-top: -37px;
-            background: var(--color-primary);
-            padding-left: 2px;
-            padding-right: 2px;
+            background: var(--color-secondary);
+            padding: 3px;
             font-size: 10px;
-            color: red;
             transition: .2s;
     }
 

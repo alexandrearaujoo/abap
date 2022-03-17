@@ -1,7 +1,7 @@
 import Sidebar from "../../components/Sidebar"
 import MotionDiv from "../../components/MotionDiv"
 import WaveAdm from "../../components/WaveAdm"
-import {Container, List} from './style'
+import {Container} from './style'
 import Input from "../../components/Input"
 import DivLista from "../../components/DivLista"
 import Lista from "../../components/Listas"
@@ -27,8 +27,6 @@ const GerenciarPagamentos = () => {
                   info4={'x'}/>)}                
                 </DivLista>
                
-
-              
                 </MotionDiv>
             </Container>
                 

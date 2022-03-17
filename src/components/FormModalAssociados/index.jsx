@@ -1,15 +1,17 @@
 import {Form, DivInfos, DivLocal} from './style'
 import Button from '../Button'
+import Input from '../Input'
 import {useForm} from 'react-hook-form'
 import * as yup from 'yup'
-import {yupResolver} from '@hookform/resolvers'
+import {yupResolver} from '@hookform/resolvers/yup'
 
 const FormModalAssociados = () => {
 
 
-    const schema = yup.object.schema({
+    const schema = yup.object().shape({
         nome_completo: yup.string().required("Campo Obrigatorio"),
-        email: yup.string.email('Email invalido').required('Campo Obrigatorio'),
+        email: yup.string().email('Email invalido').required('Campo Obrigatorio'),
+        cpf: yup.string().required('Campo Obrigatorio'),
         endereco: yup.string().required('Campo Obrigadotiro'),
         password: yup.string().required('Campo Obrigatorio'),
         numero: yup.string().required('Campo Obrigatorio'),
@@ -30,29 +32,58 @@ const FormModalAssociados = () => {
         <section>
             <Form onSubmit={handleSubmit(onSubmit)}>
                 <h2>Cadastro</h2>
-                <label>Nome completo</label>
-                <input />
-                <label>Email</label>
-                <input />
-                <label>Senha</label>
-                <input />
-                <label>Endereço</label>
-                <input />
+                <Input label='Nome Completo'
+                name='nome_completo'
+                error={errors.nome_completo?.message}
+                register={register}
+                />
+                <Input label='Email'
+                name='email'
+                error={errors.email?.message}
+                register={register}
+                />
+                <Input label='CPF'
+                name='cpf'
+                error={errors.cpf?.message}
+                register={register}
+                />
+                <Input label='Endereço'
+                name='endereco'
+                error={errors.endereco?.message}
+                register={register}
+                />
+                <Input label='Senha'
+                name='password'
+                error={errors.password?.message}
+                register={register}
+                />
                 <DivInfos>
                     <DivLocal>
-                        <label>Numero</label>
-                        <input />
-                        <label>Bairro</label>
-                        <input />
+                    <Input label='Número'
+                        name='numero'
+                        error={errors.numero?.message}
+                        register={register}
+                        />
+                    <Input label='Bairro'
+                        name='bairro'
+                        error={errors.bairro?.message}
+                        register={register}
+                    />
                     </DivLocal>
                     <DivLocal>
-                        <label>Cidade</label>
-                        <input />
-                        <label>Estado</label>
-                        <input />
+                    <Input label='Cidade'
+                        name='cidade'
+                        error={errors.cidade?.message}
+                        register={register}
+                        />
+                    <Input label='Estado'
+                        name='estado'
+                        error={errors.estado?.message}
+                        register={register}
+                        />
                     </DivLocal>
                 </DivInfos>
-                <Button span='Cadastrar'/>
+                <Button>Cadastrar</Button>
             </Form>
         </section>
     )

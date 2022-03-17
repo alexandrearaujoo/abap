@@ -1,41 +1,21 @@
 import styled from 'styled-components'
 
-export const Container = styled.div`
-
-
-        width: 95%;
-        height: 30px;
+export const Container = styled.li`
+        width: 80%;
         display: flex;
-        flex-direction: row;
         justify-content: space-between;
-        align-items: center;
-        background: white;
-        margin-top: 15px;
-        padding-left: 5px;
-        padding-right: 5px;
+        margin: 8px auto;
+        background-color: var(--purple-1);
+        border-radius: 3px;
+        padding: 5px;
+        box-shadow: 3px 3px 10px -2px rgba(0, 0, 0, 0.50);
 
 
-    .info1{
-        width: 50%;
-        
-       
-    }
-
-    .info2{
-
-
-    }
-
-    .info3{
-
-    }
-
-    .info4{
-
-    }
-
-
-
-
+        span {
+            max-width: 50%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
 
 `

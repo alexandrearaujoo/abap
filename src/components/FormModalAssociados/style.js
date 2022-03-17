@@ -16,16 +16,6 @@ export const Form = styled.form`
         text-align: center;
         color: var(--white)
     }
-    label {
-        color: var(--white);
-    }
-    input {
-        width: 80%;
-        border-radius: 15px;
-        border: none;
-        padding: 5px;
-        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    }
 `
 
 export const DivInfos = styled.div`
@@ -37,6 +27,6 @@ export const DivInfos = styled.div`
 export const DivLocal = styled.div`
     display: flex;
     flex-direction: column;
-    width: 50%;
+    width: 47%;
     align-items: center;
 `

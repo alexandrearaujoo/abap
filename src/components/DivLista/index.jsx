@@ -1,22 +1,17 @@
-import Lista from "../Listas"
 import { Container } from "./styles"
 
 
 const DivLista = ({children, ...rest}) => {
 
-
-
-
-
-
     return(
         <Container> 
-            <div>{rest.title1}{rest.title2}</div>
-
+            <div>
+            <span>{rest.title1}</span>
+            <span>{rest.title2}</span>
+            <span>{rest.title3}</span>
+            </div>
             {children}
         </Container>
-        
-
     )
 
 }

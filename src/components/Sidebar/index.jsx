@@ -17,7 +17,6 @@ const Sidebar = () => {
         <>
            <Container>
       <Button clicked={click} onClick={() => handleClick()} />
-      <SidebarContainer>
         <SlickBar clicked={click}>
           <Item
             onClick={() => {
@@ -59,25 +58,6 @@ const Sidebar = () => {
             <Text clicked={click}>Solicitações</Text>
           </Item>
         </SlickBar>
-
-        <Profile clicked={profileClick}>
-          <img
-            onClick={() => handleProfileClick()}
-            src="https://picsum.photos/200"
-            alt="Profile"
-          />
-          <Details clicked={profileClick}>
-            <Name>
-              <h4>Gestor</h4>
-              <a href="/#">view&nbsp;profile</a>
-            </Name>
-
-            <Logout>
-            <img src="https://img.icons8.com/external-tanah-basah-glyph-tanah-basah/48/000000/external-power-button-user-interface-tanah-basah-glyph-tanah-basah.png" alt='PowerOff'/>
-            </Logout>
-          </Details>
-        </Profile>
-      </SidebarContainer>
     </Container>
         </>
     )

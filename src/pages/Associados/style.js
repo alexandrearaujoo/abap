@@ -11,7 +11,6 @@ export const Container = styled.section`
     h2{
         text-align: center;
         color: var(--white);
-        margin-left: 35px;
     }
 `
 
@@ -21,7 +20,6 @@ export const List = styled.ul`
     flex-direction: column;
     background-color: var(--background-menus);
     border-radius: 15px;
-    margin-left: 25px;
     box-shadow: 3px 3px 10px -2px rgba(0, 0, 0, 1);
 
     li {      

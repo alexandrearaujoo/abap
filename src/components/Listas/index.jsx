@@ -2,15 +2,17 @@
 import { Container } from "./style"
 
 
- const Lista = () => {
+ const Lista = ({...rest}) => {
 
 
     return(
         <Container>
-            <h1>David </h1>
-            <p>devendo</p>
-            <p>leitura</p>
 
+                <div className="info1">{rest.info1}</div>
+                <div className="info2">{rest.info2}</div>
+                <div className="info3">{rest.info3}</div>
+                <div className="info4">{rest.info4}</div>
+            
         </Container>
 
 

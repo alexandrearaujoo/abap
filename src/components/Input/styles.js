@@ -9,13 +9,6 @@ export const Inputs = styled.div`
     width: 90%;
     margin-top: 20px;
 
-    ${(props) =>
-            props.isErrored &&
-            css`
-            border-color: #ff0000;
-        `}
-
-
     input{
         background: transparent;
         border: none;

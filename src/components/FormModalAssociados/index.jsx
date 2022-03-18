@@ -1,4 +1,4 @@
-import {Form, DivInfos, DivLocal} from './style'
+import {Form, DivInfos, DivLocal, Section} from './style'
 import Button from '../Button'
 import Input from '../Input'
 import {useForm} from 'react-hook-form'
@@ -29,7 +29,7 @@ const FormModalAssociados = () => {
     }
 
     return (
-        <section>
+        <Section>
             <Form onSubmit={handleSubmit(onSubmit)}>
                 <h2>Cadastro</h2>
                 <Input label='Nome Completo'
@@ -85,7 +85,7 @@ const FormModalAssociados = () => {
                 </DivInfos>
                 <Button>Cadastrar</Button>
             </Form>
-        </section>
+        </Section>
     )
 }
 export default FormModalAssociados;

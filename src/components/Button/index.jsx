@@ -1,10 +1,9 @@
 import {ButtonStyled} from './style'
 
-const Button = ({span, ...rest}) => {
+const Button = ({children, ...rest}) => {
     return (
     <ButtonStyled rest={rest}>
-        <span>{span}</span>
-        <div></div>
+        {children}
     </ButtonStyled>
     )
 }

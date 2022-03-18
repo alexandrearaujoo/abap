@@ -1,6 +1,5 @@
 import Sidebar from "../../components/Sidebar"
 import MotionDiv from "../../components/MotionDiv"
-import WaveAdm from "../../components/WaveAdm"
 import {Container, List} from './style'
 import FormModalAssociados from "../../components/FormModalAssociados"
 
@@ -30,8 +29,6 @@ const Solicitacoes = () => {
                 </List> */}
                 </MotionDiv>
             </Container>
-                
-            <WaveAdm />
         </>
     )
 }

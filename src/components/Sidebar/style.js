@@ -6,16 +6,10 @@ export const Container = styled.section`
 
   .active {
     border-right: 4px solid #fff;
-
-    img {
-      filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(93deg)
-        brightness(103%) contrast(103%);
-    }
   }
 `;
 
 export const Button = styled.button`
-  background-color: var(--color-primary-50);
   border: none;
   width: 2.5rem;
   height: 2.5rem;
@@ -26,10 +20,11 @@ export const Button = styled.button`
   justify-content: center;
   align-items: center;
   position: relative;
+  background-color: transparent;
   &::before,
   &::after {
     content: "";
-    background-color: var(--white);
+    background-color: #000;
     height: 2px;
     width: 1rem;
     position: absolute;
@@ -46,7 +41,7 @@ export const Button = styled.button`
 `;
 
 export const SidebarContainer = styled.div`
-  background-color: var(--color-primary);
+  
   width: 3.5rem;
   height: 61vh;
   margin-top: 1rem;
@@ -65,12 +60,14 @@ export const SlickBar = styled.ul`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
   background-color: var(--color-primary-50);
   padding: 2rem 0;
   position: absolute;
   top: 6rem;
-  left: 0;
+  left: ${props => props.clicked ? '0px' : '-65px'};
   width: ${(props) => (props.clicked ? "12rem" : "3.5rem")};
+  height: 350px;
   transition: all 0.5s ease;
   border-radius: 0 30px 30px 0;
 `;

@@ -12,7 +12,7 @@ export const Inputs = styled.div`
     ${(props) =>
             props.isErrored &&
             css`
-            border-color: #ff0000;
+            border-color: orange;
         `}
 
 
@@ -23,7 +23,8 @@ export const Inputs = styled.div`
         outline: 0;
         color: var(--black);
         width: 100%;
-        height: 100%;
+        height: 95%;
+        font-size: 15px;
     }
  
 
@@ -32,6 +33,8 @@ export const Inputs = styled.div`
     border: 0 none;
     outline: 0;
     } 
+
+      
 
  
     label{
@@ -44,32 +47,48 @@ export const Inputs = styled.div`
         font-size: 15px;
         color: var(--white);
 
+     
+    }
+
+    input:focus + label{
+        margin-top: -32px;
+        padding-left: 3px;
+        padding-right: 3px;
+        background: var(--color-secondary);
+        font-size: 10px;
+        transition: .2s;
         span {
             ${(props) =>
             props.isErrored &&
             css`
-            color: #ff0000;
-        `}
+            color: orange;
+            font-size:10px;
+            `}
         }
-    }
-
-    input:focus + label{
-        margin-top: -37px;
-        padding-left: 2px;
-        padding-right: 2px;
-        background: var(--color-primary);
-        font-size: 10px;
-        transition: .2s;
 
 }
 
     input:not(:placeholder-shown) + label{
-            margin-top: -37px;
+            margin-top: -32px;
             background: var(--color-secondary);
-            padding: 3px;
+            padding-left: 3px;
+            padding-right: 3px;
             font-size: 10px;
             transition: .2s;
     }
+
+    label {
+            ${(props) =>
+            props.isErrored &&
+            css`
+            color: orange;
+            margin-top: -32px;
+            padding-left: 3px;
+            padding-right: 3px;
+            font-size: 10px;
+            background: var(--color-secondary);
+            `}
+        }
 
 
 `

@@ -9,15 +9,15 @@ const FormModalAssociados = () => {
 
 
     const schema = yup.object().shape({
-        nome_completo: yup.string().required("Campo Obrigatorio"),
-        email: yup.string().email('Email invalido').required('Campo Obrigatorio'),
-        cpf: yup.string().required('Campo Obrigatorio'),
-        endereco: yup.string().required('Campo Obrigadotiro'),
-        password: yup.string().required('Campo Obrigatorio'),
-        numero: yup.string().required('Campo Obrigatorio'),
-        bairro: yup.string().required('Campo Obrigatorio'),
-        cidade: yup.string().required('Campo Obrigatorio'),
-        estado: yup.string().required('Campo Obrigatorio')
+        nome_completo: yup.string().required("Nome Obrigatorio"),
+        email: yup.string().email('Email invalido').required('Email Obrigatorio'),
+        cpf: yup.string().required('CPF Obrigatorio'),
+        endereco: yup.string().required('Endereço Obrigadotiro'),
+        password: yup.string().required('Password Obrigatorio'),
+        numero: yup.string().required('Numero Obrigatorio'),
+        bairro: yup.string().required('Bairro Obrigatorio'),
+        cidade: yup.string().required('Cidade Obrigatorio'),
+        estado: yup.string().required('Estado Obrigatorio')
     })
 
     const {register, handleSubmit, formState: {errors}} = useForm({
@@ -83,7 +83,7 @@ const FormModalAssociados = () => {
                         />
                     </DivLocal>
                 </DivInfos>
-                <Button>Cadastrar</Button>
+                <Button>Cadastrar</Button>  
             </Form>
         </section>
     )

@@ -2,6 +2,8 @@ import Sidebar from "../../components/Sidebar"
 import MotionDiv from "../../components/MotionDiv"
 import WaveAdm from "../../components/WaveAdm"
 import {Container, List} from './style'
+import FormModalAssociados from "../../components/FormModalAssociados"
+import Input from "../../components/Input"
 
 const Solicitacoes = () => {
     return (
@@ -11,8 +13,10 @@ const Solicitacoes = () => {
             <Container>
             <MotionDiv>
                 <h2>Solicitações</h2>
+                <FormModalAssociados/>
 
-                <List>
+
+                {/* <List>
                     <li>
                         teste
                     </li>
@@ -25,7 +29,7 @@ const Solicitacoes = () => {
                     <li>
                         teste
                     </li>
-                </List>
+                </List> */}
                 </MotionDiv>
             </Container>
                 

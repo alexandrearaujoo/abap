@@ -19,6 +19,7 @@ export const Form = styled.form`
 `
 
 export const DivInfos = styled.div`
+    width: 80%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -27,6 +28,7 @@ export const DivInfos = styled.div`
 export const DivLocal = styled.div`
     display: flex;
     flex-direction: column;
-    width: 47%;
+    width: 50%;
     align-items: center;
+    
 `

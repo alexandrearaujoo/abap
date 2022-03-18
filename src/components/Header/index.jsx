@@ -3,20 +3,20 @@ import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { StyledContainer } from "../../style/global";
 import { StyledHeader } from "./styles";
 
-import Logo from "../../assets/svg/logo.svg";
+import Logo from "../../assets/img/logo.png";
 
-const Header = () => {
+const Header = ({text, link}) => {
   const history = useHistory();
 
   const handleLogin = () => {
-    history.push("/login");
+    history.push(`${link}`);
   };
 
   return (
     <StyledHeader>
       <StyledContainer>
         <img width={40} src={Logo} alt="Logo" />
-        <button onClick={handleLogin}>Login</button>
+        <button onClick={handleLogin}>{text}</button>
       </StyledContainer>
     </StyledHeader>
   );

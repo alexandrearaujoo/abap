@@ -1,6 +1,5 @@
 import Sidebar from "../../components/Sidebar"
 import MotionDiv from "../../components/MotionDiv"
-import WaveAdm from "../../components/WaveAdm"
 import {Container, List} from './style'
 
 const CadastroAssociados = () => {
@@ -17,7 +16,6 @@ const CadastroAssociados = () => {
                 </List>
                 </MotionDiv>
             </Container>
-            <WaveAdm />
         
         </>
     )

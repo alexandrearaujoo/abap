@@ -1,5 +1,5 @@
 import { createGlobalStyle } from "styled-components";
-import styled from "styled-components"
+import styled from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
 
@@ -71,6 +71,12 @@ body, button, input, textarea, select {
   --purple-2: #626879;
   --purple-1: #839EAC;
 
+  --grey-4: #121214;
+  --grey-3: #212529;
+  --grey-2: #343B41;
+  --grey-1: #868E96;
+  --grey-0: #F8F9FA;
+
   --fontsize-h1: 2rem;
   --fontsize-h2: calc(var(--fontsize-h1) - 25%);
   --fontsize-h3: calc(var(--fontsize-h2) - 50%);
@@ -80,7 +86,7 @@ body, button, input, textarea, select {
   --fontfamily-poppins: "Poppins", sans-serif;
   
 }
-`
+`;
 
 export const StyledContainer = styled.div`
   display: flex;
@@ -89,4 +95,4 @@ export const StyledContainer = styled.div`
   align-items: center;
   width: 80%;
   margin: 0 auto;
-`
+`;

@@ -3,8 +3,6 @@ import styled from "styled-components";
 export const Container = styled.ul`
     width: 100%;
     max-height: 400px;
-    position: relative;
-    z-index: 1;
     overflow-y: scroll;
     display: flex;
     align-items: center;

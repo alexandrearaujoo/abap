@@ -14,7 +14,7 @@ const Solicitacoes = () => {
                 <h2>Solicitações</h2>
                 <FormModalAssociados/>
 
-                <List>
+                {/* <List>
                     <li>
                         teste
                     </li>
@@ -27,7 +27,7 @@ const Solicitacoes = () => {
                     <li>
                         teste
                     </li>
-                </List>
+                </List> */}
                 </MotionDiv>
             </Container>
                 

@@ -18,23 +18,17 @@ export const Form = styled.form`
     }
 `
 
-export const DivInfos = styled.div`
+export const DivInfos = styled.form`
     width: 80%;
     display: flex;
     align-items: center;
     justify-content: center;
 `
 
-export const DivLocal = styled.div`
+export const DivLocal = styled.form`
     display: flex;
     flex-direction: column;
     width: 50%;
     align-items: center;
     
-`
-
-export const Section = styled.section`
-    width: 100%;
-    display: flex;
-    justify-content: center;
 `

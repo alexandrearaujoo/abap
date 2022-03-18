@@ -13,18 +13,7 @@ const CadastroAssociados = () => {
                 <h2>Cadastrar Associados</h2>
 
                 <List>
-                    <li>
-                        teste
-                    </li>
-                    <li>
-                        teste
-                    </li>
-                    <li>
-                        teste
-                    </li>
-                    <li>
-                        teste
-                    </li>
+                   
                 </List>
                 </MotionDiv>
             </Container>

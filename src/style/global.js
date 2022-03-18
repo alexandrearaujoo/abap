@@ -75,14 +75,14 @@ body, button, input, textarea, select {
 
   --fontfamily-poppins: "Poppins", sans-serif;
   
-}
-`
+}`
 
 export const StyledContainer = styled.div`
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-direction: ${(props) => props.column ? "column" : "row"};
+  justify-content: ${(props) => props.column ? "space-evenly" : "space-between"};
   align-items: center;
   width: 80%;
+  height: 100%;
   margin: 0 auto;
 `

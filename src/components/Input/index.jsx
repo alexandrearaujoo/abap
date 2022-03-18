@@ -1,21 +1,16 @@
 import { Inputs } from "./styles"
 
-const Input = ({label='Teste',...rest}) => {
-    
-
-    
+const Input = ({label, name, error, register, ...rest}) => {
 
     return (
-        <>
             <Inputs>
-                 
-                <input {...rest} placeholder=' '></input>  
-                <label>{label}</label>
-            
+
+            <input {...register(name)} {...rest} placeholder=' '></input> 
+                {
+                    error ? ( <label>{error}</label> ) : ( <label>{label}</label> )
+                }        
             
             </Inputs>
-        </>
-
 
     )
 

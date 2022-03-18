@@ -8,9 +8,9 @@ export const Container = styled.button`
   height: ${props => props.heigth};
   transition: 0.5s;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  margin-bottom: 15px;
+  margin-bottom: ${props => props.marginBottom};
   cursor: pointer;
 
   :hover {

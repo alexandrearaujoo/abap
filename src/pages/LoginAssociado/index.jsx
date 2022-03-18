@@ -1,9 +1,9 @@
-import { useForm } from "react-hook-form";
+/* import { useForm } from "react-hook-form";
 import { useState } from "react";
 import { useHistory } from "react-router";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { toast } from "react-toastify";
+import {toast} from 'react-hot-toast'
 
 import api from "../../services/api";
 
@@ -90,4 +90,4 @@ const LoginAssociado = () => {
     );
 };
 
-export default LoginAssociado;
+export default LoginAssociado; */

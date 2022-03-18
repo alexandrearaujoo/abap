@@ -1,4 +1,4 @@
-import { useForm } from "react-hook-form";
+/* import { useForm } from "react-hook-form";
 import { useState } from "react";
 import { useHistory } from "react-router";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -90,4 +90,4 @@ const LoginAssociado = () => {
     );
 };
 
-export default LoginAssociado;
+export default LoginAssociado; */

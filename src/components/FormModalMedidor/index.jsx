@@ -1,4 +1,4 @@
-import { Form, DivInfos, DivLocal } from "./style";
+import { Form, DivInfos, DivLocal, Section } from "./style";
 import Input from "../Input";
 import Button from "../Button";
 import { useForm } from "react-hook-form";
@@ -28,7 +28,7 @@ const FormModalMedidor = () => {
   };
 
   return (
-    <section>
+    <Section>
       <Form onSubmit={handleSubmit(onSubmit)}>
         <h2>Cadastro</h2>
         <Input
@@ -77,7 +77,7 @@ const FormModalMedidor = () => {
         </DivInfos>
         <Button>Cadastrar</Button>
       </Form>
-    </section>
+    </Section>
   );
 };
 export default FormModalMedidor;

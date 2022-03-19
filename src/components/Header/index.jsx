@@ -1,4 +1,4 @@
-import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { useHistory } from "react-router-dom";
 
 import { StyledContainer } from "../../style/global";
 import { StyledHeader } from "./styles";
@@ -10,7 +10,6 @@ const Header = ({ icon, text, link }) => {
 
   const handleLogin = () => {
     history.push(link);
-  };
 
   return (
     <StyledHeader>

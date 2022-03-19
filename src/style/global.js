@@ -1,5 +1,5 @@
 import { createGlobalStyle } from "styled-components";
-import styled from "styled-components"
+import styled from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
 
@@ -31,6 +31,10 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
+
+  ::-webkit-scrollbar {
+             display: none;
+            }
 }
 ol, ul {
 	list-style: none;
@@ -54,11 +58,11 @@ body, button, input, textarea, select {
 
 :root {
   --color-primary: #272B55;
-  --color-primary-50: #545CB7;
-  --color-secondary: #4A5292;
+  --color-primary-50: #4A5292;
+  --color-secondary: #545CB7;
   
   --black: #13191B;
-  --white: #F5F5F5;
+  --white: #F5F5F5; 
 
   --background-menus: #D9E0F5;
 
@@ -67,6 +71,12 @@ body, button, input, textarea, select {
   --purple-2: #626879;
   --purple-1: #839EAC;
 
+  --grey-4: #121214;
+  --grey-3: #212529;
+  --grey-2: #343B41;
+  --grey-1: #868E96;
+  --grey-0: #F8F9FA;
+
   --fontsize-h1: 2rem;
   --fontsize-h2: calc(var(--fontsize-h1) - 25%);
   --fontsize-h3: calc(var(--fontsize-h2) - 50%);
@@ -74,15 +84,16 @@ body, button, input, textarea, select {
   --body: 1rem;
 
   --fontfamily-poppins: "Poppins", sans-serif;
-  
+ 
 }
-`
+`;
 
 export const StyledContainer = styled.div`
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-direction: ${(props) => props.column ? "column" : "row"};
+  justify-content: ${(props) => props.column ? "space-evenly" : "space-between"};
   align-items: center;
   width: 80%;
+  height: 100%;
   margin: 0 auto;
-`
+`;

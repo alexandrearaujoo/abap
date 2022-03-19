@@ -58,11 +58,11 @@ body, button, input, textarea, select {
 
 :root {
   --color-primary: #272B55;
-  --color-primary-50: #545CB7;
-  --color-secondary: #4A5292;
+  --color-primary-50: #4A5292;
+  --color-secondary: #545CB7;
   
   --black: #13191B;
-  --white: #F5F5F5;
+  --white: #F5F5F5; 
 
   --background-menus: #D9E0F5;
 

@@ -7,7 +7,7 @@ export const Container = styled.ul`
     display: flex;
     align-items: center;
     flex-direction: column;
-    background-color: var(--background-menus);
+    background-color: var(--color-secondary);
     border-radius: 15px;
     box-shadow: 3px 3px 10px -2px rgba(0, 0, 0, 1);
 

@@ -7,6 +7,8 @@ export const Container = styled.section`
     align-items: center;
     height: 90vh;
     background-color: var(--color-primary);
+  
+  
 
     h2{
         text-align: center;

@@ -1,3 +1,11 @@
+import { useForm } from "react-hook-form";
+import { useState, useContext, useEffect } from "react";
+import { useHistory } from "react-router";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
+import  toast  from "react-hot-toast";
+import { TokenAssociadoContext } from "../../providers/tokenAssociado";
+
 /* import { useForm } from "react-hook-form";
 import { useState } from "react";
 import { useHistory } from "react-router";
@@ -8,11 +16,12 @@ import {toast} from 'react-hot-toast'
 import api from "../../services/api";
 
 import { Container, ContainerForm } from "./style";
-
+const associadoModule = require('../../modules/associado')
 const LoginAssociado = () => {
-    localStorage.clear();
+  
     const history = useHistory();
-    const [erro, setErro] = useState(false);
+ 
+    const { tokenAssociado, changeTokenAssociado } = useContext(TokenAssociadoContext);
 
     const formSchema = yup.object().shape({
         cpf: yup
@@ -35,27 +44,34 @@ const LoginAssociado = () => {
     const onSubmitFunction = (data) => {
         api
             .post("/associados/login", data)
-            .then((resp) => {     
-                console.log("resp.data",resp.data);
-                console.log("resp.data.status",resp.data.status);
+            .then((resp) => {                   
+                
                 if (resp.data.status === "ok") {
-                    localStorage.setItem(
-                        "arap.associadoToken",
-                        JSON.stringify(resp.data.accessToken)
-                    );
+                    toast.success("Bem-vindo !!")
+                    changeTokenAssociado(resp.data.accessToken);
                     history.push(`/dashboardAssociado`);
                 } else {
-                    console.log("error")
+                    // TODO:  Adicionar o toast com messagem de erro abaixo 
                     toast.error("Verifique o CPF ou código do registro.");
-                }       
-                
+                }                       
              
             })
             .catch((err) => {
-                toast.error("Não foi possivel acessar o servidor!");
-                setErro(true);
+                // TODO: Adicionar o toast com messagem de erro abaixo
+                toast.error("Não foi possivel acessar o servidor!");         
             });
     };
+
+    // Verifica se o associado ja esta logado, caso verdadeiro 
+    // o direciona para o dashboardAssociado
+    const isLoggedIn = (token) => {
+        if (token) {
+            history.push(`/dashboardAssociado`);  
+        }
+    }
+    useEffect(() => {
+        isLoggedIn(tokenAssociado);
+    }, []);
     return (
         <Container>
 

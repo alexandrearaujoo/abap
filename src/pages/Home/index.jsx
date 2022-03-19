@@ -1,3 +1,4 @@
+import { BiLogIn } from "react-icons/bi";
 import Slider from "../../components/Carousel";
 import Header from "../../components/Header";
 import { Main, StyledFigure } from "./styles";
@@ -5,9 +6,12 @@ import { Main, StyledFigure } from "./styles";
 const Homepage = () => {
   return (
     <>
-      <Header text="Area do associado" link="/login" />
+      <Header icon={<BiLogIn />} text="Area do associado" link="/login" />
       <Main>
-        <Slider />
+        
+        <StyledFigure>
+          <Slider />
+        </StyledFigure>
 
         <article>
           <section>

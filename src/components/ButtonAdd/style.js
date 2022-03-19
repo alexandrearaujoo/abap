@@ -19,6 +19,4 @@ export const Container = styled.button`
   svg {
     transition: 0.5s;
     color: ${props => props.color}
-  
-  }
 `;

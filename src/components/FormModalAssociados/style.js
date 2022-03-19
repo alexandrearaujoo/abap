@@ -31,14 +31,10 @@ export const DivLocal = styled.div`
     flex-direction: column;
     width: 50%;
     align-items: center;
-<<<<<<< HEAD
-    
-=======
 `
 
 export const Section = styled.section`
     width: 100%;
     display: flex;
     justify-content: center;
->>>>>>> a817da652962a10634231d1da712b52842ca902d
 `

@@ -8,7 +8,7 @@ export const StyledHeader = styled.header`
   width: 100vw;
   height: 10vh;
   color: var(--white);
-  box-shadow: 3px 5px 12px -4px rgba(0, 0, 0, 0.91);
+  box-shadow: 0px 4px 4px rgba(131, 131, 131, 1);
 
   svg {
     font-size: 30px;

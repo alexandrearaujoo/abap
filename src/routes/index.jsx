@@ -1,5 +1,4 @@
 import { Switch, Route } from 'react-router-dom'
-
 import Associados from '../pages/Associados'
 import CadastroAssociados from '../pages/CadastroAssociados'
 import GerenciarPagamentos from '../pages/GerenciarPagamentos'

@@ -1,16 +1,83 @@
-import { Form } from "./style";
+import { Form, DivInfos, DivLocal, Section } from "./style";
 import Input from "../Input";
 import Button from "../Button";
+import { useForm } from "react-hook-form";
+import * as yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup";
 
 const FormModalMedidor = () => {
+  const schema = yup.object().shape({
+    codigo: yup.string().required("Campo Obrigatorio"),
+    endereco: yup.string().required("Campo Obrigadotiro"),
+    numero: yup.string().required("Campo Obrigatorio"),
+    bairro: yup.string().required("Campo Obrigatorio"),
+    cidade: yup.string().required("Campo Obrigatorio"),
+    estado: yup.string().required("Campo Obrigatorio"),
+  });
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(schema),
+  });
+
+  const onSubmit = (data) => {
+    console.log(data);
+  };
+
   return (
-    <section>
-      <Form>
-        <h2>Cadastro do Medidor</h2>
-        <Input label="Medidor"/>
-        <Button span="Cadastrar" />
+    <Section>
+      <Form onSubmit={handleSubmit(onSubmit)}>
+        <h2>Cadastro</h2>
+        <Input
+          label="Código"
+          name="codigo"
+          error={errors.codigo?.message}
+          register={register}
+        />
+
+        <Input
+          label="Endereço"
+          name="endereco"
+          error={errors.endereco?.message}
+          register={register}
+        />
+
+        <DivInfos>
+          <DivLocal>
+            <Input
+              label="Número"
+              name="numero"
+              error={errors.numero?.message}
+              register={register}
+            />
+            <Input
+              label="Bairro"
+              name="bairro"
+              error={errors.bairro?.message}
+              register={register}
+            />
+          </DivLocal>
+          <DivLocal>
+            <Input
+              label="Cidade"
+              name="cidade"
+              error={errors.cidade?.message}
+              register={register}
+            />
+            <Input
+              label="Estado"
+              name="estado"
+              error={errors.estado?.message}
+              register={register}
+            />
+          </DivLocal>
+        </DivInfos>
+        <Button>Cadastrar</Button>
       </Form>
-    </section>
+    </Section>
   );
 };
 export default FormModalMedidor;

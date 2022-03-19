@@ -5,9 +5,8 @@ import { Main, StyledFigure } from "./styles";
 const Homepage = () => {
   return (
     <>
-      <Header text="Login" link="/login"/>
+      <Header text="Area do associado" link="/login" />
       <Main>
-
         <Slider />
 
         <article>
@@ -26,7 +25,6 @@ const Homepage = () => {
             <p>Aqui deverá conter alguns dos objetivos que a associação tem.</p>
           </section>
         </article>
-        
       </Main>
     </>
   );

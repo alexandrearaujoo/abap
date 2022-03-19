@@ -4,6 +4,7 @@ import { Container } from "./style";
 import DivLista from "../../components/DivLista";
 import Lista from "../../components/Listas";
 import { useState } from "react";
+import Header from "../../components/Header";
 
 const GerenciarPagamentos = () => {
   const [showForm, setShowForm] = useState(false);
@@ -37,6 +38,7 @@ const GerenciarPagamentos = () => {
 
   return (
     <>
+      <Header />
       <Sidebar />
 
       <Container>
@@ -48,7 +50,7 @@ const GerenciarPagamentos = () => {
                 key={index}
                 info1={<span>{item.nome}</span>}
                 info2={<span>{item.valor}</span>}
-                info3={<input type="checkbox"/>}
+                info3={<input type="checkbox" />}
               />
             ))}
           </DivLista>

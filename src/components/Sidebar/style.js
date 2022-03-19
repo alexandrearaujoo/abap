@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 export const Container = styled.section`
   position: fixed;
@@ -22,9 +22,8 @@ export const Button = styled.button`
   position: relative;
   background-color: transparent;
 
-
   &::before,
-  &::after  {
+  &::after {
     content: "";
     background-color: #fff;
     height: 2px;
@@ -44,7 +43,6 @@ export const Button = styled.button`
 `;
 
 export const SidebarContainer = styled.div`
-  
   width: 3.5rem;
   height: 61vh;
   margin-top: 1rem;
@@ -67,10 +65,10 @@ export const SlickBar = styled.ul`
   background-color: var(--color-primary-50);
   padding: 2rem 0;
   position: absolute;
-  top: 6rem;
-  left: ${props => props.clicked ? '0px' : '-65px'};
-  width: ${(props) => (props.clicked ? "18rem" : "3.5rem")};
-  height: 420px;
+  top: -10px;
+  left: ${(props) => (props.clicked ? "0px" : "-65px")};
+  width: ${(props) => (props.clicked ? "15rem" : "3.5rem")};
+  height: 100vh;
   transition: all 0.5s ease;
   border-radius: 0 30px 30px 0;
 `;
@@ -166,6 +164,7 @@ export const Item = styled.div`
   padding: 1rem 0;
   cursor: pointer;
   display: flex;
+  align-items: center;
   padding-left: 1rem;
   &:hover {
     border-right: 4px solid var(--white);
@@ -175,7 +174,7 @@ export const Item = styled.div`
     }
   }
   img {
-    width: 1.2rem;
+    width: 2.2rem;
     height: auto;
     filter: invert(92%) sepia(4%) saturate(1033%) hue-rotate(169deg)
       brightness(78%) contrast(85%);

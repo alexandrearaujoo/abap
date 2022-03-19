@@ -1,29 +1,29 @@
 import { useForm } from "react-hook-form";
 import { useState, useContext, useEffect } from "react";
+import Header from "../../components/Header";
+import Input from "../../components/Input";
 import { useHistory } from "react-router";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import Input from "../../components/Input";
 import  toast  from "react-hot-toast";
-import Header from "../../components/Header";
 import { TokenAssociadoContext } from "../../providers/tokenAssociado";
 
 import api from "../../services/api";
 
 import { Container, ContainerForm } from "./style";
 
-const LoginAssociado = () => {
+const LoginAdm = () => {
   
     const history = useHistory();
  
     const { tokenAssociado, changeTokenAssociado } = useContext(TokenAssociadoContext);
 
     const formSchema = yup.object().shape({
-        cpf: yup
+        email: yup
             .string()
             .min(14, "No minimo 14 caracteres")
             .required("Campo Obrigatório"),
-        codigoRegistro: yup
+        password: yup
             .string()
             .min(4, "No minimo 4 digitos")
             .required("Campo Obrigatório"),
@@ -69,38 +69,27 @@ const LoginAssociado = () => {
     }, []);
     return (
         <>
-            <Header />
+        <Header />
         <Container>
 
             <ContainerForm>
                 <form className="form" onSubmit={handleSubmit(onSubmitFunction)}>
                     <div className="message-login">
-                        <h3>Login do Associado</h3>
+                        <h3>Login do gestor</h3>
                         <span>Informe o seu CPF é o código do registro vinculado ao seu nome, para ter acesso a área do associado com todas as suas funcionalidades.</span>
                     </div>
-
                     <Input label='Email'
                     name='email'
-                    error={errors.cpf?.message}
+                    error={errors.email?.message}
                     register={register}
                     />
                     <Input label='Password'
                     name='passwrod'
-                    error={errors.codigoRegistro?.message}
+                    error={errors.password?.message}
                     register={register}
                     />
                     <div className="message-buttons">
-
-                        <button className="btnLogin" type="submit">Entrar</button>
-                        <div className="message-register">
-                            <p> Ainda não é um associado? </p>
-                        </div>
-                        <button
-                            onClick={() => history.push("/solicitarAssociacao")}
-                            className="btnRegister"
-                        >
-                            Solicite seu cadastro
-                        </button>
+                        <button className="btnLogin" type="submit">Cadastrar</button>
                     </div>
                 </form>
             </ContainerForm>
@@ -109,5 +98,5 @@ const LoginAssociado = () => {
     );
 };
 
-export default LoginAssociado;
+export default LoginAdm;
 

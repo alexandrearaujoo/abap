@@ -1,13 +1,14 @@
-import Sidebar from "../../components/Sidebar"
-import Wave from '../../components/WaveAdm'
+import Sidebar from "../../components/Sidebar";
+import Header from "../../components/Header";
+import { AiOutlineMenu } from "react-icons/ai";
 
 const DashBoardADM = () => {
-    return (
-        <>
-            <Sidebar />
-            <Wave />
-        </>
-    )
-}
+  return (
+    <>
+      <Header icon={<AiOutlineMenu />} />
+      <Sidebar />
+    </>
+  );
+};
 
-export default DashBoardADM
+export default DashBoardADM;

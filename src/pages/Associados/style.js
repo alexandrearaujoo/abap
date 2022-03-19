@@ -3,13 +3,11 @@ import styled from 'styled-components'
 export const Container = styled.section`
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    height: 90vh;
+    height: 88vh;
     background-color: var(--color-primary);
   
-  
-
     h2{
         text-align: center;
         color: var(--white);

@@ -1,21 +1,22 @@
-import Sidebar from "../../components/Sidebar"
-import MotionDiv from "../../components/MotionDiv"
-import {Container, List} from './style'
-import FormModalAssociados from "../../components/FormModalAssociados"
-import Input from "../../components/Input"
+import Sidebar from "../../components/Sidebar";
+import MotionDiv from "../../components/MotionDiv";
+import { Container, List } from "./style";
+import FormModalAssociados from "../../components/FormModalAssociados";
+import Input from "../../components/Input";
+import Header from "../../components/Header";
 
 const Solicitacoes = () => {
-    return (
-<>
-        <Sidebar />
-        
-            <Container>
-            <MotionDiv>
-                <h2>Solicitações</h2>
-                <FormModalAssociados/>
+  return (
+    <>
+      <Header />
+      <Sidebar />
 
+      <Container>
+        <MotionDiv>
+          <h2>Solicitações</h2>
+          <FormModalAssociados />
 
-                {/* <List>
+          {/* <List>
                     <li>
                         teste
                     </li>
@@ -29,10 +30,10 @@ const Solicitacoes = () => {
                         teste
                     </li>
                 </List> */}
-                </MotionDiv>
-            </Container>
-        </>
-    )
-}
+        </MotionDiv>
+      </Container>
+    </>
+  );
+};
 
-export default Solicitacoes
+export default Solicitacoes;

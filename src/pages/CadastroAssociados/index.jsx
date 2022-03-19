@@ -7,6 +7,7 @@ import DivLista from "../../components/DivLista"
 import Lista from "../../components/Listas"
 import FormModalMedidor from "../../components/FormModalMedidor"
 import { useState } from "react"
+import Blocker from "../../components/Blocker"
 
 const array = [{codigo:'1234'}, {codigo:'1235'}]
 
@@ -24,7 +25,7 @@ const CadastroAssociados = () => {
             <Container>
             <MotionDiv>
                 <h2>Cadastrar Medidor</h2>
-                {showForm && <FormModalMedidor />}
+                {showForm && <Blocker><FormModalMedidor /></Blocker> }
                 <ButtonAdd icon={AiOutlinePlus} 
                     onClick={handleClick}
                     background="#839EAC"

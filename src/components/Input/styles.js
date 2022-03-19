@@ -8,14 +8,11 @@ export const Inputs = styled.div`
     height: 30px;
     width: 90%;
     margin-top: 20px;
-
     ${(props) =>
             props.isErrored &&
             css`
             border-color: orange;
         `}
-
-
     input{
         background: transparent;
         border: none;
@@ -27,15 +24,12 @@ export const Inputs = styled.div`
         font-size: 15px;
     }
  
-
     textarea:focus, input:focus, select:focus {
     box-shadow: 0 0 0 0;
     border: 0 none;
     outline: 0;
     } 
-
       
-
  
     label{
         pointer-events: none;
@@ -46,10 +40,8 @@ export const Inputs = styled.div`
         margin-left: 3px;
         font-size: 15px;
         color: var(--white);
-
      
     }
-
     input:focus + label{
         margin-top: -32px;
         padding-left: 3px;
@@ -65,9 +57,7 @@ export const Inputs = styled.div`
             font-size:10px;
             `}
         }
-
 }
-
     input:not(:placeholder-shown) + label{
             margin-top: -32px;
             background: var(--color-secondary);
@@ -76,7 +66,6 @@ export const Inputs = styled.div`
             font-size: 10px;
             transition: .2s;
     }
-
     label {
             ${(props) =>
             props.isErrored &&
@@ -89,7 +78,5 @@ export const Inputs = styled.div`
             background: var(--color-secondary);
             `}
         }
-
-
 `
 

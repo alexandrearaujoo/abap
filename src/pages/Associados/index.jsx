@@ -25,7 +25,7 @@ const Associados = () => {
             <Container> 
             <MotionDiv>    
             {/* <h2>Cadastrar Associados</h2> */}
-            {showForm && <FormModalAssociados />}
+            {showForm && <FormModalAssociados/>}
             <DivLista>
                 <div>
                  <ButtonAdd icon={MdPersonAdd} 

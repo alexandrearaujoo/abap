@@ -1,25 +1,61 @@
-import Sidebar from "../../components/Sidebar"
-import MotionDiv from "../../components/MotionDiv"
-import {Container} from './style'
-import Input from "../../components/Input"
-import DivLista from "../../components/DivLista"
-import Lista from "../../components/Listas"
+import Sidebar from "../../components/Sidebar";
+import MotionDiv from "../../components/MotionDiv";
+import { Container } from "./style";
+import DivLista from "../../components/DivLista";
+import Lista from "../../components/Listas";
+import { useState } from "react";
 
 const GerenciarPagamentos = () => {
-    const array = [{},{},{},{}]
+  const [showForm, setShowForm] = useState(false);
 
-    return (
-        <>
-        <Sidebar />
-        
-            <Container>
-            <MotionDiv>
-                oi
-               
-                </MotionDiv>
-            </Container>
-        </>
-    )
-}
+  const handleClick = () => {
+    setShowForm(!showForm);
+  };
 
-export default GerenciarPagamentos
+  const array = [
+    { nome: "Jean", valor: "R$ 18" },
+    { nome: "Jean", valor: "R$ 18" },
+    { nome: "Jean", valor: "R$ 18" },
+    { nome: "Jean", valor: "R$ 18" },
+    { nome: "Jean", valor: "R$ 18" },
+    { nome: "Jean", valor: "R$ 18" },
+    { nome: "Jean", valor: "R$ 18" },
+    { nome: "Jean", valor: "R$ 18" },
+    { nome: "Jean", valor: "R$ 18" },
+    { nome: "Jean", valor: "R$ 18" },
+    { nome: "Jean", valor: "R$ 18" },
+    { nome: "Jean", valor: "R$ 18" },
+    { nome: "Jean", valor: "R$ 18" },
+    { nome: "Jean", valor: "R$ 18" },
+    { nome: "Jean", valor: "R$ 18" },
+    { nome: "Jean", valor: "R$ 18" },
+    { nome: "Jean", valor: "R$ 18" },
+    { nome: "Jean", valor: "R$ 18" },
+    { nome: "Jean", valor: "R$ 18" },
+    { nome: "Jean", valor: "R$ 18" },
+  ];
+
+  return (
+    <>
+      <Sidebar />
+
+      <Container>
+        <MotionDiv>
+          <h2>Pagamentos realizados</h2>
+          <DivLista title1="Nome" title2="Valor" title3="Status">
+            {array.map((item, index) => (
+              <Lista
+                key={index}
+                info1={<span>{item.nome}</span>}
+                info2={<span>{item.valor}</span>}
+                info3={<input type="checkbox"/>}
+              />
+            ))}
+          </DivLista>
+        </MotionDiv>
+      </Container>
+    </>
+  );
+};
+
+export default GerenciarPagamentos;

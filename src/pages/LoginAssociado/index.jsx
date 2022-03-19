@@ -1,4 +1,4 @@
-import { useForm } from "react-hook-form";
+/* import { useForm } from "react-hook-form";
 import { useState, useContext, useEffect } from "react";
 import { useHistory } from "react-router";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -6,7 +6,7 @@ import * as yup from "yup";
 import  toast  from "react-hot-toast";
 import { TokenAssociadoContext } from "../../providers/tokenAssociado";
 
-/* import { useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { useState } from "react";
 import { useHistory } from "react-router";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -106,4 +106,5 @@ const LoginAssociado = () => {
     );
 };
 
-export default LoginAssociado; */
+export default LoginAssociado;
+ */

@@ -99,4 +99,5 @@ const LoginAssociado = () => {
     );
 };
 
-export default LoginAssociado; 
+export default LoginAssociado;
+

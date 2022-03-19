@@ -33,7 +33,7 @@ const Associados = () => {
                       title2='Status'
                       title3='Débitos'
                       title4='Ações'>
-            <DivLista>
+            
                 {array.map((itens) => 
                 <Lista 
                   info1={<span>{itens.nome}</span>}

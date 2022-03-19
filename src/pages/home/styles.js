@@ -10,6 +10,8 @@ background-color: var(--white);
 width: 100vw;
 height: 90vh;
 margin: 0 auto;
+position: relative;
+z-index: -1;
 
 @media (min-width: 768px) {
   width: 80vw;

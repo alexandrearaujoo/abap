@@ -1,24 +1,14 @@
 import { Inputs } from "./styles"
 
-const Input = ({label='Teste',...rest}) => {
-    
-
-    
-
+const Input = ({label, name, error, register, ...rest}) => {
     return (
         <>
-            <Inputs>
-                 
-                <input {...rest} placeholder=' '></input>  
-                <label>{label}</label>
-            
-            
+            <Inputs isErrored={!!error}>             
+                <input {...register(name)} {...rest}></input>  
+                <label>{label} {!!error && <span> - {error}</span>}</label>        
             </Inputs>
         </>
-
-
     )
-
 
 }
 

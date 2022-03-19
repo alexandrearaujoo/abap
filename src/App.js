@@ -1,3 +1,4 @@
+import Header from './components/Header';
 import { GlobalStyle } from './style/global';
 import Router from './routes';
 import  { Toaster }  from "react-hot-toast";

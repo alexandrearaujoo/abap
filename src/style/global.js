@@ -56,13 +56,13 @@ export const GlobalStyle = createGlobalStyle`
     font-family: var(--fontfamily-poppins);
     }
 
-    :root {
-    --color-primary: #272B55;
-    --color-primary-50: #545CB7;
-    --color-secondary: #4A5292;
-    
-    --black: #13191B;
-    --white: #F5F5F5;
+:root {
+  --color-primary: #272B55;
+  --color-primary-50: #4A5292;
+  --color-secondary: #545CB7;
+  
+  --black: #13191B;
+  --white: #F5F5F5; 
 
     --background-menus: #D9E0F5;
 
@@ -77,15 +77,17 @@ export const GlobalStyle = createGlobalStyle`
     --grey-1: #868E96;
     --grey-0: #F8F9FA;
 
-    --fontsize-h1: 2rem;
-    --fontsize-h2: calc(var(--fontsize-h1) - 25%);
-    --fontsize-h3: calc(var(--fontsize-h2) - 50%);
-    --headline: 0.75rem;
-    --body: 1rem;
+  --fontsize-h1: 2rem;
+  --fontsize-h2: calc(var(--fontsize-h1) - 25%);
+  --fontsize-h3: calc(var(--fontsize-h2) - 50%);
+  --headline: 0.75rem;
+  --body: 1rem;
 
-    --fontfamily-poppins: "Poppins", sans-serif;
-    }
+  --fontfamily-poppins: "Poppins", sans-serif;
+ 
+}
 `;
+
 export const StyledContainer = styled.div`
   display: flex;
   flex-direction: ${(props) => (props.column ? "column" : "row")};

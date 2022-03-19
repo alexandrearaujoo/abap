@@ -8,6 +8,8 @@ import {useState} from 'react'
 import {MdPersonAdd} from 'react-icons/md'
 import {BsInfoSquare} from 'react-icons/bs'
 import ButtonAdd from "../../components/ButtonAdd"
+import Input from "../../components/Input"
+import Busca from "../../components/Busca"
 
 const array = [{nome:'hamart shusssssssssss'}, {nome:'david'}, {nome:'jean'}, {nome:'jean'}, {nome:'jean'}, {nome:'jean'}, {nome:'jean'}, {nome:'jean'}, {nome:'jean'}, {nome:'jean'}, {nome:'jean'}, {nome:'jean'}, {nome:'jean'}, {nome:'jean'}]
 
@@ -25,20 +27,13 @@ const Associados = () => {
             <Container> 
             <MotionDiv>    
             {/* <h2>Cadastrar Associados</h2> */}
-            {showForm && <FormModalAssociados/>}
-            <DivLista>
-                <div>
-                 <ButtonAdd icon={MdPersonAdd} 
-                onClick={handleClick}
-                background="#839EAC"
-                heigth="20px"
-                ></ButtonAdd>
-                <select>
-                    <option selected disabled>Status...</option>
-                    <option value="Ativo">Ativo</option>
-                    <option value="Inativo">Inativo</option>
-                </select>
-                </div>
+            {showForm && <FormModalAssociados />}
+            <Busca handleClick={handleClick}/>
+            <DivLista title1='Nome'
+                      title2='Status'
+                      title3='Débitos'
+                      title4='Ações'>
+            
                 {array.map((itens) => 
                 <Lista 
                   info1={<span>{itens.nome}</span>}

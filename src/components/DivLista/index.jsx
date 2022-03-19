@@ -9,6 +9,7 @@ const DivLista = ({children, ...rest}) => {
             <span>{rest.title1}</span>
             <span>{rest.title2}</span>
             <span>{rest.title3}</span>
+            <span>{rest.title4}</span>
             </div>
             {children}
         </Container>

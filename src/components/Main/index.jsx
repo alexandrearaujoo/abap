@@ -4,7 +4,7 @@ import { StyledMain } from "./styles";
 const Main = ({ children }) => {
   return (
     <StyledMain>
-      <StyledContainer>{children}</StyledContainer>
+      <StyledContainer column>{children}</StyledContainer>
     </StyledMain>
   );
 };

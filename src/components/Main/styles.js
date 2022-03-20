@@ -9,7 +9,7 @@ export const StyledMain = styled.main`
   width: 80vw;
   height: 90vh;
   margin: 0 auto;
-  
+
   position: relative;
   z-index: -1;
 `

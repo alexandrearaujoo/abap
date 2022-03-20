@@ -6,6 +6,7 @@ import Lista from "../../components/Listas";
 import { useState } from "react";
 import Header from "../../components/Header";
 import { usePagamentos } from "../../providers/Pagamentos";
+import {AiOutlineMenu} from 'react-icons/ai'
 
 const GerenciarPagamentos = () => {
   const [showForm, setShowForm] = useState(false);
@@ -18,7 +19,7 @@ const GerenciarPagamentos = () => {
 
   return (
     <>
-      <Header />
+      <Header icon={<AiOutlineMenu />} />
       <Sidebar />
 
       <Container>

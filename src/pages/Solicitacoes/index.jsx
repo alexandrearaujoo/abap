@@ -1,16 +1,17 @@
 import Sidebar from "../../components/Sidebar";
 import MotionDiv from "../../components/MotionDiv";
-import { Container, List } from "./style";
+import { Container} from "./style";
 import Lista from "../../components/Listas";
 import Header from "../../components/Header";
 import { useSolicitacoes } from "../../providers/Solicitacoes";
+import {AiOutlineMenu} from 'react-icons/ai'
 
 const Solicitacoes = () => {
   const { solicitacoes } = useSolicitacoes();
 
   return (
     <>
-      <Header />
+       <Header icon={<AiOutlineMenu />} />
       <Sidebar />
 
       <Container>

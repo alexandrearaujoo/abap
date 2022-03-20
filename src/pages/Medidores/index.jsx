@@ -10,6 +10,7 @@ import { useState } from "react";
 import Header from "../../components/Header";
 import Blocker from "../../components/Blocker";
 import { useMedidores } from "../../providers/Medidores";
+import {AiOutlineMenu} from 'react-icons/ai'
 
 const CadastroMedidores = () => {
 
@@ -23,7 +24,7 @@ const CadastroMedidores = () => {
 
   return (
     <>
-      <Header />
+      <Header icon={<AiOutlineMenu />} />
       <Sidebar />
 
       <Container>

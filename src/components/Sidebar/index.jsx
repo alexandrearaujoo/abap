@@ -64,7 +64,7 @@ const Sidebar = ({ click, setClick }) => {
           <Item
             onClick={() => {
               setClick(false);
-              history.push("/solicitacoes");
+              history.push("/solicitacoesAdm");
             }}
             activeClassName="active"
           >

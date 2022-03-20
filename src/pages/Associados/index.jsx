@@ -12,15 +12,23 @@ import ButtonAdd from "../../components/ButtonAdd";
 import Busca from "../../components/Busca";
 import { AiOutlineMenu } from "react-icons/ai";
 import {useAssociados} from '../../providers/Associados'
+import ModalInfoUser from "../../components/ModalInfoUser";
 
 const Associados = () => {
   const [showForm, setShowForm] = useState(false);
+  const [showInfos, setShowInfos] = useState(false)
 
-  const {associados} = useAssociados()
+  const {associados, infosUser, infoUser} = useAssociados()
 
   const handleClick = () => {
     setShowForm(!showForm);
   };
+
+  const handleShowInfos = () => setShowInfos(!showInfos)
+
+  const handleInfoUser = (id) => {
+    infosUser(id)
+  }
 
   return (
     <>
@@ -38,13 +46,18 @@ const Associados = () => {
             title4="Ações"
           >
             {associados.map((itens) => (
-              <Lista
+              <Lista key={itens._id}
                 info1={<span>{itens.name}</span>}
                 info2={itens.status === "Ativo" ? <div className="ativo"></div> : <div className="inativo"></div>}
                 info3={"Devedor"}
-                info4={<ButtonAdd icon={BsInfoSquare}></ButtonAdd>}
+                info4={<ButtonAdd icon={BsInfoSquare} onClick={() => {
+                  handleShowInfos()
+                  handleInfoUser(itens._id)
+                }}></ButtonAdd>}
               />
             ))}
+
+            {showInfos && <ModalInfoUser infos={infoUser}/>}
           </DivLista>
         </MotionDiv>
       </Container>

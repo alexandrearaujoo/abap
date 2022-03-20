@@ -14,7 +14,7 @@ export const SolicitacoesProvider = ({children}) => {
         }
 
         loadSolicitacoes()
-    })
+    },[])
 
 
     return (

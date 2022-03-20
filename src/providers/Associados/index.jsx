@@ -1,4 +1,5 @@
 import {createContext, useEffect, useState, useContext} from 'react'
+import {toast} from 'react-hot-toast'
 import api from '../../services/api'
 
 const AssociadoContext = createContext([])
@@ -6,6 +7,7 @@ const AssociadoContext = createContext([])
 export const AssociadoProvider = ({children}) => {
 
     const [associados, setAssociados] = useState([])
+    const [infoUser, setInfoUser] = useState([])
 
     useEffect(() => {
         const loadAssociado = () => {
@@ -18,11 +20,34 @@ export const AssociadoProvider = ({children}) => {
         }
 
         loadAssociado()
-    })
+    },[associados])
 
+    const addAssociado = (data) => {
+        api.post('/users', data)
+        .then(res => {
+            toast.success('Usuario cadastrado')
+            setAssociados([...associados, res.data])
+        })
+        .catch((error) => {
+            console.log(error)
+            toast.error('Algo deu errado')
+        })
+    }
+
+    const infosUser = (id) => {
+        api.get(`/users/${id}`)
+        .then((res) => setInfoUser(res.data))
+        .catch((err) => console.log(err))
+    }
+
+    const updateUser = (data, id) => {
+        api.patch(`/users/${id}`, data)
+        .then(res => console.log(res.data))
+        .catch(err => console.log(err))
+    }
 
     return (
-        <AssociadoContext.Provider value={{associados}}>
+        <AssociadoContext.Provider value={{associados, infoUser, addAssociado, infosUser, updateUser}}>
             {children}
         </AssociadoContext.Provider>
     )

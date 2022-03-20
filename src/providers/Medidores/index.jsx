@@ -13,7 +13,7 @@ export const MedidoresPrivider = ({children}) => {
             .then(res => setMedidores(res.data))
         }
         loadMedidores()
-    })
+    },[])
 
 
     return (

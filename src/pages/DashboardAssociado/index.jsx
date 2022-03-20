@@ -11,7 +11,6 @@ const DashboardAssociado = () => {
         <h2>Bem-vindo, @Usuário!</h2>
         <section>
           <p>Membro desde: xx/xx/xxxx</p>
-          <p>cpf: xxx.xxx.xxx-xx</p>
         </section>
       </Main>
       <Sidebar />

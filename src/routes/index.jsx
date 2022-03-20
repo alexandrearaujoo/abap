@@ -5,16 +5,17 @@ import GerenciarPagamentos from "../pages/GerenciarPagamentos";
 import DashBoardADM from "../pages/DashboardAdmin";
 import Solicitacoes from "../pages/Solicitacoes";
 import LoginAssociado from "../pages/LoginAssociado";
-import Homepage from "../pages/Home";
+// import Homepage from "../pages/Home";
 import LoginAdm from "../pages/LoginAdm";
 import { AnimatePresence } from "framer-motion";
+import DashboardAssociado from "../pages/DashboardAssociado";
 
 const Router = () => {
   return (
     <AnimatePresence>
         <Switch>
           <Route exact path="/">
-            <Homepage />
+            <DashboardAssociado />
           </Route>
           <Route path="/login">
             <LoginAssociado />
@@ -24,6 +25,9 @@ const Router = () => {
           </Route>
           <Route path="/dashboardadm">
             <DashBoardADM />
+          </Route>
+          <Route path='/dashboardAssociado'>
+            <DashboardAssociado />
           </Route>
           <Route path="/associados">
             <Associados />

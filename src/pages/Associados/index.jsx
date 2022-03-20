@@ -9,29 +9,14 @@ import { useState } from "react";
 import Header from "../../components/Header";
 import { BsInfoSquare } from "react-icons/bs";
 import ButtonAdd from "../../components/ButtonAdd";
-import Input from "../../components/Input";
 import Busca from "../../components/Busca";
 import { AiOutlineMenu } from "react-icons/ai";
-
-const array = [
-  { nome: "hamart shusssssssssss" },
-  { nome: "david" },
-  { nome: "jean" },
-  { nome: "jean" },
-  { nome: "jean" },
-  { nome: "jean" },
-  { nome: "jean" },
-  { nome: "jean" },
-  { nome: "jean" },
-  { nome: "jean" },
-  { nome: "jean" },
-  { nome: "jean" },
-  { nome: "jean" },
-  { nome: "jean" },
-];
+import {useAssociados} from '../../providers/Associados'
 
 const Associados = () => {
   const [showForm, setShowForm] = useState(false);
+
+  const {associados} = useAssociados()
 
   const handleClick = () => {
     setShowForm(!showForm);
@@ -52,10 +37,10 @@ const Associados = () => {
             title3="Débitos"
             title4="Ações"
           >
-            {array.map((itens) => (
+            {associados.map((itens) => (
               <Lista
-                info1={<span>{itens.nome}</span>}
-                info2={<div></div>}
+                info1={<span>{itens.name}</span>}
+                info2={itens.status === "Ativo" ? <div className="ativo"></div> : <div className="inativo"></div>}
                 info3={"Devedor"}
                 info4={<ButtonAdd icon={BsInfoSquare}></ButtonAdd>}
               />

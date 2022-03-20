@@ -9,7 +9,6 @@ import Homepage from "../pages/Home";
 import LoginAdm from "../pages/LoginAdm";
 import { AnimatePresence } from "framer-motion";
 
-
 const Router = () => {
   return (
     <AnimatePresence>

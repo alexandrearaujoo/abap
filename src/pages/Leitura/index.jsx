@@ -1,6 +1,8 @@
+import FormModalAutoLeitura from '../../components/FormModalAutoLeitura'
+
 const Leitura = () => {
     return (
-        <>Pagina de leitura</>
+        <FormModalAutoLeitura />
     )
 }
 

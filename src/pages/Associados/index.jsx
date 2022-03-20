@@ -38,6 +38,7 @@ const Associados = () => {
         <MotionDiv>
           {/* <h2>Cadastrar Associados</h2> */}
           {showForm && <Blocker><FormModalAssociados handleClick={handleClick}/></Blocker>}
+          {showInfos && <ModalInfoUser infos={infoUser} handleClick={handleShowInfos}/>}
           <Busca handleClick={handleClick} />
           <DivLista
             title1="Nome"
@@ -57,7 +58,7 @@ const Associados = () => {
               />
             ))}
 
-            {showInfos && <ModalInfoUser infos={infoUser}/>}
+            
           </DivLista>
         </MotionDiv>
       </Container>

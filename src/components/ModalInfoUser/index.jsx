@@ -5,8 +5,12 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import Input from "../Input";
 import InputDefault from "../InputDefault";
+import Button from '../Button'
+import ButtonAdd from '../ButtonAdd'
+import {AiOutlineCloseCircle} from 'react-icons/ai'
+import { Section, Form, Div } from "./style";
 
-const ModalInfoUser = ({ infos }) => {
+const ModalInfoUser = ({ infos, handleClick}) => {
   const [status, setStatus] = useState("");
   const { updateUser } = useAssociados();
 
@@ -22,17 +26,21 @@ const ModalInfoUser = ({ infos }) => {
 
   const handleUpdate = (data) => {
     data.status = status;
-    updateUser(data, "62350c952104a4a99aed3247");
+    updateUser(data, infos._id);
   };
 
   return (
-    <section>
-      <form onSubmit={handleSubmit(handleUpdate)}>
-        <p>ID: {infos._id}</p>
-        <InputDefault value={infos.email} disabled={true}/>
-        <InputDefault value={infos.endereco} disabled={true}/>
-        <InputDefault value={infos.cpf} disabled={true}/>
-        <p>Status: {infos.status}</p>
+    <Section>
+      <Form onSubmit={handleSubmit(handleUpdate)}>
+      <ButtonAdd onClick={handleClick} icon={AiOutlineCloseCircle} />
+      <h2>Informações do usuario</h2>
+      <InputDefault width='90%'value={infos._id} disabled={true} label='ID do usuario'/>
+        <InputDefault width='90%'value={infos.email} disabled={true} label='Email'/>
+        <InputDefault width='90%' value={infos.endereco} disabled={true} label='Endereço'/>
+        <InputDefault width='90%'value={infos.cpf} disabled={true} label='CPF'/>
+
+        <Div>
+        <InputDefault width='65%'value={infos.status} disabled={true} label='Status'/>
         <select onChange={(e) => setStatus(e.currentTarget.value)}>
           <option selected disabled>
             Status...
@@ -40,6 +48,7 @@ const ModalInfoUser = ({ infos }) => {
           <option value="Ativo">Ativo</option>
           <option value="Inativo">Inativo</option>
         </select>
+        </Div>
         <Input
           label="Tipo de usuario"
           name="tipo_user"
@@ -47,9 +56,9 @@ const ModalInfoUser = ({ infos }) => {
           register={register}
         />
        
-        <button type="submit">Salvar</button>
-      </form>
-    </section>
+        <Button type="submit" margin="0px" padding="0px 5px">Salvar</Button>
+      </Form>
+    </Section>
   );
 };
 

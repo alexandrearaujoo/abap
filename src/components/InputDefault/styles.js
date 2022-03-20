@@ -5,7 +5,7 @@ export const Inputs = styled.div`
   border-radius: 5px;
   position: relative;
   height: 30px;
-  width: 50%;
+  width: ${props => props.width};
 
   input {
     background: transparent;

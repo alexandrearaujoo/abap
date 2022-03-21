@@ -17,8 +17,13 @@ export const AssociadoProvider = ({ children }) => {
                 Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMzUwYzk1MjEwNGE0YTk5YWVkMzI0NyIsImlhdCI6MTY0NzgyMjMzNSwiZXhwIjoxNjQ3OTA4NzM1fQ.AsGrnGVddjoH94Pej8-mEHaRX_tIrk_wPoeDLi7SFTk'
             }
         })
-            .then(res => setAssociados(res.data))
+        .then (res => setAssociados(res.data))
     }
+
+    useEffect(() => {
+        loadAssociado()
+    },[])
+  
     const changeTokenUser = (item) => {
         localStorage.setItem("@arap.tokenUser", item);
         setTokenUser(item);

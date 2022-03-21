@@ -12,7 +12,7 @@ import { Section, Form, Div } from "./style";
 
 const ModalInfoUser = ({ infos, handleClick}) => {
   const [status, setStatus] = useState("");
-  const { updateUser } = useAssociados();
+  const { updateUser, loadAssociado } = useAssociados();
 
   const schema = yup.object().shape({
     name: yup.string(),
@@ -27,6 +27,7 @@ const ModalInfoUser = ({ infos, handleClick}) => {
   const handleUpdate = (data) => {
     data.status = status;
     updateUser(data, infos._id);
+    loadAssociado();
   };
 
   return (

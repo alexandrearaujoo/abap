@@ -8,13 +8,12 @@ export const SolicitacoesProvider = ({children}) => {
 
     const [solicitacoes, setSolicitacoes] = useState([])
 
+    const loadSolicitacoes = () => {
+        api.get('/solicitacoes')
+        .then(res => setSolicitacoes(res.data))
+    }
     useEffect(() => {
-        const loadSolicitacoes = () => {
-            api.get('/solicitacoes')
-            .then(res => setSolicitacoes(res.data))
-        }
-
-        //loadSolicitacoes()
+        loadSolicitacoes()
     },[])
 
     const sendRequest = (data, id) => {
@@ -28,7 +27,7 @@ export const SolicitacoesProvider = ({children}) => {
 
 
     return (
-        <SolicitacoesContext.Provider value={{solicitacoes, sendRequest}}>
+        <SolicitacoesContext.Provider value={{solicitacoes, sendRequest, loadSolicitacoes}}>
             {children}
         </SolicitacoesContext.Provider>
     )

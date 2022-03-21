@@ -25,7 +25,7 @@ const Header = ({ icon, text, link = "", user }) => {
     <StyledHeader>
       { user === "associado" ? <SidebarAssociado click={click} setClick={setClick} /> : <Sidebar click={click} setClick={setClick} /> }
       <StyledContainer>
-        <img width={40} src={Logo} alt="Logo" />
+        <img src={Logo} alt="Logo" />
         <Button type="button" onClick={handleClick} margin="0px" padding="5px">
           {icon}
           {text}

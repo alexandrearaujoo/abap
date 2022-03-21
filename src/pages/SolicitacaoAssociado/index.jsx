@@ -35,7 +35,7 @@ const SolicitacaoAssociado = () => {
       <Main>
         <Section>
           <Form onSubmit={handleSubmit(onSubmit)}>
-            <h2>Informações do usuario</h2>
+            <h2>Mensagem da Solicitação</h2>
             <Input
               label="Titulo"
               name="title"

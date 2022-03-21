@@ -6,10 +6,11 @@ export const StyledMain = styled.main`
   justify-content: center;
   align-items: center;
   background-color: var(--white);
-  width: 80vw;
+  width: 100%;
+  max-width: 900px;
   height: 90vh;
   margin: 0 auto;
   position: relative;
-  top: 10vh;
+  top: 12vh;
   z-index: 0;
 `

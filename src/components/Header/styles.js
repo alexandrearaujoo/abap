@@ -16,6 +16,14 @@ export const StyledHeader = styled.header`
     font-size: var(--fontsize-h3);
   }
 
+  img {
+    width: 72px;
+
+    @media (min-width: 768px) {
+      width: 82px;
+    }
+  }
+
   button {
     display: flex;
     align-items: center;

@@ -66,7 +66,7 @@ const LoginAdm = () => {
     // }, []);
     return (
         <>
-        <Header />
+        <Header text="Voltar" link="/" />
         <Container>
 
             <ContainerForm>

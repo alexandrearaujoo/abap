@@ -12,6 +12,7 @@ import { toast } from 'react-hot-toast'
 import api from "../../services/api";
 
 import { Container, ContainerForm } from "./style";
+import { MdAttachMoney } from "react-icons/md";
 
 const LoginAssociado = () => {
   
@@ -53,7 +54,7 @@ const LoginAssociado = () => {
 
     return (
         <>
-            <Header />
+            <Header text="Voltar" link="/" />
         <Container>
 
             <ContainerForm>

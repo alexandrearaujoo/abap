@@ -3,10 +3,10 @@ import styled from 'styled-components'
 export const Container = styled.section`
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
-    height: 88vh;
-    background-color: var(--color-primary);
+
+    height: 100vh;
   
     h2{
         text-align: center;

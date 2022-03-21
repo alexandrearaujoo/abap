@@ -1,6 +1,6 @@
 import Sidebar from "../../components/Sidebar";
 import MotionDiv from "../../components/MotionDiv";
-import { Container} from "./style";
+import { Container } from "./style";
 import ButtonAdd from "../../components/ButtonAdd";
 import { AiOutlinePlus } from "react-icons/ai";
 import DivLista from "../../components/DivLista";
@@ -12,8 +12,7 @@ import Blocker from "../../components/Blocker";
 import { useMedidores } from "../../providers/Medidores";
 
 const CadastroMedidores = () => {
-
-  const {medidores} = useMedidores()
+  const { medidores } = useMedidores();
 
   const [showForm, setShowForm] = useState(false);
 
@@ -31,7 +30,7 @@ const CadastroMedidores = () => {
           <h2>Cadastrar Medidor</h2>
           {showForm && (
             <Blocker>
-              <FormModalMedidor />
+              <FormModalMedidor handleClick={handleClick} />
             </Blocker>
           )}
           <ButtonAdd

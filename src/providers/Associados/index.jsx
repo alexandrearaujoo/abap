@@ -18,7 +18,7 @@ export const AssociadoProvider = ({children}) => {
         }
 
         loadAssociado()
-    })
+    }, [])
 
 
     return (

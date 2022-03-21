@@ -12,10 +12,6 @@ const GerenciarPagamentos = () => {
 
   const {pagamentos} = usePagamentos()
 
-  const handleClick = () => {
-    setShowForm(!showForm);
-  };
-
   return (
     <>
       <Header />

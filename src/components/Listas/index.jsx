@@ -1,7 +1,7 @@
 import { Container } from "./style";
-const Lista = ({ backgroundColor = "#008000", ...rest }) => {
+const Lista = ({...rest }) => {
   return (
-    <Container backgroundColor={backgroundColor}>
+    <Container>
       <>{rest.info1}</>
       <>{rest.info2}</>
       <>{rest.info3}</>

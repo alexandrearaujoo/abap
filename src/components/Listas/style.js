@@ -18,11 +18,18 @@ export const Container = styled.li`
     white-space: nowrap;
   }
 
-  div {
-    background-color: #c4c4c4;
+  .ativo {
+    background-color: #008000;
     box-shadow: inset -2px -1px 6px -1px rgba(255, 255, 255, 1);
     width: 15px;
     height: 15px;
-    border-radius: 3px;
+    border-radius: 50%;
+  }
+  .inativo {
+    background-color: #ff0000;
+    box-shadow: inset -2px -1px 6px -1px rgba(255, 255, 255, 1);
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
   }
 `;

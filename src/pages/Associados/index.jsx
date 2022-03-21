@@ -11,102 +11,21 @@ import { BsInfoSquare } from "react-icons/bs";
 import ButtonAdd from "../../components/ButtonAdd";
 import Busca from "../../components/Busca";
 import { AiOutlineMenu } from "react-icons/ai";
+import {useAssociados} from '../../providers/Associados'
+import ModalInfoUser from "../../components/ModalInfoUser";
 
-
-const arrayAssoc = [
-  	{
-		"email": "joao@taniel.com.br",
-		"cpf": "009.556.123-90",
-		"name": "Joao Maria",
-		"endereco": "Estrada da ribeira",
-		"numero": "332",
-		"bairro": "Jargão",
-		"cidade": "Limeira do Sul",
-		"estado": "Rio Grande do Sul",
-		"createdAt": "Tue, 15 Mar 2022 19:52:14 GMT",
-		"codigoRegistro": "4887",
-		"id": 1,
-    "status":"ativo"
-	},
-	{
-		"email": "carlos@taniel.com.br",
-		"cpf": "029.236.123-90",
-		"name": "Carlos Santos",
-		"endereco": "Estrada da ribeira",
-		"numero": "334",
-		"bairro": "Centro",
-		"cidade": "Limeira do Sul",
-		"estado": "Rio Grande do Sul",
-		"createdAt": "Tue, 15 Mar 2022 19:52:14 GMT",
-		"codigoRegistro": "4567",
-		"id": 2,
-    "status":"inativo"
-	},
-  {
-		"email": "joao@taniel.com.br",
-		"cpf": "009.556.123-90",
-		"name": "Maria Estela",
-		"endereco": "Estrada da ribeira",
-		"numero": "332",
-		"bairro": "Jargão",
-		"cidade": "Limeira do Sul",
-		"estado": "Rio Grande do Sul",
-		"createdAt": "Tue, 15 Mar 2022 19:52:14 GMT",
-		"codigoRegistro": "4887",
-		"id": 3,
-    "status":"ativo"
-	},
-	{
-		"email": "carlos@taniel.com.br",
-		"cpf": "029.236.123-90",
-		"name": "Santos Damasio",
-		"endereco": "Estrada da ribeira",
-		"numero": "334",
-		"bairro": "Centro",
-		"cidade": "Limeira do Sul",
-		"estado": "Rio Grande do Sul",
-		"createdAt": "Tue, 15 Mar 2022 19:52:14 GMT",
-		"codigoRegistro": "4567",
-		"id": 4,
-    "status":"ativo"
-	},
-  {
-		"email": "joao@taniel.com.br",
-		"cpf": "009.556.123-90",
-		"name": "Estevao Cruz",
-		"endereco": "Estrada da ribeira",
-		"numero": "332",
-		"bairro": "Jargão",
-		"cidade": "Limeira do Sul",
-		"estado": "Rio Grande do Sul",
-		"createdAt": "Tue, 15 Mar 2022 19:52:14 GMT",
-		"codigoRegistro": "4887",
-		"id": 5,
-    "status":"inativo"
-	},
-	{
-		"email": "carlos@taniel.com.br",
-		"cpf": "029.236.123-90",
-		"name": "Carlos Santos",
-		"endereco": "Estrada da ribeira",
-		"numero": "334",
-		"bairro": "Centro",
-		"cidade": "Limeira do Sul",
-		"estado": "Rio Grande do Sul",
-		"createdAt": "Tue, 15 Mar 2022 19:52:14 GMT",
-		"codigoRegistro": "4567",
-		"id": 6,
-    "status":"ativo"
-	}
-];
 
 const Associados = () => {
   const [showForm, setShowForm] = useState(false);
+  const [showInfos, setShowInfos] = useState(false)
+  const {associados, infosUser, infoUser} = useAssociados()
+
   const [busca, setBusca] = useState("") // Armazena dados da busca
   const [arrayBusca, setArrayBusca] = useState ([])
   const [status, setStatus] = useState ("")
-  let array = arrayAssoc
 
+  let array = associados
+  
 
   // Exibe o Formulario de cadastro associado
   const handleClick = () => {
@@ -115,7 +34,7 @@ const Associados = () => {
 
   const onSubmit = (e) => {
     e.preventDefault()
-    setArrayBusca(arrayAssoc.filter((associado)=>associado.name.toLocaleLowerCase().includes(busca.toLocaleLowerCase().trim())))
+    setArrayBusca(associados.filter((associado)=>associado.name.toLocaleLowerCase().includes(busca.toLocaleLowerCase().trim())))
     setBusca("")
   }
 
@@ -123,17 +42,18 @@ const Associados = () => {
   const changeStatus = (e) =>{
     setStatus(e.target.value)
     let status = e.target.value
-    status === 'Status...' || status === 'todos' ? setArrayBusca(arrayAssoc) : 
-    setArrayBusca(arrayAssoc.filter((associado)=>associado.status === status))
+    status === 'Status...' || status === 'todos' ? setArrayBusca(associados) : 
+    setArrayBusca(associados.filter((associado)=>associado.status === status))
 
   }
 
-  arrayBusca.length > 1 ? array = arrayBusca : status ? array = arrayBusca : array = arrayAssoc
+  arrayBusca.length > 1 ? array = arrayBusca : status ? array = arrayBusca : array = associados
   
+  const handleShowInfos = () => setShowInfos(!showInfos)
 
-  console.log(arrayBusca)
-  console.log(status)
-
+  const handleInfoUser = (id) => {
+    infosUser(id)
+  }
 
   return (
     <>
@@ -154,20 +74,26 @@ const Associados = () => {
                   label='Associado'
                 />
          
+          {showInfos && <ModalInfoUser infos={infoUser} handleClick={handleShowInfos}/>}
           <DivLista
             title1="Nome"
             title2="Status"
             title3="Débitos"
             title4="Ações"
           >
-            {array.map((itens) => (
+            {associados.map((itens) => (
               <Lista key={itens.id}
                 info1={<span>{itens.name}</span>}
                 info2={<div></div>}
                 info3={"Devedor"}
-                info4={<ButtonAdd icon={BsInfoSquare}></ButtonAdd>}
+                info4={<ButtonAdd icon={BsInfoSquare} onClick={() => {
+                  handleShowInfos()
+                  handleInfoUser(itens._id)
+                }}></ButtonAdd>}
               />
             ))}
+
+            
           </DivLista>
         </MotionDiv>
       </Container>
@@ -176,21 +102,3 @@ const Associados = () => {
 };
 
 export default Associados;
-
-
-
-
-
-  // teste busca por caractere #########################################################################
-  // const novo = arrayAssoc[0].name.slice(0,busca.length)
-
-    // if (busca.length > 0){
-
-      // setArrayBusca(arrayAssoc.filter((item) => item.name.slice(0,busca.length) === busca)) 
-      // setArrayBusca(arrayAssoc.filter((item) => item.name === busca)) 
-
-      // const novo = arrayAssoc.filter((associado) => 
-      //   associado.name.toLocaleLowerCase().includes(busca))
-    // }else{
-    //   console.log('busca vazia')
-    // }

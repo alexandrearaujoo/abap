@@ -5,47 +5,28 @@ import DivLista from "../../components/DivLista";
 import Lista from "../../components/Listas";
 import { useState } from "react";
 import Header from "../../components/Header";
+import { usePagamentos } from "../../providers/Pagamentos";
+import {AiOutlineMenu} from 'react-icons/ai'
 
 const GerenciarPagamentos = () => {
   const [showForm, setShowForm] = useState(false);
+
+  const {pagamentos} = usePagamentos()
 
   const handleClick = () => {
     setShowForm(!showForm);
   };
 
-  const array = [
-    { nome: "Jean", valor: "R$ 18" },
-    { nome: "Jean", valor: "R$ 18" },
-    { nome: "Jean", valor: "R$ 18" },
-    { nome: "Jean", valor: "R$ 18" },
-    { nome: "Jean", valor: "R$ 18" },
-    { nome: "Jean", valor: "R$ 18" },
-    { nome: "Jean", valor: "R$ 18" },
-    { nome: "Jean", valor: "R$ 18" },
-    { nome: "Jean", valor: "R$ 18" },
-    { nome: "Jean", valor: "R$ 18" },
-    { nome: "Jean", valor: "R$ 18" },
-    { nome: "Jean", valor: "R$ 18" },
-    { nome: "Jean", valor: "R$ 18" },
-    { nome: "Jean", valor: "R$ 18" },
-    { nome: "Jean", valor: "R$ 18" },
-    { nome: "Jean", valor: "R$ 18" },
-    { nome: "Jean", valor: "R$ 18" },
-    { nome: "Jean", valor: "R$ 18" },
-    { nome: "Jean", valor: "R$ 18" },
-    { nome: "Jean", valor: "R$ 18" },
-  ];
-
   return (
     <>
-      <Header />
+      <Header icon={<AiOutlineMenu />} />
       <Sidebar />
 
       <Container>
         <MotionDiv>
           <h2>Pagamentos realizados</h2>
           <DivLista title1="Nome" title2="Valor" title3="Status">
-            {array.map((item, index) => (
+            {pagamentos.map((item, index) => (
               <Lista
                 key={index}
                 info1={<span>{item.nome}</span>}

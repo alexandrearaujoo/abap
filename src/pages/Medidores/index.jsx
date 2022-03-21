@@ -1,6 +1,6 @@
 import Sidebar from "../../components/Sidebar";
 import MotionDiv from "../../components/MotionDiv";
-import { Container, List } from "./style";
+import { Container} from "./style";
 import ButtonAdd from "../../components/ButtonAdd";
 import { AiOutlinePlus } from "react-icons/ai";
 import DivLista from "../../components/DivLista";
@@ -9,10 +9,13 @@ import FormModalMedidor from "../../components/FormModalMedidor";
 import { useState } from "react";
 import Header from "../../components/Header";
 import Blocker from "../../components/Blocker";
-
-const array = [{ codigo: "1234" }, { codigo: "1235" }];
+import { useMedidores } from "../../providers/Medidores";
+import {AiOutlineMenu} from 'react-icons/ai'
 
 const CadastroMedidores = () => {
+
+  const {medidores} = useMedidores()
+
   const [showForm, setShowForm] = useState(false);
 
   const handleClick = () => {
@@ -21,7 +24,7 @@ const CadastroMedidores = () => {
 
   return (
     <>
-      <Header />
+      <Header icon={<AiOutlineMenu />} />
       <Sidebar />
 
       <Container>
@@ -42,11 +45,11 @@ const CadastroMedidores = () => {
             Adicionar
           </ButtonAdd>
           <DivLista title1="Código" title2="Status">
-            {array.map((item, index) => (
+            {medidores.map((item, index) => (
               <Lista
                 key={index}
                 info1={<span>{item.codigo}</span>}
-                info2={<input type="checkbox"></input>}
+                info2={<span>{item.endereco}</span>}
               />
             ))}
           </DivLista>

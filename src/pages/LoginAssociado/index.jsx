@@ -6,7 +6,7 @@ import * as yup from "yup";
 import Input from "../../components/Input";
 import  toast  from "react-hot-toast";
 import Header from "../../components/Header";
-import { TokenAssociadoContext } from "../../providers/tokenAssociado";
+
 
 import api from "../../services/api";
 
@@ -15,8 +15,6 @@ import { Container, ContainerForm } from "./style";
 const LoginAssociado = () => {
   
     const history = useHistory();
- 
-    const { tokenAssociado, changeTokenAssociado } = useContext(TokenAssociadoContext);
 
     const formSchema = yup.object().shape({
         cpf: yup
@@ -43,7 +41,6 @@ const LoginAssociado = () => {
                 
                 if (resp.data.status === "ok") {
                     toast.success("Bem-vindo !!")
-                    changeTokenAssociado(resp.data.accessToken);
                     history.push(`/dashboardAssociado`);
                 } else {
                     // TODO:  Adicionar o toast com messagem de erro abaixo 
@@ -59,14 +56,14 @@ const LoginAssociado = () => {
 
     // Verifica se o associado ja esta logado, caso verdadeiro 
     // o direciona para o dashboardAssociado
-    const isLoggedIn = (token) => {
-        if (token) {
-            history.push(`/dashboardAssociado`);  
-        }
-    }
-    useEffect(() => {
-        isLoggedIn(tokenAssociado);
-    }, []);
+    // const isLoggedIn = (token) => {
+    //     if (token) {
+    //         history.push(`/dashboardAssociado`);  
+    //     }
+    // }
+    // useEffect(() => {
+    //     isLoggedIn(tokenAssociado);
+    // }, []);
     return (
         <>
             <Header />

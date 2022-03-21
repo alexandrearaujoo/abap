@@ -46,6 +46,7 @@ export const AssociadoProvider = ({ children }) => {
                 toast.error("Verifique o CPF informado.")
                 
             })
+        }
       
     const addAssociado = (data) => {
         api.post('/users', data)
@@ -67,14 +68,9 @@ export const AssociadoProvider = ({ children }) => {
 
     const updateUser = (data, id) => {
         api.patch(`/users/${id}`, data)
-            .then(res => console.log(res.data))
+            .then(res => loadAssociado())
             .catch(err => console.log(err))
     }
-    useEffect(() => {
-
-
-        // loadAssociado()
-    }, [])
 
     return (
         <AssociadoContext.Provider value={{ associados, infoUser, addAssociado, infosUser, updateUser, loginAssociado, tokenUser, changeTokenUser }}>

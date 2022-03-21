@@ -12,7 +12,6 @@ const Header = ({ icon, text, link = "", user }) => {
   const history = useHistory();
   const [click, setClick] = useState(false);
 
-  console.log(user)
   const handleClick = () => {
     if (link !== "") {
       history.push(link);

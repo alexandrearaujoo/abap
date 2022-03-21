@@ -9,6 +9,8 @@ export const StyledHeader = styled.header`
   height: 12vh;
   color: var(--white);
   box-shadow: 0px 4px 4px rgba(131, 131, 131, 1);
+  position: fixed;
+  z-index: 1;
 
   h1 {
     font-size: var(--fontsize-h3);

@@ -84,16 +84,14 @@ const Associados = () => {
             {associados.map((itens) => (
               <Lista key={itens.id}
                 info1={<span>{itens.name}</span>}
-                info2={<div></div>}
+                info2={itens.status === 'Ativo' ? <div className="ativo"></div> : <div className="inativo"></div>}
                 info3={"Devedor"}
-                info4={<ButtonAdd icon={BsInfoSquare} onClick={() => {
+                info4={<ButtonAdd color="#000"icon={BsInfoSquare} onClick={() => {
                   handleShowInfos()
                   handleInfoUser(itens._id)
                 }}></ButtonAdd>}
               />
             ))}
-
-            
           </DivLista>
         </MotionDiv>
       </Container>

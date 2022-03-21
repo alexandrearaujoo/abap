@@ -5,7 +5,7 @@ import { AiOutlineMenu } from "react-icons/ai";
 const DashBoardADM = () => {
   return (
     <>
-      <Header icon={<AiOutlineMenu />} />
+      <Header icon={<AiOutlineMenu />} user="admin" />
       <Sidebar />
     </>
   );

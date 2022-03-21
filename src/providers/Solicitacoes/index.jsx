@@ -14,8 +14,8 @@ export const SolicitacoesProvider = ({children}) => {
             .then(res => setSolicitacoes(res.data))
         }
 
-        loadSolicitacoes()
-    },[solicitacoes])
+        //loadSolicitacoes()
+    },[])
 
     const sendRequest = (data, id) => {
         api.post(`/solicitacoes/${id}`, data)

@@ -12,7 +12,7 @@ export const MedidoresPrivider = ({children}) => {
             api.get('/medidores')
             .then(res => setMedidores(res.data))
         }
-        loadMedidores()
+       // loadMedidores()
     },[])
 
 

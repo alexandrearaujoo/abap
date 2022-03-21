@@ -20,7 +20,7 @@ const ButtonAdd = ({
       width={width}
       marginBottom={marginBottom}
       radius={radius}
-      
+      type={rest.type}
     >
       <Icon />
       {children}

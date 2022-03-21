@@ -6,19 +6,28 @@ export const Container = styled.button`
   border-radius: ${(props) => props.radius};
   width: ${(props) => props.width};
   height: ${(props) => props.heigth};
-  transition: 0.5s;
+  transition: 0.2s;
   display: flex;
   justify-content: center;
   align-items: center;
   margin-bottom: ${(props) => props.marginBottom};
   cursor: pointer;
 
-  :hover {
-    filter: brightness(1);
-  }
+
   svg {
     transition: 0.5s;
     color: ${(props) => props.color};
     font-size:20px ;
+  }
+
+  :hover {
+    /* filter: brightness(1); */
+    background: var(--color-primary);
+    
+  }
+
+  :active {
+    background-color: var(--color-secondary);
+    svg{color:var(--black);}
   }
 `;

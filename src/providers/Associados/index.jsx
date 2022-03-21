@@ -20,7 +20,7 @@ export const AssociadoProvider = ({children}) => {
         }
 
         loadAssociado()
-    },[associados])
+    },[])
 
     const addAssociado = (data) => {
         api.post('/users', data)

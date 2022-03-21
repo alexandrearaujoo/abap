@@ -32,4 +32,19 @@ export const Container = styled.li`
     height: 15px;
     border-radius: 50%;
   }
+
+  span:first-child{
+    width: 60%;
+    text-align: center;
+   
+  }
+
+  span:nth-child(n+2):nth-child(-n+5){
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    width: 20%;
+
+  }
+
 `;

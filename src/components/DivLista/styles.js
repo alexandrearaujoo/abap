@@ -16,20 +16,39 @@ export const Container = styled.div`
   }
 
   aside {
-    width: 80%;
-    height: 10px;
+    width: 90% ;
+    /* height: 10px; */
     display: flex;
     justify-content: space-between;
     margin-top: 5px;
-    position: fixed;
-    height: 35px;
+    /* position: fixed; */
+    height:1px;
+    /* background-color:red; */
     background-color: var(--color-secondary);
     padding: 0px 8px;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     max-width: 900px;
     align-items: center;
+    font-size: var(--headline);
   }
+
+  aside span:first-child{
+    margin-top:20px ;
+    width: 60%;
+    text-align: center;
+  }
+
+  aside span:nth-child(n+2):nth-child(-n+5){
+    margin-top:20px ;
+    text-align: center;
+    width: 20%;
+
+  }
+
+
+
+
   ul {
     width: 100%;
     max-height: 400px;
@@ -38,7 +57,7 @@ export const Container = styled.div`
     align-items: center;
     flex-direction: column;
     background-color: var(--color-secondary);
-    margin-top: 40px;
+    margin-top: 25px;
 
     ::-webkit-scrollbar {
       display: none;

@@ -32,8 +32,8 @@ const HistoricoPagamentos = () => {
               <Lista
                 key={item.mes}
                 info1={item.mes}
-                info2={item.consumo}
-                info3={item.valor}
+                info2={`${item.consumo}M³`}
+                info3={item.valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
                 info4={item.status}
               />
             ))}

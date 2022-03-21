@@ -7,12 +7,13 @@ import * as yup from "yup";
 import ButtonAdd from "../ButtonAdd";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { AiOutlineCloseCircle } from "react-icons/ai";
+import { useAssociados } from "../../providers/Associados";
 
-const FormModalAssociados = ({handleClick}) => {
-
+const FormModalAssociados = ({ handleClick }) => {
+  const { addAssociado } = useAssociados();
 
   const schema = yup.object().shape({
-    nome_completo: yup.string().required("Nome Obrigatorio"),
+    name: yup.string().required("Nome obrigatorio"),
     email: yup.string().email("Email invalido").required("Email Obrigatorio"),
     cpf: yup.string().required("CPF Obrigatorio"),
     endereco: yup.string().required("Endereço Obrigadotiro"),
@@ -26,24 +27,24 @@ const FormModalAssociados = ({handleClick}) => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors },  
   } = useForm({
     resolver: yupResolver(schema),
   });
 
   const onSubmit = (data) => {
-    console.log(data);
+    addAssociado(data);
   };
 
   return (
     <Section>
       <Form onSubmit={handleSubmit(onSubmit)}>
-        <ButtonAdd onClick={handleClick}icon={AiOutlineCloseCircle} />
+        <ButtonAdd onClick={handleClick} icon={AiOutlineCloseCircle} />
         <h2>Cadastro</h2>
         <Input
           label="Nome Completo"
-          name="nome_completo"
-          error={errors.nome_completo?.message}
+          name="name"
+          error={errors.name?.message}
           register={register}
         />
         <Input
@@ -100,7 +101,9 @@ const FormModalAssociados = ({handleClick}) => {
             />
           </DivLocal>
         </DivInfos>
-        <Button>Cadastrar</Button>
+        <Button type="submit">
+          Cadastrar
+        </Button>
       </Form>
     </Section>
   );

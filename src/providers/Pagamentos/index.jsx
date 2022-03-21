@@ -14,7 +14,7 @@ export const PagamentosProvider = ({children}) => {
         }
 
         loadPagamentos()
-    })
+    },[])
 
     return (
         <PagamentosContext.Provider value={{pagamentos}}>

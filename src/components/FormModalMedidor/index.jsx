@@ -6,8 +6,11 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import ButtonAdd from "../ButtonAdd";
 import { AiOutlineCloseCircle } from "react-icons/ai";
+import { useMedidores } from "../../providers/Medidores";
 
 const FormModalMedidor = ({ handleClick }) => {
+  const { addMedidores } = useMedidores();
+
   const schema = yup.object().shape({
     codigo: yup.string().required("Campo Obrigatorio"),
     id_associado: yup.string().required("Campo Obrigatorio"),
@@ -27,7 +30,7 @@ const FormModalMedidor = ({ handleClick }) => {
   });
 
   const onSubmit = (data) => {
-    console.log(data);
+    addMedidores(data);
   };
 
   return (

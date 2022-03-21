@@ -10,19 +10,30 @@ import { useState } from "react";
 import Header from "../../components/Header";
 import Blocker from "../../components/Blocker";
 import { useMedidores } from "../../providers/Medidores";
+import { AiOutlineMenu } from "react-icons/ai";
+import { BsInfoSquare } from "react-icons/bs";
+import ModalInfoMedidor from "../../components/ModalInfoMedidor";
 
 const CadastroMedidores = () => {
-  const { medidores } = useMedidores();
-
+  const { medidores, infosMedidor, infoMedidor } = useMedidores();
   const [showForm, setShowForm] = useState(false);
+  const [showInfos, setShowInfos] = useState(false);
 
   const handleClick = () => {
     setShowForm(!showForm);
   };
 
+  const handleShowInfos = () => {
+    setShowInfos(!showInfos);
+  };
+
+  const handleInfoMedidor = (id) => {
+    infosMedidor(id);
+  };
+
   return (
     <>
-      <Header />
+      <Header icon={<AiOutlineMenu />} />
       <Sidebar />
 
       <Container>
@@ -42,12 +53,30 @@ const CadastroMedidores = () => {
           >
             Adicionar
           </ButtonAdd>
-          <DivLista title1="Código" title2="Status">
+          {showInfos && <ModalInfoMedidor setShowInfos={setShowInfos} showInfos={showInfos} infos={infoMedidor} handleClick={handleShowInfos}/>}
+          <DivLista title1="Código" title2="Status" title3="Endereço">
             {medidores.map((item, index) => (
               <Lista
                 key={index}
                 info1={<span>{item.codigo}</span>}
-                info2={<span>{item.endereco}</span>}
+                info2={
+                  item.status === "Ativo" ? (
+                    <div className="ativo"></div>
+                  ) : (
+                    <div className="inativo"></div>
+                  )
+                }
+                info3={<span>{item.endereco}</span>}
+                info4={
+                  <ButtonAdd
+                    color="#000"
+                    icon={BsInfoSquare}
+                    onClick={() => {
+                      handleShowInfos();
+                      handleInfoMedidor(item._id);
+                    }}
+                  ></ButtonAdd>
+                }
               />
             ))}
           </DivLista>

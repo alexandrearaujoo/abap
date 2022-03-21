@@ -3,12 +3,12 @@ import Slider from "../../components/Carousel";
 import Header from "../../components/Header";
 import { Main, StyledFigure } from "./styles";
 
+
 const Homepage = () => {
   return (
     <>
       <Header icon={<BiLogIn />} text="Area do associado" link="/login" />
       <Main>
-        
         <StyledFigure>
           <Slider />
         </StyledFigure>

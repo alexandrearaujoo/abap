@@ -5,7 +5,7 @@ export const Section = styled.section`
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  
+  z-index: 1;
 `;
 
 export const Form = styled.form`

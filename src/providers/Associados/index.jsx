@@ -13,7 +13,7 @@ export const AssociadoProvider = ({children}) => {
         const loadAssociado = () => {
             api.get('/users', {
                 headers: {
-                    Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMzUwYzk1MjEwNGE0YTk5YWVkMzI0NyIsImlhdCI6MTY0NzczMjU5NSwiZXhwIjoxNjQ3ODE4OTk1fQ.e4PKeAWljCeTh0YSBnRopt0IeL-Dg9IQNgH1jpI9SiE'
+                    Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMzUwYzk1MjEwNGE0YTk5YWVkMzI0NyIsImlhdCI6MTY0NzgyMjMzNSwiZXhwIjoxNjQ3OTA4NzM1fQ.AsGrnGVddjoH94Pej8-mEHaRX_tIrk_wPoeDLi7SFTk'
                 }
             })
             .then (res => setAssociados(res.data))

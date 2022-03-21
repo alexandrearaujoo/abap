@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Inputs = styled.div`
   border: 2px solid var(--color-secondary);
-  border-radius: 5px;
+  border-radius: ${(props)=> props.radius ? props.radius : '3px'};
   position: relative;
   height: 30px;
   width: ${props => props.width};
@@ -29,12 +29,10 @@ export const Inputs = styled.div`
   label {
     pointer-events: none;
     position: absolute;
-    /* margin-left: -82px; */
-    /* margin-top: 7px; */
     margin-top: -23px;
     margin-left: 3px;
     font-size: 15px;
-    color: var(--black);
+    color: var(--color-secondary);
   }
   input:focus + label {
     margin-top: -32px;

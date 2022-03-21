@@ -14,16 +14,41 @@ import { AiOutlineMenu } from "react-icons/ai";
 import {useAssociados} from '../../providers/Associados'
 import ModalInfoUser from "../../components/ModalInfoUser";
 
+
 const Associados = () => {
   const [showForm, setShowForm] = useState(false);
   const [showInfos, setShowInfos] = useState(false)
-
   const {associados, infosUser, infoUser} = useAssociados()
 
+  const [busca, setBusca] = useState("") // Armazena dados da busca
+  const [arrayBusca, setArrayBusca] = useState ([])
+  const [status, setStatus] = useState ("")
+
+  let array = associados
+  
+
+  // Exibe o Formulario de cadastro associado
   const handleClick = () => {
     setShowForm(!showForm);
   };
 
+  const onSubmit = (e) => {
+    e.preventDefault()
+    setArrayBusca(associados.filter((associado)=>associado.name.toLocaleLowerCase().includes(busca.toLocaleLowerCase().trim())))
+    setBusca("")
+  }
+
+
+  const changeStatus = (e) =>{
+    setStatus(e.target.value)
+    let status = e.target.value
+    status === 'Status...' || status === 'todos' ? setArrayBusca(associados) : 
+    setArrayBusca(associados.filter((associado)=>associado.status === status))
+
+  }
+
+  arrayBusca.length > 1 ? array = arrayBusca : status ? array = arrayBusca : array = associados
+  
   const handleShowInfos = () => setShowInfos(!showInfos)
 
   const handleInfoUser = (id) => {
@@ -38,8 +63,18 @@ const Associados = () => {
         <MotionDiv>
           {/* <h2>Cadastrar Associados</h2> */}
           {showForm && <Blocker><FormModalAssociados handleClick={handleClick}/></Blocker>}
+         
+          <Busca handleClick={handleClick} // Componente de busca
+                  setBusca={setBusca}
+                  busca={busca}
+                  setStatus={setStatus}
+                  status={status}
+                  changeStatus={changeStatus}
+                  onSubmit={onSubmit}
+                  label='Associado'
+                />
+         
           {showInfos && <ModalInfoUser infos={infoUser} handleClick={handleShowInfos}/>}
-          <Busca handleClick={handleClick} />
           <DivLista
             title1="Nome"
             title2="Status"
@@ -47,9 +82,9 @@ const Associados = () => {
             title4="Ações"
           >
             {associados.map((itens) => (
-              <Lista key={itens._id}
+              <Lista key={itens.id}
                 info1={<span>{itens.name}</span>}
-                info2={itens.status === "Ativo" ? <div className="ativo"></div> : <div className="inativo"></div>}
+                info2={<div></div>}
                 info3={"Devedor"}
                 info4={<ButtonAdd icon={BsInfoSquare} onClick={() => {
                   handleShowInfos()

@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Container = styled.button`
   background-color: ${(props) => props.background};
   border: 0;
-  border-radius: 5px;
+  border-radius: ${(props) => props.radius};
   width: ${(props) => props.width};
   height: ${(props) => props.heigth};
   transition: 0.5s;
@@ -19,5 +19,6 @@ export const Container = styled.button`
   svg {
     transition: 0.5s;
     color: ${(props) => props.color};
+    font-size:20px ;
   }
 `;

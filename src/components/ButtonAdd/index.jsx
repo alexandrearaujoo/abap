@@ -3,10 +3,11 @@ import { Container } from "./style";
 const ButtonAdd = ({
   icon: Icon,
   background = "transparent",
-  color = "#000",
+  color = "var(--white)",
   heigth = "35px",
   width = "35px",
   children,
+  radius = '',
   marginBottom = "0px",
   ...rest
 }) => {
@@ -18,6 +19,8 @@ const ButtonAdd = ({
       heigth={heigth}
       width={width}
       marginBottom={marginBottom}
+      radius={radius}
+      
     >
       <Icon />
       {children}

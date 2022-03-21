@@ -12,6 +12,11 @@ export const Inputs = styled.div`
     css`
       border-color: orange;
     `}
+
+    ${(props) =>
+    css`
+      border-color:${(props)=> props.bordercolor};
+    `}
   input {
     background: transparent;
     border: none;

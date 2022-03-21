@@ -6,10 +6,12 @@ export const StyledForm = styled.form`
   justify-content: center;
   align-items: center;
   background-color: var(--background-menus);
-  width: 298px;
+  width: 100%;
   height: 370px;
   border: none;
   border-radius: 5px;
+  margin: 0 auto;
+  max-width: 500px;
 
   h1 {
     font-size: var(--fontsize-h1);

@@ -1,10 +1,10 @@
 import { StyledContainer } from "../../style/global";
 import { StyledMain } from "./styles";
 
-const Main = ({ children }) => {
+const Main = ({ flex, children }) => {
   return (
     <StyledMain>
-      <StyledContainer column>{children}</StyledContainer>
+      <StyledContainer column flex >{children}</StyledContainer>
     </StyledMain>
   );
 };

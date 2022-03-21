@@ -1,7 +1,9 @@
-import { createGlobalStyle } from "styled-components";
+import {
+    createGlobalStyle
+} from "styled-components";
 import styled from "styled-components";
 
-export const GlobalStyle = createGlobalStyle`
+export const GlobalStyle = createGlobalStyle `
 
     html, body, div, span, applet, object, iframe,
     h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -88,13 +90,44 @@ export const GlobalStyle = createGlobalStyle`
 }
 `;
 
-export const StyledContainer = styled.div`
+export const StyledContainer = styled.div `
   display: flex;
   flex-direction: ${(props) => (props.column ? "column" : "row")};
-  justify-content: ${(props) =>
-    props.column ? "space-evenly" : "space-between"};
+  justify-content: ${(props) => props.column ? "center" : "space-between"};
   align-items: center;
+  gap: 10px;
   width: 80%;
   height: 100%;
   margin: 0 auto;
+
+  h2 {
+      font-size: var(--fontsize-h2);
+      padding: 20px 0;
+  }
+
+  h3 {
+      font-size: var(--fontsize-h3);
+      padding: 20px 0;
+  }
+
+  section {
+      width: 100%;
+
+    article {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+
+        p {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            font-size: var(--body);
+
+            @media (min-width: 768px) {
+                flex-direction: row;
+            }
+        }
+    }
+  }
 `;

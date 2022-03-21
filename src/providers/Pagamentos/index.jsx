@@ -13,7 +13,7 @@ export const PagamentosProvider = ({children}) => {
             .then(res => setPagamentos(res.data))
         }
 
-        loadPagamentos()
+      //  loadPagamentos()
     },[])
 
     return (

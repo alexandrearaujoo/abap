@@ -12,7 +12,6 @@ export const SolicitacoesProvider = ({children}) => {
         api.get('/solicitacoes')
         .then(res => setSolicitacoes(res.data))
     }
-
     useEffect(() => {
         loadSolicitacoes()
     },[])

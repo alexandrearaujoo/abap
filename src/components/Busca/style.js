@@ -55,6 +55,7 @@ export const DivBusca = styled.div`
     background-color: var(--color-secondary);
     color: var(--white);
     height: 30px;
+    font-weight: 600;
     border: none;
     border-radius: 5px;
   }
@@ -63,6 +64,17 @@ export const DivBusca = styled.div`
     box-shadow: 0 0 0 0;
     border: none;
     outline: 0;
+  }
+
+  select:hover {
+    /* filter: brightness(1); */
+    background: var(--color-primary);
+    
+  }
+
+  select:active {
+    background-color: var(--color-secondary);
+    color:var(--black);}
   }
 
 

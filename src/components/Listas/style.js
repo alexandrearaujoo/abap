@@ -35,7 +35,8 @@ export const Container = styled.li`
 
   span:first-child{
     width: 60%;
-
+    text-align: center;
+   
   }
 
   span:nth-child(n+2):nth-child(-n+5){

@@ -13,6 +13,7 @@ import Busca from "../../components/Busca";
 import { AiOutlineMenu } from "react-icons/ai";
 import {useAssociados} from '../../providers/Associados'
 import ModalInfoUser from "../../components/ModalInfoUser";
+import  toast  from "react-hot-toast";
 
 
 const Associados = () => {
@@ -26,16 +27,19 @@ const Associados = () => {
 
   let array = associados
   
+  
 
   // Exibe o Formulario de cadastro associado
   const handleClick = () => {
     setShowForm(!showForm);
   };
 
-  const onSubmit = (e) => {
+  const onSubmitBsk = (e) => {
     e.preventDefault()
-    setArrayBusca(associados.filter((associado)=>associado.name.toLocaleLowerCase().includes(busca.toLocaleLowerCase().trim())))
+    const filter = (associados.filter((associado)=>associado.name.toLocaleLowerCase().includes(busca.toLocaleLowerCase().trim())))
+    setArrayBusca(filter)
     setBusca("")
+    filter.length < 1 && toast.error("Não encontrei nenhuma referência!"); 
   }
 
 
@@ -54,6 +58,7 @@ const Associados = () => {
   const handleInfoUser = (id) => {
     infosUser(id)
   }
+ 
 
   return (
     <>
@@ -70,8 +75,9 @@ const Associados = () => {
                   setStatus={setStatus}
                   status={status}
                   changeStatus={changeStatus}
-                  onSubmit={onSubmit}
+                  onSubmit={onSubmitBsk}
                   label='Associado'
+                  
                 />
          
           {showInfos && <ModalInfoUser infos={infoUser} handleClick={handleShowInfos}/>}
@@ -81,15 +87,15 @@ const Associados = () => {
             title3="Débitos"
             title4="Ações"
           >
-            {associados.map((itens) => (
-              <Lista key={itens.id}
+            {array.map((itens) => (
+              <Lista key={itens._id}
                 info1={<span>{itens.name}</span>}
                 info2={itens.status === 'Ativo' ? <div className="ativo"></div> : <div className="inativo"></div>}
                 info3={"Devedor"}
-                info4={<ButtonAdd color="#000"icon={BsInfoSquare} onClick={() => {
+                info4={<div><ButtonAdd color="#000"icon={BsInfoSquare} onClick={() => {
                   handleShowInfos()
                   handleInfoUser(itens._id)
-                }}></ButtonAdd>}
+                }}></ButtonAdd></div>}
               />
             ))}
           </DivLista>

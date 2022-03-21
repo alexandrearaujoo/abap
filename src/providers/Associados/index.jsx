@@ -47,9 +47,6 @@ export const AssociadoProvider = ({ children }) => {
                 
             })
       
-
-    };
-
     const addAssociado = (data) => {
         api.post('/users', data)
             .then(res => {

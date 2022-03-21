@@ -10,6 +10,7 @@ export const StyledForm = styled.form`
   height: 370px;
   border: none;
   border-radius: 5px;
+  margin: 0 auto;
 
   h1 {
     font-size: var(--fontsize-h1);

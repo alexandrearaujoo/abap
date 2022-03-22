@@ -13,7 +13,6 @@ const Busca = ({ icon, ...rest }) => {
     rest.setBusca(e.target.value)
     
   }
-console.log(rest.icon)
 
   return (
     <Container>
@@ -36,14 +35,12 @@ console.log(rest.icon)
           
           <FormOptions>
                 <select value={rest.status} onChange={rest.changeStatus}>
-                <option selected disabled>Status</option>
                   <option value="Todos">Todos</option>
                   <option value="Ativo">Ativo</option>
                   <option value="Inativo">Inativo</option>
                 </select>
 
                 <ButtonAdd
-                  // icon={MdPersonAdd}
                   icon={icon}
                   onClick={rest.handleClick}
                   background='var(--color-secondary)'

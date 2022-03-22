@@ -17,7 +17,6 @@ const Header = ({ icon, text, link = "", user }) => {
       history.push(link);
     } else {
       setClick(!click);
-      console.log(click)
     }
   };
 

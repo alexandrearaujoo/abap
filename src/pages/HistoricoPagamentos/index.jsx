@@ -7,6 +7,7 @@ import Lista from "../../components/Listas";
 import Main from "../../components/Main";
 import MotionDiv from "../../components/MotionDiv";
 import { usePagamentos } from "../../providers/Pagamentos";
+import {MdPersonAdd} from 'react-icons/md'
 
 const HistoricoPagamentos = () => {
 
@@ -23,7 +24,7 @@ const HistoricoPagamentos = () => {
       <Main>
         <h2>Eu sou sua página de faturas</h2>
         <MotionDiv>
-          <Busca />
+          <Busca icon={MdPersonAdd}/>
           <DivLista
             title1="Mês"
             title2="Consumo"

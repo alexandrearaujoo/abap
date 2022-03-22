@@ -5,12 +5,14 @@ export const Section = styled.section`
   display: flex;
   justify-content: center;
   align-items: flex-start;
+
+
   
 `;
 
 export const Form = styled.form`
   width: 80%;
-  height: 370px;
+  height: 450px;
   max-width: 500px;
   display: flex;
   flex-direction: column;
@@ -39,6 +41,33 @@ export const Form = styled.form`
           transform: translateY(100px);
     }
 }
+
+button:first-child {
+    align-self: flex-end;
+    margin-right: 10px;
+    width: 50px;
+    height: 50px;
+    svg {
+      color: var(--black);
+    }
+  }
+
+  button:first-child:hover{
+    background-color:transparent;
+    svg{
+      color: var(--color-primary);
+      font-size: 30px;
+    }
+  }
+  button:first-child:active{
+    background-color:transparent;
+    svg{
+      background-color: var(--color-secondary);
+      font-size: 20px;
+      border-radius: 50%;
+      
+    }
+
 `;
 
 export const Div = styled.div`

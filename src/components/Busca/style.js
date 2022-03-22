@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   width: 100%;
-  height: 55px;
+  height: 65px;
   display: flex;
   justify-content: space-between;
   margin-bottom: 5px;
@@ -17,11 +17,11 @@ export const Container = styled.div`
 
 export const DivBusca = styled.div`
   width: 90%;
-  height: 45px;
+  height: 50px;
   display: flex;
   justify-content: space-between;
-
   align-items: center;
+
   background-color: var(--white);
   border-radius: 3px;
   padding: 5px;
@@ -44,6 +44,7 @@ export const DivBusca = styled.div`
     display: flex;
     flex-direction: row;
     width: 60%;
+    margin-top: 5px;
 
   }
   section button{

@@ -27,7 +27,7 @@ const Busca = ({ icon, ...rest }) => {
                 <ButtonAdd
                   icon={FaSearch}
                   background='var(--color-secondary)'
-                  heigth="30px"
+                  heigth="40px"
                   radius="0 5px 5px 0;"
                   
                 ></ButtonAdd>

@@ -64,15 +64,22 @@ console.log(associados)
         <Form onSubmit={handleSubmit(handleUpdate)}>
           <ButtonAdd onClick={handleClick} icon={AiOutlineCloseCircle} />
           <h2>Informações do medidor</h2>
+          
           <InputDefault
             width="90%"
-            value={infos._id}
+          
+            value={infos.numero}
             disabled={true}
-            label="ID do medidor"
+            label="Número do medidor"
+            bordercolor={'var(--background-menus)'}
+            backgrd={'var(--white)'}
+
+          
           />
+          
 
           <Input
-            label="CPf Associado"
+            label="CPF Associado"
             name="cpf"
             error={errors.cpf?.message}
             register={register}
@@ -86,6 +93,8 @@ console.log(associados)
             value={nome}
             disabled={true}
             label="Nome do associado"
+            bordercolor={'var(--background-menus)'}
+            backgrd={'var(--white)'}
           />
 
           <InputDefault
@@ -93,6 +102,8 @@ console.log(associados)
             value={infos.endereco}
             disabled={true}
             label="Endereço"
+            bordercolor={'var(--background-menus)'}
+            backgrd={'var(--white)'}
           />
 
           <Div>
@@ -101,6 +112,8 @@ console.log(associados)
               value={infos.status}
               disabled={true}
               label="Status"
+              bordercolor={'var(--background-menus)'}
+              backgrd={'var(--white)'}
             />
             <select onChange={(e) => setStatus(e.currentTarget.value)}>
               <option value='Ativo'>Status</option>

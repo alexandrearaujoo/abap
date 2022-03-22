@@ -8,6 +8,7 @@ export const StyledMain = styled.main`
   background-color: var(--white);
   width: 100vw;
   height: 100vh;
+
   margin: 0 auto;
   position: relative;
   top: 12vh;

@@ -3,7 +3,7 @@ import {
 } from "styled-components";
 import styled from "styled-components";
 
-export const GlobalStyle = createGlobalStyle `
+export const GlobalStyle = createGlobalStyle`
 
     html, body, div, span, applet, object, iframe,
     h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -19,7 +19,7 @@ export const GlobalStyle = createGlobalStyle `
     menu, nav, output, ruby, section, summary,
     time, mark, audio, video {
         vertical-align: baseline;
-    box-sizing: border-box;
+        box-sizing: border-box;
         margin: 0;
         padding: 0;
         border: 0;
@@ -96,7 +96,9 @@ export const StyledContainer = styled.div `
   justify-content: ${(props) => props.column ? "center" : "space-between"};
   align-items: center;
   gap: 10px;
+
   width: ${(props) => props.column ? "100%" : "80%"};
+
   height: 100%;
   margin: 0 auto;
 `;

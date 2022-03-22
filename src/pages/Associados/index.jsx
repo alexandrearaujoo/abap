@@ -70,7 +70,7 @@ const Associados = () => {
     <>
       <Header icon={<AiOutlineMenu />} />
       <Sidebar />
-      <Main>
+      <Main colunm>
         <Container>
           <MotionDiv>
             {/* <h2>Cadastrar Associados</h2> */}
@@ -111,7 +111,11 @@ const Associados = () => {
                       <div className="inativo"></div>
                     )
                   }
-                  info3={"Devedor"}
+                  info3={itens.status === "Ativo" ? (
+                    <div className="ativo"></div>
+                  ) : (
+                    <div className="inativo"></div>
+                  )}
                   info4={
                     <div>
                       <ButtonAdd
@@ -128,7 +132,7 @@ const Associados = () => {
               ))}
             </DivLista>
           </MotionDiv>
-        </Container>
+          </Container>
       </Main>
     </>
   );

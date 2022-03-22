@@ -7,6 +7,7 @@ export const PagamentosProvider = ({children}) => {
 
     const [pagamentos, setPagamentos] = useState([])
     const [historicoUser, setHistoricoUser] = useState([])
+    const [infoPagamento, setInfoPagamento] = useState([])
 
     const loadPagamentos = () => {
         api.get('/pagamentos')
@@ -23,8 +24,19 @@ export const PagamentosProvider = ({children}) => {
         .catch(err => console.log(err))
     }
 
+    const getPagamento = (id) => {
+        api.get(`/pagamentos/${id}`)
+        .then(res => setInfoPagamento(res.data))
+        .catch(err => console.log(err))
+    }
+
+    // const gerarQRcode = (data, id) => {
+    //     api.post(`/pagamentos/${id}`, data)
+    //     .then(res => )
+    // }
+
     return (
-        <PagamentosContext.Provider value={{pagamentos, historicoUser, getHistoricoAssociado}}>
+        <PagamentosContext.Provider value={{pagamentos, historicoUser,infoPagamento, getHistoricoAssociado, getPagamento}}>
             {children}
         </PagamentosContext.Provider>
     )

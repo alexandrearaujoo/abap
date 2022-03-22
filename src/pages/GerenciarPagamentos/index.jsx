@@ -8,12 +8,19 @@ import Header from "../../components/Header";
 import { usePagamentos } from "../../providers/Pagamentos";
 import {AiOutlineMenu} from 'react-icons/ai'
 import ButtonAdd from '../../components/ButtonAdd'
+import ModalInfoPagamentos from '../../components/ModalInfoPagamentos'
 import { BsInfoSquare } from "react-icons/bs";
 
 const GerenciarPagamentos = () => {
-  const [showForm, setShowForm] = useState(false);
+  const [showInfosPagamentos, setInfosPagamentos] = useState(false);
 
-  const {pagamentos} = usePagamentos()
+  const handleClick = () => setInfosPagamentos(!showInfosPagamentos)
+
+  const {pagamentos, getPagamento} = usePagamentos()
+
+  const handleInfoPagamento = (id) => {
+    getPagamento(id);
+  };
 
   return (
     <>
@@ -23,6 +30,7 @@ const GerenciarPagamentos = () => {
       <Container>
         <MotionDiv>
           <h2>Pagamentos realizados</h2>
+          {showInfosPagamentos && <ModalInfoPagamentos handleClick={handleClick}/>}
           <DivLista title1="Nome" title2="Valor" title3="Status">
             {pagamentos.map((item, index) => (
               <Lista
@@ -33,6 +41,10 @@ const GerenciarPagamentos = () => {
                 info4={<ButtonAdd
                   color="#000"
                   icon={BsInfoSquare}
+                  onClick={() => {
+                    handleClick();
+                    handleInfoPagamento(item._id);
+                  }}
                 ></ButtonAdd>}
               />
             ))}

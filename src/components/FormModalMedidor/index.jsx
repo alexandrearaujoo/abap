@@ -12,13 +12,13 @@ const FormModalMedidor = ({ handleClick }) => {
   const { addMedidores } = useMedidores();
 
   const schema = yup.object().shape({
-    codigo: yup.string().required("Campo Obrigatorio"),
-    id_associado: yup.string().required("Campo Obrigatorio"),
-    endereco: yup.string().required("Campo Obrigadotiro"),
-    numero: yup.string().required("Campo Obrigatorio"),
-    bairro: yup.string().required("Campo Obrigatorio"),
-    cidade: yup.string().required("Campo Obrigatorio"),
-    estado: yup.string().required("Campo Obrigatorio"),
+    codigo: yup.string().required("Código Obrigatório"),
+    id_associado: yup.string().required("Id Obrigatório"),
+    endereco: yup.string().required("End. Obrigatório"),
+    numero: yup.string().required("Número Obrigatório"),
+    bairro: yup.string().required("Bairro Obrigatório"),
+    cidade: yup.string().required("Cidade Obrigatório"),
+    estado: yup.string().required("Estado Obrigatório"),
   });
 
   const {

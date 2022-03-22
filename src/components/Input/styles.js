@@ -4,18 +4,23 @@ export const Inputs = styled.div`
   border: 2px solid var(--white);
   border-radius: 3px;
   position: relative;
-  height: 30px;
+  height: 40px;
   width: 90%;
+  background-color: var(--white);
+  line-height: 10px;
   /* margin-top: 20px; */
+  margin: 0 auto;
+  margin-top: 20px;
+
   ${(props) =>
     props.isErrored &&
     css`
-      border-color: orange;
+      border-color: red;
     `}
 
     ${(props) =>
     css`
-      border-color:${(props)=> props.bordercolor};
+      border-color:${(props)=> props ? props.bordercolor : 'transparent'};
     `}
   input {
     background: transparent;
@@ -25,7 +30,7 @@ export const Inputs = styled.div`
     color: var(--black);
     width: 100%;
     height: 95%;
-    font-size: 15px;
+    font-size: 15px;  
   }
 
   textarea:focus,
@@ -39,47 +44,49 @@ export const Inputs = styled.div`
   label {
     pointer-events: none;
     position: absolute;
-    /* margin-left: -82px; */
-    /* margin-top: 7px; */
     margin-top: -23px;
     margin-left: 3px;
-    font-size: 15px;
-    color: var(--white);
+    font-size: 18px;
+    color: var(--black);
+   
   }
   input:focus + label {
-    margin-top: -32px;
+    margin-top: -43px;
     padding-left: 3px;
     padding-right: 3px;
-    background: var(--color-secondary);
+    background: var(--background-menus);
     font-size: 10px;
     transition: 0.2s;
+    border-radius: 10px;
     span {
       ${(props) =>
         props.isErrored &&
         css`
-          color: orange;
+          color: red;
           font-size: 10px;
         `}
     }
   }
   input:not(:placeholder-shown) + label {
-    margin-top: -32px;
-    background: var(--color-secondary);
+    margin-top: -43px;
+    background: var(--background-menus);
     padding-left: 3px;
     padding-right: 3px;
     font-size: 10px;
     transition: 0.2s;
+    border-radius: 10px;
   }
   label {
     ${(props) =>
       props.isErrored &&
       css`
-        color: orange;
-        margin-top: -32px;
+        color: red;
+        margin-top: -43px;
         padding-left: 3px;
         padding-right: 3px;
         font-size: 10px;
-        background: var(--color-secondary);
+        background: var(--background-menus);
+        border-radius: 10px;
       `}
   }
 `;

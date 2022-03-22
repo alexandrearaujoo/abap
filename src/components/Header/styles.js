@@ -8,7 +8,7 @@ export const StyledHeader = styled.header`
   width: 100vw;
   height: 12vh;
   color: var(--white);
-  box-shadow: 0px 4px 4px rgba(131, 131, 131, 1);
+  box-shadow: 0px 4px 4px var(--black);
   position: fixed;
   z-index: 1;
 

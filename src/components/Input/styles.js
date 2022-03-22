@@ -9,6 +9,9 @@ export const Inputs = styled.div`
   background-color: var(--white);
   line-height: 10px;
   /* margin-top: 20px; */
+  margin: 0 auto;
+  margin-top: 20px;
+
   ${(props) =>
     props.isErrored &&
     css`
@@ -27,7 +30,7 @@ export const Inputs = styled.div`
     color: var(--black);
     width: 100%;
     height: 95%;
-    font-size: 15px;
+    font-size: 15px;  
   }
 
   textarea:focus,

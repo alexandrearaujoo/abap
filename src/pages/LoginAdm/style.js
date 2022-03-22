@@ -5,8 +5,8 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
   border-radius: 4px;
- 
-`;
+  
+  `;
 export const ContainerForm = styled.div`
   display: flex;
   align-items: center;
@@ -14,10 +14,11 @@ export const ContainerForm = styled.div`
   justify-content: center;
   margin-top: 20px;
   height: 400px;
-  width: 320px;
+  width: 90%;
   background-color: #d9e0f5;
   color: #13191b;
   border-radius: 5px;
+
 
   .message-login {
     display: flex;
@@ -56,23 +57,9 @@ export const ContainerForm = styled.div`
   button:hover {
     border: 2px solid #333333;
   }
-  .btnRegister {
-    width: 280px;
-    height: 48px;
-    margin: 15px 0;
-    background: #4c526b;
-    color: var(--grey-0);
-    font-weight: bold;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-  }
-  .btnRegister:hover {
-    border: 2px solid var(--grey-2_5);
-    opacity: 0.8;
-  }
+ 
   .btnLogin {
-    width: 280px;
+    width: 90%;
     height: 48px;
     margin: 15px 0;
     background-color: #4a5292;
@@ -99,8 +86,9 @@ export const ContainerForm = styled.div`
   }
   .message-buttons {
     display: flex;
-    flex-direction: column;
+    flex-direction: column;  
     justify-content: center;
     align-items: center;
+    margin-top: 40px;  
   }
 `;

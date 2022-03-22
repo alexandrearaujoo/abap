@@ -5,13 +5,17 @@ import SidebarAssociado from "../../components/SidebarAssociado";
 import { StyledSection, StyledSectionNews } from "./styles";
 
 const DashboardAssociado = () => {
+
+  const user = JSON.parse(localStorage.getItem("ARAP:User:"))
+
+
   return (
     <div>
       <Header icon={<AiOutlineMenu />} user="associado" />
       <SidebarAssociado />
       <Main>
         <StyledSection>
-        <h2>Bem-vindo, @Usuário!</h2>
+        <h2>Bem-vindo, {user.name}</h2>
 
           <article>
             <p>Membro desde: <span>xx/xx/xxxx</span></p>

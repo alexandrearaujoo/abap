@@ -5,19 +5,22 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import Button from "../Button";
+import { useEffect } from "react";
+import { usePagamentos } from "../../providers/Pagamentos";
 
 const AutoLeitura = () => {
   const schema = yup.object().shape({
-    nome_completo: yup.string().required("Nome obrigatório"),
-    numero_registro: yup
-      .string()
-      .required("Nº registro obrigatório!")
-      .matches(/[0-9]+/, "Insira apenas números")
-      .min(6, "Insira no mínimo 6 digitos")
-      .max(8, "Insira no máximo 8 digitos"),
+    medidor: yup
+      .string().required('Campo Obrigatorio')
   });
+   const {id} = JSON.parse(localStorage.getItem('ARAP:User:'))
+   const {historicoUser, getHistoricoAssociado} = usePagamentos()
 
-  const {
+   useEffect(() => {
+    getHistoricoAssociado(id)
+  },[])
+
+  const { 
     register,
     handleSubmit,
     formState: { errors },
@@ -26,7 +29,7 @@ const AutoLeitura = () => {
   });
 
   const onSubmit = (data) => {
-    console.log(data.numero_registro);
+    console.log(data, id);
   };
 
   return (
@@ -35,15 +38,9 @@ const AutoLeitura = () => {
       <h1>Leitura</h1>
       <span>Insira o código do medidor</span>
       <Input
-        label="Nome do Associado"
-        name="nome_completo"
-        error={errors.nome_completo?.message}
-        register={register}
-      />
-      <Input
-        label="Nº do Registro"
-        name="numero_registro"
-        error={errors.numero_registro?.message}
+        label="Digite o consumo"
+        name="medidor"
+        error={errors.medidor?.message}
         register={register}
       />
       <Button>Concluir</Button>

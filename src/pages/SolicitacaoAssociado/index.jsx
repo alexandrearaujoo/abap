@@ -36,23 +36,27 @@ const SolicitacaoAssociado = () => {
         <Section>
           <Form onSubmit={handleSubmit(onSubmit)}>
             <h2>Mensagem da Solicitação</h2>
+            <span>Descreva a solicitação que deseja informar</span>
             <Input
               label="Titulo"
               name="title"
               error={errors.title?.message}
               register={register}
+              bordercolor={`var(--color-secondary)`}
             />
             <Input
               label="Descrição"
               name="description"
               error={errors.description?.message}
               register={register}
+              bordercolor={`var(--color-secondary)`}
             />
             <Input
               label="Telefone"
               name="tel"
               error={errors.tel?.message}
               register={register}
+              bordercolor={`var(--color-secondary)`}
             />
             <Button type="submit" margin="0px" padding="0px 5px">
               Salvar

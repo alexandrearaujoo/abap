@@ -5,11 +5,11 @@ export const Section = styled.section`
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  z-index: 1;
+  
 `;
 
 export const Form = styled.form`
-  width: 90%;
+  width: 80%;
   height: 370px;
   max-width: 500px;
   display: flex;
@@ -27,11 +27,6 @@ export const Form = styled.form`
   h2 {
     text-align: center;
     color: var(--black);
-  }
-
-  span {
-    font-size: var(--headline);
-    text-align: center;
   }
 
   @keyframes slide-bottom {
@@ -53,9 +48,9 @@ export const Div = styled.div`
     align-items: center;
 
     select {
-      background-color: var(--color-secondary);
-      color: var(--white);
-      height: 30px;
-      border-radius: 5px;
+        background-color: var(--color-secondary);
+    color: var(--white);
+    height: 30px;
+    border-radius: 5px;
     }
 `

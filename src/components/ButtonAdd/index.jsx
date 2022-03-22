@@ -11,6 +11,8 @@ const ButtonAdd = ({
   marginBottom = "0px",
   ...rest
 }) => {
+
+
   return (
     <Container
       {...rest}
@@ -23,6 +25,7 @@ const ButtonAdd = ({
       type={rest.type}
     >
       <Icon />
+
       {children}
     </Container>
   );

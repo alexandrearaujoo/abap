@@ -38,6 +38,7 @@ export const AssociadoProvider = ({ children }) => {
                 }
             })
             .then((res) => {      
+                localStorage.setItem('ARAP:User:', JSON.stringify(res.data))
                 changeTokenUser(res.data.token)                  
                 infosUser(res.data.id);              
             })

@@ -2,7 +2,7 @@ import Header from "../../components/Header";
 import {AiOutlineMenu} from "react-icons/ai"
 import Main from "../../components/Main";
 import SidebarAssociado from "../../components/SidebarAssociado";
-import { StyledSectionNews } from "./styles";
+import { StyledSection, StyledSectionNews } from "./styles";
 
 const DashboardAssociado = () => {
   return (
@@ -10,8 +10,8 @@ const DashboardAssociado = () => {
       <Header icon={<AiOutlineMenu />} user="associado" />
       <SidebarAssociado />
       <Main>
+        <StyledSection>
         <h2>Bem-vindo, @Usuário!</h2>
-        <section>
 
           <article>
             <p>Membro desde: <span>xx/xx/xxxx</span></p>
@@ -35,7 +35,7 @@ const DashboardAssociado = () => {
             </div>
           </StyledSectionNews>
 
-        </section>
+        </StyledSection>
       </Main>
     </div>
   )

@@ -7,12 +7,8 @@ import Input from "../../components/Input";
 import { useAssociados } from '../../providers/Associados'
 
 import Header from "../../components/Header";
-import { toast } from 'react-hot-toast'
-
-import api from "../../services/api";
-
 import { Container, ContainerForm } from "./style";
-import { MdAttachMoney } from "react-icons/md";
+
 
 const LoginAssociado = () => {
   

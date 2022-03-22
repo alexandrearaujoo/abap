@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   width: 100%;
-  max-height: 500px;
+  max-height: 375px;
   overflow-y: scroll;
   display: flex;
   align-items: center;

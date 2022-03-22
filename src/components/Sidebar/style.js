@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Container = styled.section`
   position: fixed;
   z-index: 1;
-  top: 2%;
+  top: 0;
 
   .active {
     border-right: 4px solid #fff;
@@ -61,11 +61,10 @@ export const SlickBar = styled.ul`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   background-color: var(--color-primary-50);
   padding: 2rem 0;
   position: absolute;
-  top: -10px;
   left: ${(props) => (props.clicked ? "0px" : "-65px")};
   width: ${(props) => (props.clicked ? "15rem" : "3.5rem")};
   height: 100vh;
@@ -166,6 +165,7 @@ export const Item = styled.div`
   display: flex;
   align-items: center;
   padding-left: 1rem;
+
   &:hover {
     border-right: 4px solid var(--white);
     img {
@@ -173,10 +173,8 @@ export const Item = styled.div`
         brightness(103%) contrast(103%);
     }
   }
-  img {
-    width: 2.2rem;
-    height: auto;
-    filter: invert(92%) sepia(4%) saturate(1033%) hue-rotate(169deg)
-      brightness(78%) contrast(85%);
+
+  svg {
+    color: var(--white);
   }
 `;

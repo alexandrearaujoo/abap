@@ -36,7 +36,7 @@ console.log(rest.icon)
           
           <FormOptions>
                 <select value={rest.status} onChange={rest.changeStatus}>
-                  {/* <option defaultValue={"status"} disabled={true}>Status</option> */}
+                <option selected disabled>Status</option>
                   <option value="Todos">Todos</option>
                   <option value="Ativo">Ativo</option>
                   <option value="Inativo">Inativo</option>
@@ -59,49 +59,6 @@ console.log(rest.icon)
 };
 export default Busca;
 
-
-
-//COPIAR PARA A PAGE QUE UTILIZARA A BUSCA
-// const [showForm, setShowForm] = useState(false);
-// const [showInfos, setShowInfos] = useState(false)
-// const {associados, infosUser, infoUser} = useAssociados()
-// const [busca, setBusca] = useState("") // Armazena dados da busca
-// const [arrayBusca, setArrayBusca] = useState ([])
-// const [status, setStatus] = useState ("")
-
-// let array = ARRAY COM DADOS DA API
-
-
-
-// // Exibe o Formulario de cadastro associado
-// const handleClick = () => {
-//   setShowForm(!showForm);
-// };
-
-// const onSubmit = (e) => {
-//   e.preventDefault()
-//   const filter = (associados.filter((associado)=>associado.name.toLocaleLowerCase().includes(busca.toLocaleLowerCase().trim())))
-//   setArrayBusca(filter)
-//   setBusca("")
-//   filter.length < 1 && toast.error("Não encontrei nenhuma referência!"); 
-// }
-
-
-// const changeStatus = (e) =>{
-//   setStatus(e.target.value)
-//   let status = e.target.value
-//   status === 'Status...' || status === 'todos' ? setArrayBusca(associados) : 
-//   setArrayBusca(associados.filter((associado)=>associado.status === status))
-
-// }
-
-// arrayBusca.length > 1 ? array = arrayBusca : status ? array = arrayBusca : array = associados
-
-// const handleShowInfos = () => setShowInfos(!showInfos)
-
-// const handleInfoUser = (id) => {
-//   infosUser(id)
-// }
 
   
   

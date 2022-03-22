@@ -7,7 +7,7 @@ export const StyledMain = styled.main`
   align-items: center;
   background-color: var(--white);
   width: 100vw;
-  height: 100vh;
+  height: 88vh;
 
   margin: 0 auto;
   position: relative;

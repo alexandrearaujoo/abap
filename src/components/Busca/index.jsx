@@ -5,7 +5,7 @@ import InputDefault from "../InputDefault";
 import {FaSearch} from 'react-icons/fa' 
 
 
-const Busca = ({ ...rest }) => {
+const Busca = ({ icon, ...rest }) => {
 
   // armazena o que foi digitado pelo usuario
   const handleChange = (e) => {
@@ -13,7 +13,7 @@ const Busca = ({ ...rest }) => {
     rest.setBusca(e.target.value)
     
   }
-
+console.log(rest.icon)
 
   return (
     <Container>
@@ -36,14 +36,15 @@ const Busca = ({ ...rest }) => {
           
           <FormOptions>
                 <select value={rest.status} onChange={rest.changeStatus}>
-                  <option defaultValue={"status"}>Status</option>
-                  <option value="todos">Todos</option>
+                  {/* <option defaultValue={"status"} disabled={true}>Status</option> */}
+                  <option value="Todos">Todos</option>
                   <option value="Ativo">Ativo</option>
                   <option value="Inativo">Inativo</option>
                 </select>
 
                 <ButtonAdd
-                  icon={MdPersonAdd}
+                  // icon={MdPersonAdd}
+                  icon={icon}
                   onClick={rest.handleClick}
                   background='var(--color-secondary)'
                   heigth="30px"

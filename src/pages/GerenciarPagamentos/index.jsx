@@ -10,6 +10,7 @@ import {AiOutlineMenu} from 'react-icons/ai'
 import ButtonAdd from '../../components/ButtonAdd'
 import ModalInfoPagamentos from '../../components/ModalInfoPagamentos'
 import { BsInfoSquare } from "react-icons/bs";
+import Blocker from '../../components/Blocker'
 
 const GerenciarPagamentos = () => {
   const [showInfosPagamentos, setInfosPagamentos] = useState(false);
@@ -30,7 +31,7 @@ const GerenciarPagamentos = () => {
       <Container>
         <MotionDiv>
           <h2>Pagamentos realizados</h2>
-          {showInfosPagamentos && <ModalInfoPagamentos handleClick={handleClick}/>}
+          {showInfosPagamentos && <Blocker><ModalInfoPagamentos handleClick={handleClick}/></Blocker>}
           <DivLista title1="Nome" title2="Valor" title3="Status">
             {pagamentos.map((item, index) => (
               <Lista

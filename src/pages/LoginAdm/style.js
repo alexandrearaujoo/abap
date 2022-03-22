@@ -14,11 +14,11 @@ export const ContainerForm = styled.div`
   justify-content: center;
   margin-top: 20px;
   height: 400px;
-  width: 320px;
+  width: 90%;
   background-color: #d9e0f5;
   color: #13191b;
   border-radius: 5px;
-  margin-top: 140px;
+
 
   .message-login {
     display: flex;
@@ -59,7 +59,7 @@ export const ContainerForm = styled.div`
   }
  
   .btnLogin {
-    width: 280px;
+    width: 90%;
     height: 48px;
     margin: 15px 0;
     background-color: #4a5292;
@@ -86,8 +86,9 @@ export const ContainerForm = styled.div`
   }
   .message-buttons {
     display: flex;
-    flex-direction: column;
+    flex-direction: column;  
     justify-content: center;
     align-items: center;
+    margin-top: 40px;  
   }
 `;

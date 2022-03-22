@@ -18,7 +18,7 @@ export const Container = styled.div`
   background-color: #d9e0f5;
   color: #13191b;
   border-radius: 5px;
-  margin-top: 140px;
+  
   
   .message-login {
     display: flex;
@@ -66,7 +66,7 @@ export const Container = styled.div`
     font-weight: bold;
     border: none;
     border-radius: 8px;
-    cursor: pointer;
+    cursor: pointer;    
   }
   .btnRegister:hover {
     border: 2px solid var(--grey-2_5);
@@ -103,5 +103,6 @@ export const Container = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-top: 20px;
   }
 `;

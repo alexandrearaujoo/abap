@@ -7,8 +7,8 @@ export const StyledMain = styled.main`
   align-items: center;
   background-color: var(--white);
   width: 100%;
-  max-width: 900px;
-  height: 90vh;
+  max-width: 1012px;
+  height: 88vh;
   margin: 0 auto;
   position: relative;
   top: 12vh;

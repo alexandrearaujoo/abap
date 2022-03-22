@@ -74,7 +74,7 @@ export const DivBusca = styled.div`
 
   select:active {
     background-color: var(--color-secondary);
-    color:var(--black);}
+    color:var(--black);
   }
 
 

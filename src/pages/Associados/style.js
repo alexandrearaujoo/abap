@@ -5,8 +5,9 @@ export const Container = styled.section`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
-    height: 100vh;
+    background-color: var(--color-primary);
+    height: inherit;
+    max-width: 800px;
   
     h2{
         text-align: center;

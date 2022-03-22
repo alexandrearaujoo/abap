@@ -27,7 +27,6 @@ const ModalInfoUser = ({ infos, handleClick}) => {
   const handleUpdate = (data) => {
     data.status = status;
     updateUser(data, infos._id);
-    loadAssociado();
   };
 
   return (

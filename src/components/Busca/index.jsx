@@ -36,7 +36,7 @@ const Busca = ({ ...rest }) => {
           
           <FormOptions>
                 <select value={rest.status} onChange={rest.changeStatus}>
-                  <option defaultValue={"status"}>Status</option>
+                <option selected disabled>Status</option>
                   <option value="todos">Todos</option>
                   <option value="Ativo">Ativo</option>
                   <option value="Inativo">Inativo</option>

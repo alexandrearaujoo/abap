@@ -23,6 +23,7 @@ const ButtonAdd = ({
       type={rest.type}
     >
       <Icon />
+
       {children}
     </Container>
   );

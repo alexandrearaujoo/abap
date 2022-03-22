@@ -6,7 +6,7 @@ export const Inputs = styled.div`
   position: relative;
   height: 30px;
   width: 90%;
-  margin-top: 20px;
+  /* margin-top: 20px; */
   ${(props) =>
     props.isErrored &&
     css`

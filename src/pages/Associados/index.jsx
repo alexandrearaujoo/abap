@@ -11,6 +11,7 @@ import { BsInfoSquare } from "react-icons/bs";
 import ButtonAdd from "../../components/ButtonAdd";
 import Busca from "../../components/Busca";
 import { AiOutlineMenu } from "react-icons/ai";
+import {MdPersonAdd} from 'react-icons/md'
 import { useAssociados } from "../../providers/Associados";
 import ModalInfoUser from "../../components/ModalInfoUser";
 import toast from "react-hot-toast";
@@ -54,7 +55,7 @@ const Associados = () => {
         );
   };
 
-  arrayBusca.length > 1
+  arrayBusca.length > 0
     ? (array = arrayBusca)
     : status
     ? (array = arrayBusca)
@@ -89,6 +90,7 @@ const Associados = () => {
               changeStatus={changeStatus}
               onSubmit={onSubmitBsk}
               label="Associado"
+              icon={MdPersonAdd}
             />
 
             {showInfos && (

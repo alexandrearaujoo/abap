@@ -13,6 +13,12 @@ import {
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 
+import { AiOutlineHome } from "react-icons/ai";
+import { RiGroupLine } from "react-icons/ri";
+import { MdAttachMoney } from "react-icons/md";
+import { BsUpcScan } from "react-icons/bs";
+import { BiPhoneCall } from "react-icons/bi"
+
 const Sidebar = ({ click, setClick }) => {
   const history = useHistory();
 
@@ -26,14 +32,21 @@ const Sidebar = ({ click, setClick }) => {
           <Item
             onClick={() => {
               setClick(false);
+              history.push("/dashboardAdm");
+            }}
+            activeClassName="active"
+          >
+            <AiOutlineHome size={40} />
+            <Text clicked={click}>Página Inicial</Text>
+          </Item>
+          <Item
+            onClick={() => {
+              setClick(false);
               history.push("/associados");
             }}
             activeClassName="active"
           >
-            <img
-              src="https://img.icons8.com/ios-filled/50/000000/conference-call.png"
-              alt="Associados"
-            />
+            <RiGroupLine size={40}/>
             <Text clicked={click}>Associados</Text>
           </Item>
           <Item
@@ -42,24 +55,8 @@ const Sidebar = ({ click, setClick }) => {
             }}
             activeClassName="active"
           >
-            <img
-              src="https://img.icons8.com/external-kosonicon-solid-kosonicon/48/000000/external-withdraw-money-and-payment-kosonicon-solid-kosonicon.png"
-              alt="Gerenciar Pagamentos"
-            />
+            <MdAttachMoney size={40} />
             <Text clicked={click}>Gerenciar Pagamentos</Text>
-          </Item>
-          <Item
-            onClick={() => {
-              setClick(false);
-              history.push("/cadastros");
-            }}
-            activeClassName="active"
-          >
-            <img
-              src="https://img.icons8.com/external-others-iconmarket/64/000000/external-register-online-learning-others-iconmarket-2.png"
-              alt="Cadastrar Associados"
-            />
-            <Text clicked={click}>Medidores</Text>
           </Item>
           <Item
             onClick={() => {
@@ -68,11 +65,18 @@ const Sidebar = ({ click, setClick }) => {
             }}
             activeClassName="active"
           >
-            <img
-              src="https://img.icons8.com/external-vitaliy-gorbachev-fill-vitaly-gorbachev/60/000000/external-invitation-event-vitaliy-gorbachev-fill-vitaly-gorbachev.png"
-              alt="Solicitações"
-            />
+            <BiPhoneCall size={40} />
             <Text clicked={click}>Solicitações</Text>
+          </Item>
+          <Item
+            onClick={() => {
+              setClick(false);
+              history.push("/cadastros");
+            }}
+            activeClassName="active"
+          >
+            <BsUpcScan size={40} />
+            <Text clicked={click}>Medidores</Text>
           </Item>
         </SlickBar>
       </Container>

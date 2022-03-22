@@ -16,8 +16,8 @@ import { useHistory } from "react-router-dom";
 import { AiOutlineHome } from "react-icons/ai";
 import { RiGroupLine } from "react-icons/ri";
 import { MdAttachMoney } from "react-icons/md";
-import { BsUpcScan } from "react-icons/bs";
-import { BiPhoneCall } from "react-icons/bi"
+import { CgPerformance } from "react-icons/cg";
+import { BiPhoneCall } from "react-icons/bi";
 
 const Sidebar = ({ click, setClick }) => {
   const history = useHistory();
@@ -75,7 +75,7 @@ const Sidebar = ({ click, setClick }) => {
             }}
             activeClassName="active"
           >
-            <BsUpcScan size={40} />
+            <CgPerformance size={40} />
             <Text clicked={click}>Medidores</Text>
           </Item>
         </SlickBar>

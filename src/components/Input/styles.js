@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 
 export const Inputs = styled.div`
-  border: 2px solid var(--white);
+  border: 2px solid var(--color-secondary);
   border-radius: 3px;
   position: relative;
   height: 40px;
@@ -47,7 +47,7 @@ export const Inputs = styled.div`
     margin-top: -23px;
     margin-left: 3px;
     font-size: 18px;
-    color: var(--black);
+    color: var(--color-secondary);
    
   }
   input:focus + label {

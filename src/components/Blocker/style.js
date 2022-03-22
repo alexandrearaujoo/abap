@@ -10,5 +10,5 @@ export const BlockerContainer = styled.div`
   z-index: 1;
   background-color: rgba(0, 0, 0, 0.5);
   left: 0px;
-  top: 0px;
+  top: 12vh;
 `;

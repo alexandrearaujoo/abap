@@ -22,7 +22,7 @@ const HistoricoPagamentos = () => {
     <>
       <Header icon={<AiOutlineMenu />} user="associado" />
       <Main>
-        <h2>Eu sou sua página de faturas</h2>
+        <h2>Faturas</h2>
         <MotionDiv>
           <Busca icon={MdPersonAdd}/>
           <DivLista

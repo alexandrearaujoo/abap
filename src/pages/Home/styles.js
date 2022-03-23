@@ -1,21 +1,22 @@
 import styled from "styled-components";
 
 export const Main = styled.main`
-display: flex;
-flex-direction: column;
-justify-content: flex-start;
-align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
 
-background-color: var(--white);
-width: 100vw;
-height: 88vh;
-margin: 0 auto;
-position: relative;
-top: 12vh;
-z-index: -1;
+  background-color: var(--white);
+  width: 100vw;
+  height: 88vh;
+  margin: 0 auto;
+  position: relative;
+  top: 12vh;
+  z-index: -1;
 
-@media (min-width: 768px) {
-  width: 80vw;
+  @media (min-width: 768px) {
+    width: 80vw;
+    height: 88vh;
 }
 
 article {
@@ -53,6 +54,7 @@ export const StyledFigure = styled.figure`
   
   img {
     width: 100%;
+    height: 30vh;
     object-fit: fill;
     border: none;
     border-radius: 10px;

@@ -29,7 +29,6 @@ const Solicitacoes = () => {
  
   let array = solicitacoes;
 
-   // Exibe o Formulario de cadastro associado
   const handleClick = () => {
     setShowForm(!showForm);
   };
@@ -66,7 +65,8 @@ const Solicitacoes = () => {
     infosSolicitacoes(id);
   };
 
-  console.log(array);
+  const options = { year: 'numeric', month: 'long', day: 'numeric' };
+
   return (
     <>
       <Header icon={<AiOutlineMenu />} />
@@ -74,29 +74,24 @@ const Solicitacoes = () => {
       <Main colunm>
         <Container>
           <MotionDiv>
-            {showForm && (
-              <Blocker>
-                <FormModalAssociados handleClick={handleClick} />
-              </Blocker>
-            )}
-
             <Busca
-              handleClick={handleClick} // Componente de busca
+              handleClick={handleClick} 
               setBusca={setBusca}
               busca={busca}
               setStatus={setStatus}
               status={status}
               changeStatus={changeStatus}
               onSubmit={onSubmitBsk}
-              label="Associado"
-              icon={MdPersonAdd}
+              label="Pesquisar"
             />
 
             {showInfos && (
-              <ModalInfoSolicitacoes 
+             <Blocker>
+                <ModalInfoSolicitacoes 
               setShowInfos={setShowInfos}
               infos={infoSolicitacoes} 
               handleClick={handleShowInfos} />
+             </Blocker>
             )}
             <DivLista
               title1="Nome"
@@ -105,11 +100,12 @@ const Solicitacoes = () => {
               title4="Ações"
             >
               {array.map((itens) => (
-                <Lista
+                <Lista key={itens._id}
                   info1={<span>{itens.name}</span>}
-                  info2={<span>{itens.createdAt.slice(0,10).split('-').reverse().join('/')}</span>}
+                  info2={<span>{new Date(itens.createdAt).toLocaleDateString("pt-BR", options)
+                }</span>}
                   info3={
-                    itens.status === "Pendente" ? (
+                    itens.status === "Inativo" ? (
                       <div className="inativo"></div>
                     ) : (
                       <div className="ativo"></div>

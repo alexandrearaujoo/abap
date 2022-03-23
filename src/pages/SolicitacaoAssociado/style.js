@@ -5,7 +5,7 @@ export const Section = styled.section`
   max-width: 800px;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: baseline;
   background-color: var(--color-primary);
   height: 100%;
 `;
@@ -22,7 +22,6 @@ export const Form = styled.form`
   align-items: center;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   position: absolute;
-  top: 0;
   animation: slide-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 
   h2 {

@@ -39,7 +39,7 @@ export const ContainerForm = styled.div`
   form {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: stretch;
     height: 100%;
     padding: 15px;

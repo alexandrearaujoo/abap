@@ -5,7 +5,7 @@ export const Section = styled.section`
   max-width: 800px;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   background-color: var(--color-primary);
   height: 100%;
 `;
@@ -22,7 +22,6 @@ export const Form = styled.form`
   align-items: center;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   position: absolute;
-  top: 0;
   animation: slide-bottom 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 
   h2 {
@@ -50,7 +49,7 @@ export const Form = styled.form`
     align-self: flex-end;
     margin-right: 10px;
     width: 50px;
-    height: 50px;
+    height: 20px;
     svg {
       color: var(--black);
     }
@@ -96,9 +95,4 @@ export const Container = styled.section`
   height: inherit;
   width: 100%;
   max-width: 800px;
-
-  h2 {
-    text-align: center;
-    color: var(--white);
-  }
 `;

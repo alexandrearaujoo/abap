@@ -19,13 +19,6 @@ export const Container = styled.button`
     color: ${(props) => props.color};
     font-size:20px ;
   }
-
-  :hover {
-    /* filter: brightness(1); */
-    background: var(--color-primary);
-    
-  }
-
   :active {
     background-color: var(--color-secondary);
     svg{color:var(--black);}

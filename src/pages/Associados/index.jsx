@@ -77,7 +77,7 @@ const Associados = () => {
             
             {showForm && (
               <Blocker>
-                <FormModalAssociados handleClick={handleClick} />
+                <FormModalAssociados handleClick={handleClick} setShowForm={setShowForm}/>
               </Blocker>
             )}
 
@@ -94,7 +94,9 @@ const Associados = () => {
             />
 
             {showInfos && (
-              <ModalInfoUser infos={infoUser} handleClick={handleShowInfos} />
+              <Blocker>
+                <ModalInfoUser infos={infoUser} handleClick={handleShowInfos} setShowInfos={setShowInfos}/>
+              </Blocker>
             )}
             <DivLista
               title1="Nome"

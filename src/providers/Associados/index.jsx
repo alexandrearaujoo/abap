@@ -44,6 +44,7 @@ export const AssociadoProvider = ({ children }) => {
             })
             .then((res) => {
                 localStorage.setItem('ARAP:User:', JSON.stringify(res.data))
+                toast.success('Login Realizado')
                 changeTokenUser(res.data.token)
                 changeIdAssociado(res.data.id)
                 infosUser(res.data.id);
@@ -75,7 +76,9 @@ export const AssociadoProvider = ({ children }) => {
 
     const updateUser = (data, id) => {
         api.patch(`/users/${id}`, data)
-            .then(res => loadAssociado())
+            .then(res => {
+                toast.success('Dados atualizados')
+            })
             .catch(err => console.log(err))
     }
     return (

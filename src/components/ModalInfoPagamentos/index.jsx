@@ -9,7 +9,7 @@ import { usePagamentos } from "../../providers/Pagamentos";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import { Section, Form, Div } from "./style";
 
-const ModalInfoPagamento = ({handleClick}) => {
+const ModalInfoPagamento = ({handleClick, setInfosPagamentos}) => {
   const [status, setStatus] = useState("");
   const { infoPagamento, updatePagamento } = usePagamentos();
 
@@ -31,7 +31,11 @@ const ModalInfoPagamento = ({handleClick}) => {
   const handleUpdate = (data) => {
     data.status = status;
     updatePagamento(data, infoPagamento._id);
+    setInfosPagamentos(false)
   };
+
+  const options = { year: 'numeric', month: 'long', day: 'numeric' };
+  const date = new Date(infoPagamento.createdAt).toLocaleDateString("pt-BR", options)
 
   return (
     <Section>
@@ -39,7 +43,7 @@ const ModalInfoPagamento = ({handleClick}) => {
       <ButtonAdd onClick={handleClick} icon={AiOutlineCloseCircle} />
       <h2>Informações do pagamento</h2>
         <InputDefault width='90%'value={infoPagamento.medidor} disabled={true} label='Consumo'/>
-        <InputDefault width='90%' value={infoPagamento.createdAt.slice(0,10).split('-').reverse().join('/')} disabled={true} label='Data de pagamento'/>
+        <InputDefault width='90%' value={date} disabled={true} label='Data de pagamento'/>
         <Div>
           <InputDefault
             width="65%"

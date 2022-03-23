@@ -10,13 +10,13 @@ import ButtonAdd from "../ButtonAdd";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import { Section, Form, Div } from "./style";
 
-const ModalInfoUser = ({ infos, handleClick }) => {
+const ModalInfoUser = ({ infos, handleClick, setShowInfos }) => {
   const [status, setStatus] = useState("");
-  const { updateUser, loadAssociado } = useAssociados();
+  const [tipoUser, setTipoUser] = useState("");
+  const { updateUser} = useAssociados();
 
   const schema = yup.object().shape({
     name: yup.string(),
-    tipo_user: yup.string(),
     status: yup.string(),
   });
 
@@ -30,7 +30,9 @@ const ModalInfoUser = ({ infos, handleClick }) => {
 
   const handleUpdate = (data) => {
     data.status = status;
+    data.tipo_user = tipoUser
     updateUser(data, infos._id);
+    setShowInfos(false)
   };
 
   return (
@@ -85,21 +87,31 @@ const ModalInfoUser = ({ infos, handleClick }) => {
           />
 
           <select onChange={(e) => setStatus(e.currentTarget.value)}>
-            <option selected disabled>
+            <option>
               Status...
             </option>
             <option value="Ativo">Ativo</option>
             <option value="Inativo">Inativo</option>
           </select>
         </Div>
-        <Input
-          label="Tipo de usuario"
-          name="tipo_user"
-          error={errors.tipo_user?.message}
-          register={register}
-        />
-
-        <Button type="submit" margin="0px" padding="0px 5px">
+        <Div>
+        <InputDefault
+            width="65%"
+            value={infos.tipo_user}
+            disabled={true}
+            label="Status"
+            bordercolor={"var(--background-menus)"}
+            backgrd={"var(--white)"}
+          />
+          <select onChange={(e) => setTipoUser(e.currentTarget.value)}>
+            <option selected disabled>
+              Tipo User...
+            </option>
+            <option value="Gestor">Gestor</option>
+            <option value="Associado">Associado</option>
+          </select>
+          </Div>
+        <Button backgroundColor='var(--color-primary)' type="submit" margin="0px" padding="0px 5px">
           Salvar
         </Button>
       </Form>

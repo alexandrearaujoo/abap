@@ -13,6 +13,8 @@ import Main from "../Main";
 const SolicitacaoAssociado = () => {
   const { sendRequest } = useSolicitacoes();
 
+  const {id} = JSON.parse(localStorage.getItem('ARAP:User:'))
+
   const schema = yup.object().shape({
     title: yup.string().required("Campo obrigatorio"),
     description: yup.string().required("Campo Obrigatorio"),
@@ -27,7 +29,7 @@ const SolicitacaoAssociado = () => {
   });
 
   const onSubmit = (data) => {
-    sendRequest(data, "62350c952104a4a99aed3247");
+    sendRequest(data, id);
   };
 
   return (

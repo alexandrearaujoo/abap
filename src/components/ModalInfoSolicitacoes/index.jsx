@@ -22,7 +22,6 @@ const ModalInfoSolicitacoes = ({
   const {solicitacoes} = useSolicitacoes();
   const { updateSolicitacoes } = useSolicitacoes();
 
-console.log(solicitacoes)
   // const buscaCPF = (e) => {
   //   e.preventDefault()
   
@@ -33,27 +32,22 @@ console.log(solicitacoes)
 
   // }
 
-  console.log(nome)
 
   const schema = yup.object().shape({
-    cpf: yup.string().required("Cpf Obrigatório"),
     status: yup.string(),
   });
 
   const {
-    register,
-    handleSubmit,
-    formState: { errors },
+    handleSubmit
   } = useForm({
     resolver: yupResolver(schema),
   });
-
-  console.log(infos)
 
   const handleUpdate = (data) => {
     data.status = status;
     updateSolicitacoes(data, infos._id);
     setShowInfos(false);
+
   };
 
   const options = { year: 'numeric', month: 'long', day: 'numeric' };
@@ -68,7 +62,6 @@ console.log(solicitacoes)
           
           <InputDefault
             width="90%"
-            // value={infos.createdAt.slice(0,10).split('-').reverse().join('/')}
             value={date}
             disabled={true}
             label="Data da Solicitação"
@@ -102,6 +95,14 @@ console.log(solicitacoes)
             value={infos.description}
             disabled={true}
             label="Solicitação"
+            bordercolor={'var(--background-menus)'}
+            backgrd={'var(--white)'}
+          />
+            <InputDefault
+            width="90%"
+            value={infos.tel}
+            disabled={true}
+            label="Telefone"
             bordercolor={'var(--background-menus)'}
             backgrd={'var(--white)'}
           />

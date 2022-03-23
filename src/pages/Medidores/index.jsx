@@ -21,6 +21,7 @@ const CadastroMedidores = () => {
   const [showForm, setShowForm] = useState(false);
   const [showInfos, setShowInfos] = useState(false);
   const { medidores, infosMedidor, infoMedidor } = useMedidores();
+  console.log(infoMedidor)
 
   const [busca, setBusca] = useState(""); // Armazena dados da busca
   const [arrayBusca, setArrayBusca] = useState([]);
@@ -121,8 +122,8 @@ const CadastroMedidores = () => {
                       color="#000"
                       icon={BsInfoSquare}
                       onClick={() => {
-                        handleShowInfos();
-                        handleInfoMedidor(item._id);
+                      handleShowInfos();
+                      handleInfoMedidor(item._id);
                       }}
                     ></ButtonAdd>
                   }

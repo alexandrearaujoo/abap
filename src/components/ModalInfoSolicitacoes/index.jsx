@@ -9,6 +9,7 @@ import ButtonAdd from "../ButtonAdd";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import { Section, Form, Div } from "./style";
 import { useSolicitacoes } from "../../providers/Solicitacoes";
+import { useAssociados } from "../../providers/Associados";
 
 const ModalInfoSolicitacoes = ({
   setShowInfos,
@@ -17,19 +18,20 @@ const ModalInfoSolicitacoes = ({
 }) => {
   const [status, setStatus] = useState("Ativo");
   const [nome, setNome] = useState('')
+  const { associados} = useAssociados();
   const {solicitacoes} = useSolicitacoes();
-  // const { updateSolicitacao } = useSolicitacoes();
+  const { updateSolicitacoes } = useSolicitacoes();
 
 console.log(solicitacoes)
-  const buscaCPF = (e) => {
-    e.preventDefault()
+  // const buscaCPF = (e) => {
+  //   e.preventDefault()
   
-    const nomeBusca = solicitacoes.filter((solicitacao) => solicitacao.name === e.target.value)
-    // const nomeBusca = associados.filter((associado) => associado.cpf.includes(e.target.value))
-    if(nomeBusca.length !== 0){setNome(nomeBusca[0].name)}
+  //   const nomeBusca = solicitacoes.filter((solicitacao) => solicitacao.name === e.target.value)
+  //   // const nomeBusca = associados.filter((associado) => associado.cpf.includes(e.target.value))
+  //   if(nomeBusca.length !== 0){setNome(nomeBusca[0].name)}
     
 
-  }
+  // }
 
   console.log(nome)
 
@@ -46,15 +48,16 @@ console.log(solicitacoes)
     resolver: yupResolver(schema),
   });
 
-  console.log(register.value)
+  console.log(infos)
 
   const handleUpdate = (data) => {
     data.status = status;
-    // updateMedidor(data, infos._id);
+    updateSolicitacoes(data, infos._id);
     setShowInfos(false);
   };
 
-
+  const options = { year: 'numeric', month: 'long', day: 'numeric' };
+  const date = new Date(infos.createdAt).toLocaleDateString("pt-BR", options)
 
   return (
     <Section>
@@ -65,7 +68,8 @@ console.log(solicitacoes)
           
           <InputDefault
             width="90%"
-            value={infos.numero}
+            // value={infos.createdAt.slice(0,10).split('-').reverse().join('/')}
+            value={date}
             disabled={true}
             label="Data da Solicitação"
             bordercolor={'var(--background-menus)'}
@@ -73,30 +77,31 @@ console.log(solicitacoes)
           />
           
 
-          <Input
-            label="Nome Associado"
-            name="cpf"
-            error={errors.cpf?.message}
-            register={register}
-            onChange={buscaCPF}
+          <InputDefault
+            width="90%"
+            value={infos.name}
+            disabled={true}
+            label="Associado"
+            bordercolor={'var(--background-menus)'}
+            backgrd={'var(--white)'}      
             
           />
       
 
           <InputDefault
             width="90%"
-            value={nome}
+            value={infos.title}
             disabled={true}
-            label="Solicitação"
+            label="Titulo"
             bordercolor={'var(--background-menus)'}
             backgrd={'var(--white)'}
           />
 
           <InputDefault
             width="90%"
-            value={infos.endereco}
+            value={infos.description}
             disabled={true}
-            label="Endereço"
+            label="Solicitação"
             bordercolor={'var(--background-menus)'}
             backgrd={'var(--white)'}
           />
@@ -117,7 +122,7 @@ console.log(solicitacoes)
             </select>
           </Div>
 
-          <Button type="submit" margin="0px" padding="0px 5px">
+          <Button backgroundColor='#4A5292' type="submit" margin="0px" padding="0px 5px">
             Salvar
           </Button>
         </Form>

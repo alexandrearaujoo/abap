@@ -9,7 +9,6 @@ import Main from "../../components/Main";
 import Blocker from "../../components/Blocker";
 import FormModalAssociados from "../../components/FormModalAssociados";
 import Busca from "../../components/Busca";
-import ModalInfoUser from "../../components/ModalInfoUser";
 import DivLista from "../../components/DivLista";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
@@ -21,7 +20,8 @@ import ModalInfoSolicitacoes from "../../components/ModalInfoSolicitacoes";
 const Solicitacoes = () => {
   const [showForm, setShowForm] = useState(false);
   const [showInfos, setShowInfos] = useState(false);
-  const { solicitacoes} = useSolicitacoes();
+  const { solicitacoes, infosSolicitacoes, infoSolicitacoes} = useSolicitacoes();
+
 
   const [busca, setBusca] = useState(""); // Armazena dados da busca
   const [arrayBusca, setArrayBusca] = useState([]);
@@ -29,14 +29,15 @@ const Solicitacoes = () => {
  
   let array = solicitacoes;
 
+   // Exibe o Formulario de cadastro associado
   const handleClick = () => {
     setShowForm(!showForm);
   };
 
   const onSubmitBsk = (e) => {
     e.preventDefault();
-    const filter = solicitacoes.filter((associado) =>
-      associado.name.toLocaleLowerCase().includes(busca.toLocaleLowerCase().trim())
+    const filter = solicitacoes.filter((solic) =>
+      solic.name.toLocaleLowerCase().includes(busca.toLocaleLowerCase().trim())
     );
     setArrayBusca(filter);
     setBusca("");
@@ -49,7 +50,7 @@ const Solicitacoes = () => {
     status === "Status..." || status === "Todos"
       ? setArrayBusca(solicitacoes)
       : setArrayBusca(
-          solicitacoes.filter((associado) => associado.status === status)
+          solicitacoes.filter((solic) => solic.status === status)
         );
   };
 
@@ -62,11 +63,10 @@ const Solicitacoes = () => {
   const handleShowInfos = () => setShowInfos(!showInfos);
 
   const handleInfoSolicitacoes = (id) => {
-    solicitacoes(id);
+    infosSolicitacoes(id);
   };
 
   console.log(array);
-
   return (
     <>
       <Header icon={<AiOutlineMenu />} />
@@ -95,7 +95,7 @@ const Solicitacoes = () => {
             {showInfos && (
               <ModalInfoSolicitacoes 
               setShowInfos={setShowInfos}
-              infos={solicitacoes} 
+              infos={infoSolicitacoes} 
               handleClick={handleShowInfos} />
             )}
             <DivLista
@@ -122,7 +122,7 @@ const Solicitacoes = () => {
                         icon={BsInfoSquare}
                         onClick={() => {
                         handleShowInfos();
-                        handleInfoSolicitacoes(itens._id);
+                        handleInfoSolicitacoes(itens._id)
                         }}
                       ></ButtonAdd>
                     </div>

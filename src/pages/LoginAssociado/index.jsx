@@ -9,6 +9,7 @@ import { useAssociados } from '../../providers/Associados'
 import Header from "../../components/Header";
 import Main from "../../components/Main";
 import { Container, ContainerForm } from "./style";
+import { MdArrowBackIos } from "react-icons/md";
 
 
 const LoginAssociado = () => {
@@ -51,7 +52,7 @@ const LoginAssociado = () => {
 
     return (
         <>
-            <Header text="Voltar" link="/" />
+            <Header text="Voltar" icon={<MdArrowBackIos />} link="/" />
             <Main>
                 <Container>
 

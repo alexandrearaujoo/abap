@@ -1,16 +1,9 @@
 import {
   Container,
-  Button,
-  SidebarContainer,
   SlickBar,
   Item,
-  Text,
-  Profile,
-  Details,
-  Logout,
-  Name,
+  Text
 } from "./style";
-import { useState } from "react";
 import { useHistory } from "react-router-dom";
 
 import { AiOutlineHome, AiOutlinePoweroff } from "react-icons/ai";
@@ -29,7 +22,6 @@ const Sidebar = ({ click, setClick }) => {
     // localStorage.clear()
     history.push("/")
   }
-
   return (
     <>
       <Container>
@@ -42,7 +34,7 @@ const Sidebar = ({ click, setClick }) => {
             activeClassName="active"
           >
             <AiOutlineHome size={40} />
-            <Text clicked={click}>Página Inicial</Text>
+            <Text clicked={click}>Home</Text>
           </Item>
           <Item
             onClick={() => {

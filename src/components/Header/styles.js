@@ -17,10 +17,11 @@ export const StyledHeader = styled.header`
   }
 
   img {
-    width: 72px;
+    width: 60px;
+    margin-left: 10px;
 
     @media (min-width: 768px) {
-      width: 82px;
+      width: 72px;
     }
   }
 

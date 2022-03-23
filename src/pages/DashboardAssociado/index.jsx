@@ -33,8 +33,8 @@ const DashboardAssociado = () => {
           <h3>Notícias</h3>
           <StyledSectionNews>
             <div>
-              <h3>Titulo 1</h3>
-              <p>Noticia 1</p>
+              <h3>Data de leitura</h3>
+              <p>do dia 05 até dia 10</p>
             </div>
             <div>
               <h3>Titulo 2</h3>

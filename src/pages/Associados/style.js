@@ -7,6 +7,7 @@ export const Container = styled.section`
     align-items: center;
     background-color: var(--color-primary);
     height: inherit;
+    width: 100%;
     max-width: 800px;
   
     h2{

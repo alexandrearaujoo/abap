@@ -48,7 +48,7 @@ const Associados = () => {
   const changeStatus = (e) => {
     setStatus(e.target.value);
     let status = e.target.value;
-    status === "Status..." || status === "todos"
+    status === "Status..." || status === "Todos"
       ? setArrayBusca(associados)
       : setArrayBusca(
           associados.filter((associado) => associado.status === status)
@@ -74,10 +74,10 @@ const Associados = () => {
       <Main colunm>
         <Container>
           <MotionDiv>
-            {/* <h2>Cadastrar Associados</h2> */}
+            
             {showForm && (
               <Blocker>
-                <FormModalAssociados handleClick={handleClick} />
+                <FormModalAssociados handleClick={handleClick} setShowForm={setShowForm}/>
               </Blocker>
             )}
 
@@ -94,7 +94,9 @@ const Associados = () => {
             />
 
             {showInfos && (
-              <ModalInfoUser infos={infoUser} handleClick={handleShowInfos} />
+              <Blocker>
+                <ModalInfoUser infos={infoUser} handleClick={handleShowInfos} setShowInfos={setShowInfos}/>
+              </Blocker>
             )}
             <DivLista
               title1="Nome"

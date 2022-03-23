@@ -1,6 +1,7 @@
 import { AiOutlineMenu } from "react-icons/ai";
 import Blocker from "../../components/Blocker";
 import DivLista from "../../components/DivLista";
+import {Section} from './style'
 import FormModalAutoLeitura from "../../components/FormModalAutoLeitura";
 import Header from "../../components/Header";
 import Main from "../../components/Main";
@@ -11,11 +12,12 @@ const Leitura = () => {
     <>
       <Header icon={<AiOutlineMenu />} user="associado" />
       <Main flex>
-        <Blocker>
-          <MotionDiv>
-            <FormModalAutoLeitura />
-          </MotionDiv>
-        </Blocker>
+        <Section>
+        <MotionDiv>
+          <FormModalAutoLeitura />
+        </MotionDiv>
+        </Section>
+
       </Main>
     </>
   );

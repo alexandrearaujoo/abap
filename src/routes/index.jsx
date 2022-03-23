@@ -1,5 +1,6 @@
 import { Switch, Route, Redirect} from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
+import { useEffect, useState } from "react";
 import Associados from "../pages/Associados";
 import CadastroMedidores from "../pages/Medidores";
 import GerenciarPagamentos from "../pages/GerenciarPagamentos";
@@ -14,6 +15,8 @@ import Leitura from '../pages/Leitura'
 import SolicitacaoAssociado from "../pages/SolicitacaoAssociado";
 
 const Router = () => {
+
+
   return (
     <AnimatePresence>
         <Switch>
@@ -24,13 +27,13 @@ const Router = () => {
             <LoginAssociado />
           </Route>
           <Route path="/loginAdm">
-            <LoginAdm />
+            <LoginAdm  />
           </Route>
           <Route path="/dashboardadm">
             <DashBoardADM />
           </Route>
           <Route path='/dashboardAssociado'>
-            <DashboardAssociado />
+            <DashboardAssociado/>
           </Route>
           <Route path="/associados">
             <Associados />

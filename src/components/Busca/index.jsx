@@ -39,7 +39,7 @@ const Busca = ({ icon, ...rest }) => {
                   <option value="Ativo">Ativo</option>
                   <option value="Inativo">Inativo</option>
                 </select>
-
+          {icon && 
                 <ButtonAdd
                   icon={icon}
                   onClick={rest.handleClick}
@@ -47,7 +47,7 @@ const Busca = ({ icon, ...rest }) => {
                   heigth="30px"
                   radius="5px"
                   type='button'
-                ></ButtonAdd>
+                ></ButtonAdd>}
           </FormOptions>      
        </form>
       </DivBusca>

@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const StyledMain = styled.main`
+
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -10,22 +11,20 @@ export const StyledMain = styled.main`
   height: 88vh;
 
   margin: 0 auto;
+
   position: relative;
   top: 12vh;
-  z-index: 0;
 
+  @media screen and (min-width: 1024px){
+    margin: 0 auto;
+  }
   h2 {
-      font-size: var(--fontsize-h2);
-      padding: 20px 0;
+      font-size: 20px;
+     margin-bottom: 15px;
   }
 
   h3 {
       font-size: var(--fontsize-h3);
       padding: 20px 0;
-  }
-
-  @media (min-width: 768px) {
-    width: 80vw;
-    height: 88vh;
   }
 `

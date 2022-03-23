@@ -8,7 +8,7 @@ import ButtonAdd from "../ButtonAdd";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import { useMedidores } from "../../providers/Medidores";
 
-const FormModalMedidor = ({ handleClick }) => {
+const FormModalMedidor = ({ handleClick, setShowForm}) => {
   const { addMedidores } = useMedidores();
 
   const schema = yup.object().shape({
@@ -31,6 +31,7 @@ const FormModalMedidor = ({ handleClick }) => {
 
   const onSubmit = (data) => {
     addMedidores(data);
+    setShowForm(false)
   };
 
   return (
@@ -89,7 +90,9 @@ const FormModalMedidor = ({ handleClick }) => {
             />
           </DivLocal>
         </DivInfos>
-        <Button>Cadastrar</Button>
+        <Button backgroundColor='#4A5292' type="submit" margin="0px" padding="0px 5px">
+            Cadastrar
+          </Button>
       </Form>
     </Section>
   );

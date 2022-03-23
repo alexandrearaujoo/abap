@@ -2,6 +2,7 @@ import Sidebar from "../../components/Sidebar";
 import MotionDiv from "../../components/MotionDiv";
 import { Container } from "./style";
 import DivLista from "../../components/DivLista";
+import Main from '../../components/Main'
 import Lista from "../../components/Listas";
 import { useState } from "react";
 import Header from "../../components/Header";
@@ -27,12 +28,13 @@ const GerenciarPagamentos = () => {
     <>
       <Header icon={<AiOutlineMenu />} />
       <Sidebar />
-
+      <Main colunm>
       <Container>
+      
         <MotionDiv>
-          <h2>Pagamentos realizados</h2>
-          {showInfosPagamentos && <Blocker><ModalInfoPagamentos handleClick={handleClick}/></Blocker>}
-          <DivLista title1="Nome" title2="Valor" title3="Status">
+          <h2>Gerenciar Pagamentos</h2>
+          {showInfosPagamentos && <Blocker><ModalInfoPagamentos setInfosPagamentos={setInfosPagamentos} handleClick={handleClick}/></Blocker>}
+          <DivLista title1="Nome" title2="Valor" title3="Status" title4='Ações'>
             {pagamentos.map((item, index) => (
               <Lista
                 key={index}
@@ -51,7 +53,9 @@ const GerenciarPagamentos = () => {
             ))}
           </DivLista>
         </MotionDiv>
+        
       </Container>
+      </Main>
     </>
   );
 };

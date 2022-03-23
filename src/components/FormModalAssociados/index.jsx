@@ -9,7 +9,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import { useAssociados } from "../../providers/Associados";
 
-const FormModalAssociados = ({ handleClick }) => {
+const FormModalAssociados = ({ handleClick, setShowForm}) => {
   const { addAssociado } = useAssociados();
 
   const schema = yup.object().shape({
@@ -34,6 +34,7 @@ const FormModalAssociados = ({ handleClick }) => {
 
   const onSubmit = (data) => {
     addAssociado(data);
+    setShowForm(false)
   };
 
   return (
@@ -101,7 +102,7 @@ const FormModalAssociados = ({ handleClick }) => {
             />
           </DivLocal>
         </DivInfos>
-        <Button type="submit">
+        <Button backgroundColor="var(--color-primary)" type="submit">
           Cadastrar
         </Button>
       </Form>

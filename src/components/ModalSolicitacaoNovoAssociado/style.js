@@ -2,15 +2,17 @@ import styled from "styled-components";
 
 export const Section = styled.section`
   width: 100%;
+  max-width: 800px;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
-  
+  align-items: center;
+  background-color: var(--color-primary);
+  height: 100%;
 `;
 
 export const Form = styled.form`
-  width: 80%;
-  height: 500px;
+  width: 90%;
+  height: 370px;
   max-width: 500px;
   display: flex;
   flex-direction: column;
@@ -20,31 +22,34 @@ export const Form = styled.form`
   align-items: center;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   position: absolute;
-  top: 0;
-  z-index: 1;
-  animation: slide-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  animation: slide-bottom 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 
   h2 {
     text-align: center;
     color: var(--black);
   }
 
+  span {
+    font-size: var(--headline);
+    text-align: center;
+  }
+
   @keyframes slide-bottom {
     0% {
-  -webkit-transform: translateY(0);
-          transform: translateY(0);
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
     }
     100% {
-  -webkit-transform: translateY(100px);
-          transform: translateY(100px);
+      -webkit-transform: translateY(100px);
+      transform: translateY(100px);
     }
-}
+  }
 
-button:first-child {
+  button:first-child {
     align-self: flex-end;
     margin-right: 10px;
     width: 50px;
-    height: 50px;
+    height: 20px;
     svg {
       color: var(--black);
     }
@@ -57,15 +62,11 @@ button:first-child {
       font-size: 30px;
     }
   }
-  
   button:first-child:active{
     background-color:transparent;
     svg{
       background-color: var(--color-secondary);
       font-size: 20px;
-      border-radius: 50%;
-  }
-}`;
       border-radius: 50%; 
     }
   }
@@ -80,8 +81,18 @@ export const Div = styled.div`
   select {
     background-color: var(--color-secondary);
     color: var(--white);
-    height: 40px;
-    width: 30%;
+    height: 30px;
     border-radius: 5px;
   }
+`;
+
+export const Container = styled.section`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-primary);
+  height: inherit;
+  width: 100%;
+  max-width: 800px;
 `;

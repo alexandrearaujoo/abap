@@ -42,7 +42,10 @@ export const MedidoresPrivider = ({ children }) => {
   const updateMedidor = (data, id) => {
     api
       .patch(`/medidores/${id}`, data)
-      .then((res) => loadMedidores())
+      .then((res) => {
+        toast.success("Dados atualizados");
+        loadMedidores();
+      })
       .catch((err) => console.log(err));
   };
 
@@ -53,7 +56,7 @@ export const MedidoresPrivider = ({ children }) => {
         addMedidores,
         infoMedidor,
         infosMedidor,
-        updateMedidor
+        updateMedidor,
       }}
     >
       {children}

@@ -1,28 +1,18 @@
 import styled from "styled-components";
 
 export const ButtonStyled = styled.button`
-  position: relative;
-  display: inline-block;
-  margin: ${(props) => props.margin};
-  padding: ${(props) => props.padding};
-  text-align: center;
-  font-size: 18px;
-  letter-spacing: 1px;
-  text-decoration: none;
-  color: var(--white);
-  background: transparent;
-  cursor: pointer;
-  transition: ease-out 0.5s;
-  border-radius: 30px;
-  border: 2px solid var(--white);
-  border-radius: 10px;
-  box-shadow: inset 0 0 0 0 var(--color-primary);
+    width: ${props => props.width};
+    height: 48px;
+    margin: 15px 0;
+    background-color: ${props => props.backgroundColor};
+    color: #ffffff;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.5;
 
-  :hover {
-    color: white;
-    box-shadow: inset 0 -100px 0 0 var(--color-primary);
-  }
-  :active {
-    transform: scale(0.9);
+  &:hover {
+    opacity: 0.8;
   }
 `;

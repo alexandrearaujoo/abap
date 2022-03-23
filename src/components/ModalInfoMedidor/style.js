@@ -1,13 +1,10 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 export const Section = styled.section`
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: flex-start;
-
-
-  
 `;
 
 export const Form = styled.form`
@@ -64,22 +61,21 @@ button:first-child {
     svg{
       background-color: var(--color-secondary);
       font-size: 20px;
-      border-radius: 50%;
-      
+      border-radius: 50%; 
     }
-
+  }
 `;
 
 export const Div = styled.div`
-    width: 90%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
-    select {
-        background-color: var(--color-secondary);
+  select {
+    background-color: var(--color-secondary);
     color: var(--white);
     height: 30px;
     border-radius: 5px;
-    }
-`
+  }
+`;

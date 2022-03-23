@@ -38,6 +38,7 @@ export const UsuarioProvider = ({ children }) => {
                 }
             })
             .then((res) => {
+                localStorage.setItem('ARAP:ADM', JSON.stringify(res.data))
                 changeTokenUser(res.data.token)
                 getOne(res.data.id);
             })

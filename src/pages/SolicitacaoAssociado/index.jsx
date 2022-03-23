@@ -9,6 +9,7 @@ import { useSolicitacoes } from "../../providers/Solicitacoes";
 import { AiOutlineMenu } from "react-icons/ai";
 import Main from "../../components/Main";
 
+
 const SolicitacaoAssociado = () => {
   const { sendRequest } = useSolicitacoes();
 
@@ -58,7 +59,7 @@ const SolicitacaoAssociado = () => {
               register={register}
               bordercolor={`var(--color-secondary)`}
             />
-            <Button type="submit" margin="0px" padding="0px 5px">
+            <Button backgroundColor='#4A5292'type="submit" margin="0px" padding="0px 5px">
               Salvar
             </Button>
           </Form>

@@ -22,10 +22,21 @@ const Header = ({ icon, text, link = "", user }) => {
 
   return (
     <StyledHeader>
-      { user === "associado" ? <SidebarAssociado click={click} setClick={setClick} /> : <Sidebar click={click} setClick={setClick} /> }
+      {user === "associado" ? (
+        <SidebarAssociado click={click} setClick={setClick} />
+      ) : (
+        <Sidebar click={click} setClick={setClick} />
+      )}
       <StyledContainer>
         <img src={Logo} alt="Logo" />
-        <Button type="button" onClick={handleClick} margin="0px" padding="5px">
+        <Button
+          type="button"
+          onClick={handleClick}
+          margin="0px"
+          padding="5px"
+          backgroundColor="transparent"
+          width="50px"
+        >
           {icon}
           {text}
         </Button>

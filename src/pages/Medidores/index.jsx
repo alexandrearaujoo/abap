@@ -70,7 +70,7 @@ const CadastroMedidores = () => {
     <>
       <Header icon={<AiOutlineMenu />} />
       <Sidebar />
-      <Main>
+      <Main column>
         <Container>
           <MotionDiv>
             <h2>Cadastrar Medidor</h2>

@@ -97,7 +97,8 @@ export const StyledContainer = styled.div `
   align-items: center;
   gap: 10px;
 
-  width: ${(props) => props.column ? "100%" : "80%"};
+  width: 100%;
+  max-width: 950px;
 
   height: 100%;
   margin: 0 auto;

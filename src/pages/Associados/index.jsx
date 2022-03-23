@@ -48,7 +48,7 @@ const Associados = () => {
   const changeStatus = (e) => {
     setStatus(e.target.value);
     let status = e.target.value;
-    status === "Status..." || status === "todos"
+    status === "Status..." || status === "Todos"
       ? setArrayBusca(associados)
       : setArrayBusca(
           associados.filter((associado) => associado.status === status)

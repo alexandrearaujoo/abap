@@ -44,7 +44,7 @@ const AutoLeitura = () => {
         error={errors.medidor?.message}
         register={register}
       />
-      <Button>Concluir</Button>
+      <Button backgroundColor='#4A5292'>Concluir</Button>
       {qrCode && <QrCode img={qrCode}/>}
     </StyledForm>
     // </StyledMain>

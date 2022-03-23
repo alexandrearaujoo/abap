@@ -89,7 +89,9 @@ const FormModalMedidor = ({ handleClick }) => {
             />
           </DivLocal>
         </DivInfos>
-        <Button>Cadastrar</Button>
+        <Button backgroundColor='#4A5292' type="submit" margin="0px" padding="0px 5px">
+            Cadastrar
+          </Button>
       </Form>
     </Section>
   );

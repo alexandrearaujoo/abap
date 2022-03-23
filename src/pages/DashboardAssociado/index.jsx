@@ -18,16 +18,18 @@ const DashboardAssociado = () => {
         <h2>Bem-vindo, {user.name}</h2>
 
           <article>
-            <p>Membro desde: <span>xx/xx/xxxx</span></p>
-            <p>CPF: <span>xxx.xxx.xxx-xx</span></p>
-            <p>Data de Leitura: <span>xx/xx/xxxx</span></p>
+            <p>Membro desde: <span>{user.createdAt.slice(0,10).split('-').reverse().join('/')}</span></p>
+            <p>Estado: <span>{user.estado}</span></p>
+            <p>Cidade: <span>{user.cidade}</span></p>
+            <p>Bairro: <span>{user.bairro}</span></p>
+            <p>Endereço: <span>{user.endereco}</span></p>
           </article>
 
           <h3>Notícias</h3>
           <StyledSectionNews>
             <div>
-              <h3>Titulo 1</h3>
-              <p>Noticia 1</p>
+              <h3>Data de leitura</h3>
+              <p>do dia 05 até dia 10</p>
             </div>
             <div>
               <h3>Titulo 2</h3>

@@ -19,7 +19,7 @@ const ModalInfoMedidores = ({
 }) => {
   const [status, setStatus] = useState("Ativo");
   const [nome, setNome] = useState('')
-  const { associados, infosUser, infoUser } = useAssociados();
+  const { associados} = useAssociados();
   const { updateMedidor } = useMedidores();
 
 console.log(associados)
@@ -32,8 +32,6 @@ console.log(associados)
     
 
   }
-
-  console.log(nome)
 
   const schema = yup.object().shape({
     cpf: yup.string().required("Cpf Obrigatório"),
@@ -122,7 +120,7 @@ console.log(associados)
             </select>
           </Div>
 
-          <Button type="submit" margin="0px" padding="0px 5px">
+          <Button backgroundColor='#4A5292' type="submit" margin="0px" padding="0px 5px">
             Salvar
           </Button>
         </Form>

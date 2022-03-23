@@ -10,45 +10,47 @@ export const AssociadoProvider = ({ children }) => {
     const [associados, setAssociados] = useState([])
     const [infoUser, setInfoUser] = useState([]) // <-- Deveria ser associado 
     const [tokenUser, setTokenUser] = useState(localStorage.getItem("@arap.tokenUser") || "");
+    const [idAssociado, setIdAssociado] = useState(localStorage.getItem("@arap.idAssociado") || "");
 
     const loadAssociado = () => {
         api.get('/users', {
             headers: {
-                Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMzczZjYwYTJhODJiYTYxZWRlMzRhMyIsImlhdCI6MTY0NzkwODg5MCwiZXhwIjoxNjQ3OTk1MjkwfQ.p9jJCEDzmG5j7TEtPiv7bJx-qyVbozu4Z1z8cvlRvSk'
+                Authorization: 'Bearer ' + tokenUser
             }
         })
-        .then (res => setAssociados(res.data))
+            .then(res => setAssociados(res.data))
     }
 
-    useEffect(() => {
-        loadAssociado()
-    },[])
-  
+
+
     const changeTokenUser = (item) => {
         localStorage.setItem("@arap.tokenUser", item);
         setTokenUser(item);
     };
-
+    const changeIdAssociado = (item) => {
+        localStorage.setItem("@arap.idAssociado", item);
+        setIdAssociado(item);
+    };
     const loginAssociado = (data) => {
-   
+
         api
             .post("/users/login", data, {
                 headers: {
                     "Content-type": "application/json"
                 }
             })
-            .then((res) => {      
-                localStorage.setItem('ARAP:User:', JSON.stringify(res.data))
-                changeTokenUser(res.data.token)                  
-                infosUser(res.data.id);              
+            .then((res) => {
+                changeTokenUser(res.data.token)
+                changeIdAssociado(res.data.id)
+                infosUser(res.data.id);
             })
             .catch((err) => {
-                
+
                 toast.error("Verifique o CPF informado.")
-                
+
             })
-        }
-      
+    }
+
     const addAssociado = (data) => {
         api.post('/users', data)
             .then(res => {
@@ -72,9 +74,14 @@ export const AssociadoProvider = ({ children }) => {
             .then(res => loadAssociado())
             .catch(err => console.log(err))
     }
-
+    useEffect(() => {
+        loadAssociado()
+        if (tokenUser !== "") {
+            infosUser(idAssociado)
+        }
+    }, [])
     return (
-        <AssociadoContext.Provider value={{ associados, infoUser, addAssociado, infosUser, updateUser, loginAssociado, tokenUser, changeTokenUser }}>
+        <AssociadoContext.Provider value={{ associados, infoUser, addAssociado, infosUser, updateUser, loginAssociado, tokenUser }}>
             {children}
         </AssociadoContext.Provider>
     )

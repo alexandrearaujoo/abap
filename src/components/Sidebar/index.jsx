@@ -1,16 +1,9 @@
 import {
   Container,
-  Button,
-  SidebarContainer,
   SlickBar,
   Item,
-  Text,
-  Profile,
-  Details,
-  Logout,
-  Name,
+  Text
 } from "./style";
-import { useState } from "react";
 import { useHistory } from "react-router-dom";
 
 import { AiOutlineHome } from "react-icons/ai";
@@ -21,9 +14,6 @@ import { BiPhoneCall } from "react-icons/bi";
 
 const Sidebar = ({ click, setClick }) => {
   const history = useHistory();
-
-  const [profileClick, setprofileClick] = useState(false);
-  const handleProfileClick = () => setprofileClick(!profileClick);
 
   return (
     <>
@@ -37,7 +27,7 @@ const Sidebar = ({ click, setClick }) => {
             activeClassName="active"
           >
             <AiOutlineHome size={40} />
-            <Text clicked={click}>Página Inicial</Text>
+            <Text clicked={click}>Home</Text>
           </Item>
           <Item
             onClick={() => {

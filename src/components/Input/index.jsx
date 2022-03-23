@@ -1,7 +1,6 @@
 import { Inputs } from "./styles";
 
 const Input = ({ label, name, error, register, bordercolor, onChange, ...rest }) => {
-console.log(rest)
   return (
     <Inputs isErrored={!!error} bordercolor={bordercolor}>
 

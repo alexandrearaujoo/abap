@@ -8,8 +8,9 @@ const UsuarioContext = createContext([])
 export const UsuarioProvider = ({ children }) => {
 
     const [usuarios, setUsuarios] = useState([])
-    const [usuario, setUsuario] = useState([]) 
+    const [usuario, setUsuario] = useState({}) 
     const [tokenUser, setTokenUser] = useState(localStorage.getItem("@arap.tokenUsuario") || "");
+    const [idUsuario, setIdUsuario] = useState(localStorage.getItem("@arap.idUsuario") || "");
 
     const getAll = () => {
         api.get('/users', { // <---- Falta a rota para carregar apenas os usuarios gestores
@@ -20,13 +21,13 @@ export const UsuarioProvider = ({ children }) => {
             .then(res => setUsuarios(res.data))
     }
 
-    useEffect(() => {
-        getAll()
-    }, [])
-
     const changeTokenUser = (item) => {
         localStorage.setItem("@arap.tokenUsuario", item);
         setTokenUser(item);
+    };
+    const changeIdUsuario = (item) => {
+        localStorage.setItem("@arap.idUsuario", item);
+        setIdUsuario(item);
     };
 
     const loginUsuario = (data) => {
@@ -38,7 +39,9 @@ export const UsuarioProvider = ({ children }) => {
                 }
             })
             .then((res) => {
+                localStorage.setItem('ARAP:ADM', JSON.stringify(res.data))
                 changeTokenUser(res.data.token)
+                changeIdUsuario(res.data.id)
                 getOne(res.data.id);
             })
             .catch((err) => {
@@ -71,7 +74,12 @@ export const UsuarioProvider = ({ children }) => {
             .then(res => setUsuario(res.data))
             .catch(err => console.log(err))
     }
-
+    useEffect(() => {
+        getAll()
+        if (tokenUser !== "") {
+            getOne(idUsuario)
+        }
+    }, [])
     return (
         <UsuarioContext.Provider value={{ usuarios, usuario, addUsuario, updateUsuario, loginUsuario, tokenUser, changeTokenUser  }}>
             {children}

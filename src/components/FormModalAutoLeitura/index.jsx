@@ -7,6 +7,7 @@ import { useForm } from "react-hook-form";
 import Button from "../Button";
 import { useEffect } from "react";
 import { usePagamentos } from "../../providers/Pagamentos";
+import QrCode from "../QrCode";
 
 const AutoLeitura = () => {
   const schema = yup.object().shape({
@@ -14,7 +15,7 @@ const AutoLeitura = () => {
       .string().required('Campo Obrigatorio')
   });
    const {id} = JSON.parse(localStorage.getItem('ARAP:User:'))
-   const {historicoUser, getHistoricoAssociado} = usePagamentos()
+   const {qrCode, getHistoricoAssociado, gerarQRcode} = usePagamentos()
 
    useEffect(() => {
     getHistoricoAssociado(id)
@@ -29,7 +30,7 @@ const AutoLeitura = () => {
   });
 
   const onSubmit = (data) => {
-    console.log(data, id);
+    gerarQRcode(data, id);
   };
 
   return (
@@ -43,7 +44,8 @@ const AutoLeitura = () => {
         error={errors.medidor?.message}
         register={register}
       />
-      <Button>Concluir</Button>
+      <Button backgroundColor='#4A5292'>Concluir</Button>
+      {qrCode && <QrCode img={qrCode}/>}
     </StyledForm>
     // </StyledMain>
   );

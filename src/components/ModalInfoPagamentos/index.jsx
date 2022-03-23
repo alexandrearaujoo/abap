@@ -1,9 +1,7 @@
-import { useAssociados } from "../../providers/Associados";
 import { useState } from "react";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import Input from "../Input";
 import InputDefault from "../InputDefault";
 import Button from "../Button";
 import ButtonAdd from "../ButtonAdd";
@@ -11,9 +9,10 @@ import { usePagamentos } from "../../providers/Pagamentos";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import { Section, Form, Div } from "./style";
 
-const ModalInfoUser = ({ handleClick }) => {
+const ModalInfoPagamento = ({handleClick}) => {
   const [status, setStatus] = useState("");
-  const { infoPagamento } = usePagamentos();
+  const { infoPagamento, updatePagamento } = usePagamentos();
+
 
   const schema = yup.object().shape({
     name: yup.string(),
@@ -29,32 +28,18 @@ const ModalInfoUser = ({ handleClick }) => {
     resolver: yupResolver(schema),
   });
 
-  // const handleUpdate = (data) => {
-  //   data.status = status;
-  //   updateUser(data, infoPagamento._id);
-  // };
+  const handleUpdate = (data) => {
+    data.status = status;
+    updatePagamento(data, infoPagamento._id);
+  };
 
   return (
     <Section>
-      <Form>
-        <ButtonAdd onClick={handleClick} icon={AiOutlineCloseCircle} />
-        <h2>Informações do pagamento</h2>
-        <InputDefault
-          width="90%"
-          value={infoPagamento.medidor}
-          disabled={true}
-          label="Consumo"
-          bordercolor={'var(--background-menus)'}
-          backgrd={'var(--white)'}     
-        />
-        <InputDefault
-          width="90%"
-          value={infoPagamento.createdAt}
-          disabled={true}
-          label="Data de pagamento"
-          bordercolor={'var(--background-menus)'}
-          backgrd={'var(--white)'}     
-        />
+      <Form onSubmit={handleSubmit(handleUpdate)}>
+      <ButtonAdd onClick={handleClick} icon={AiOutlineCloseCircle} />
+      <h2>Informações do pagamento</h2>
+        <InputDefault width='90%'value={infoPagamento.medidor} disabled={true} label='Consumo'/>
+        <InputDefault width='90%' value={infoPagamento.createdAt.slice(0,10).split('-').reverse().join('/')} disabled={true} label='Data de pagamento'/>
         <Div>
           <InputDefault
             width="65%"
@@ -70,12 +55,10 @@ const ModalInfoUser = ({ handleClick }) => {
             <option value="Pendente">Pendente</option>
           </select>
         </Div>
-        <Button type="submit" margin="0px" padding="0px 5px">
-          Salvar
-        </Button>
+        <Button backgroundColor='#4A5292'margin="0px" padding="0px 5px">Salvar</Button>
       </Form>
     </Section>
   );
 };
 
-export default ModalInfoUser;
+export default ModalInfoPagamento;

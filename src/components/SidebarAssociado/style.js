@@ -73,7 +73,7 @@ export const SlickBar = styled.ul`
 `;
 
 export const Text = styled.span`
-  width: ${(props) => (props.clicked ? "100%" : "0")};
+  width: ${(props) => (props.clicked ? "100%" : "100%")};
   overflow: hidden;
   margin-left: ${(props) => (props.clicked ? "1.5rem" : "0")};
   transition: all 0.3s ease;

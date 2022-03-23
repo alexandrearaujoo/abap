@@ -35,7 +35,7 @@ const SidebarAssociado = ({ click, setClick }) => {
             activeClassName="active"
           >
             <AiOutlineHome size={40} />
-            <Text clicked={click}>Página Inicial</Text>
+            <Text clicked={click}>Home</Text>
           </Item>
           <Item
             onClick={() => {
@@ -65,7 +65,7 @@ const SidebarAssociado = ({ click, setClick }) => {
             activeClassName="active"
           >
             <BsUpcScan size={40} />
-            <Text clicked={click}>Auto-leitura</Text>
+            <Text clicked={click}>Autoleitura</Text>
           </Item>
         </SlickBar>
       </Container>

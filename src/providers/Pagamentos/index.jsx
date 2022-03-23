@@ -36,8 +36,14 @@ export const PagamentosProvider = ({children}) => {
         .then(res => setqrCode(res.data.qrCode))
     }
 
+    const updatePagamento = (data, id) => {
+        api.patch(`pagamentos/${id}`, data)
+        .then((_) => loadPagamentos())
+        .catch(err => console.log(err))
+    }
+
     return (
-        <PagamentosContext.Provider value={{pagamentos, historicoUser,infoPagamento, getHistoricoAssociado, getPagamento,gerarQRcode, qrCode}}>
+        <PagamentosContext.Provider value={{pagamentos, historicoUser,infoPagamento, getHistoricoAssociado, getPagamento,gerarQRcode, qrCode, updatePagamento}}>
             {children}
         </PagamentosContext.Provider>
     )

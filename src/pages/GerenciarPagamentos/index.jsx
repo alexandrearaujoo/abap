@@ -34,7 +34,7 @@ const GerenciarPagamentos = () => {
         <MotionDiv>
           <h2>Gerenciar Pagamentos</h2>
           {showInfosPagamentos && <Blocker><ModalInfoPagamentos handleClick={handleClick}/></Blocker>}
-          <DivLista title1="Nome" title2="Valor" title3="Status">
+          <DivLista title1="Nome" title2="Valor" title3="Status" title4='Ações'>
             {pagamentos.map((item, index) => (
               <Lista
                 key={index}

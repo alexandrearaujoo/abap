@@ -10,6 +10,7 @@ import Main from "../../components/Main";
 import Input from "../../components/Input";
 
 import { Container, ContainerForm } from "./style";
+import { MdArrowBackIos } from "react-icons/md";
 
 const LoginAdm = () => {
 
@@ -48,7 +49,7 @@ const LoginAdm = () => {
 
     return (
         <>
-            <Header text="Voltar" link="/" />
+            <Header text="Voltar" icon={<MdArrowBackIos />} link="/" />
             <Main>
 
                 <Container>

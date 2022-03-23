@@ -25,9 +25,10 @@ const Sidebar = ({ click, setClick }) => {
   const [profileClick, setprofileClick] = useState(false);
   const handleProfileClick = () => setprofileClick(!profileClick);
 
-  const logout = () => [
+  const logout = () => {
+    // localStorage.clear()
     history.push("/")
-  ]
+  }
 
   return (
     <>

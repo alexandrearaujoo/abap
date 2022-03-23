@@ -24,9 +24,10 @@ const SidebarAssociado = ({ click, setClick }) => {
   const handleProfileClick = () => setprofileClick(!profileClick);
 
 
-  const logout = () => [
+  const logout = () => {
+    // localStorage.clear()
     history.push("/")
-  ]
+  }
 
   return (
     <>

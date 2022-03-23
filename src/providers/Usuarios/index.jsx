@@ -15,7 +15,7 @@ export const UsuarioProvider = ({ children }) => {
     const getAll = () => {
         api.get('/users', { // <---- Falta a rota para carregar apenas os usuarios gestores
             headers: {
-                Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMzhjZGI0MTg2N2QxNzg2YjQ0N2ZkYiIsImlhdCI6MTY0ODAwNTM5MCwiZXhwIjoxNjQ4MDkxNzkwfQ.3GN1sflU74qi3uxbZ47WdHLzmh-eyBmGghRiw_89esM'
+                Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMzUwYzk1MjEwNGE0YTk5YWVkMzI0NyIsImlhdCI6MTY0ODAwMDU1OSwiZXhwIjoxNjQ4MDg2OTU5fQ.vqfmvLGrK0N_AtGIRxe0j3zVqLbhlNizdcbRFfVuyqc'
             }
         })
             .then(res => setUsuarios(res.data))

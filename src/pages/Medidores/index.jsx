@@ -21,6 +21,7 @@ const CadastroMedidores = () => {
   const [showForm, setShowForm] = useState(false);
   const [showInfos, setShowInfos] = useState(false);
   const { medidores, infosMedidor, infoMedidor } = useMedidores();
+  console.log(infoMedidor)
 
   const [busca, setBusca] = useState(""); // Armazena dados da busca
   const [arrayBusca, setArrayBusca] = useState([]);
@@ -51,15 +52,15 @@ const CadastroMedidores = () => {
       : setArrayBusca(medidores.filter((medidor) => medidor.status === status));
   };
 
+
+
   arrayBusca.length > 0
     ? (array = arrayBusca)
     : status
     ? (array = arrayBusca)
     : (array = medidores);
 
-  const handleShowInfos = () => {
-    setShowInfos(!showInfos);
-  };
+  const handleShowInfos = () => {setShowInfos(!showInfos)};
 
   const handleInfoMedidor = (id) => {
     infosMedidor(id);
@@ -76,7 +77,7 @@ const CadastroMedidores = () => {
             <h2>Cadastrar Medidor</h2>
             {showForm && (
               <Blocker>
-                <FormModalMedidor handleClick={handleClick} />
+                <FormModalMedidor handleClick={handleClick} setShowForm={setShowForm}/>
               </Blocker>
             )}
 
@@ -94,7 +95,6 @@ const CadastroMedidores = () => {
             {showInfos && (
               <ModalInfoMedidor
                 setShowInfos={setShowInfos}
-                showInfos={showInfos}
                 infos={infoMedidor}
                 handleClick={handleShowInfos}
               />
@@ -122,8 +122,8 @@ const CadastroMedidores = () => {
                       color="#000"
                       icon={BsInfoSquare}
                       onClick={() => {
-                        handleShowInfos();
-                        handleInfoMedidor(item._id);
+                      handleShowInfos();
+                      handleInfoMedidor(item._id);
                       }}
                     ></ButtonAdd>
                   }

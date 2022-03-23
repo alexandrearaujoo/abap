@@ -26,8 +26,10 @@ const SolicitacaoAssociado = () => {
     resolver: yupResolver(schema),
   });
 
+  const {id} = JSON.parse(localStorage.getItem('ARAP:User:'))
+
   const onSubmit = (data) => {
-    sendRequest(data, "62350c952104a4a99aed3247");
+    sendRequest(data, id);
   };
 
   return (

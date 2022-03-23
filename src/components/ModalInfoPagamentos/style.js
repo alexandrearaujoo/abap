@@ -10,7 +10,7 @@ export const Section = styled.section`
 
 export const Form = styled.form`
   width: 80%;
-  height: 370px;
+  height: 400px;
   max-width: 500px;
   display: flex;
   flex-direction: column;
@@ -27,6 +27,7 @@ export const Form = styled.form`
   h2 {
     text-align: center;
     color: var(--black);
+    margin-top: -30px;
   }
 
   @keyframes slide-bottom {
@@ -39,6 +40,33 @@ export const Form = styled.form`
           transform: translateY(100px);
     }
 }
+
+button:first-child {
+    align-self: flex-end;
+    margin-right: 10px;
+    width: 50px;
+    height: 50px;
+    svg {
+      color: var(--black);
+    }
+  }
+
+  button:first-child:hover{
+    background-color:transparent;
+    svg{
+      color: var(--color-primary);
+      font-size: 30px;
+    }
+  }
+  button:first-child:active{
+    background-color:transparent;
+    svg{
+      background-color: var(--color-secondary);
+      font-size: 20px;
+      border-radius: 50%;
+      
+    }
+  }
 `;
 
 export const Div = styled.div`
@@ -52,5 +80,7 @@ export const Div = styled.div`
     color: var(--white);
     height: 30px;
     border-radius: 5px;
+    width: 30%;
+    height: 40px;
     }
 `

@@ -8,9 +8,8 @@ export const Inputs = styled.div`
   width: 90%;
   background-color: var(--white);
   line-height: 10px;
-  /* margin-top: 20px; */
   margin: 0 auto;
-  margin-top: 20px;
+
 
   ${(props) =>
     props.isErrored &&

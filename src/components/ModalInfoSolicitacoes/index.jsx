@@ -1,4 +1,3 @@
-import { useMedidores } from "../../providers/Medidores";
 import { useState } from "react";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
@@ -9,9 +8,10 @@ import Button from "../Button";
 import ButtonAdd from "../ButtonAdd";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import { Section, Form, Div } from "./style";
+import { useSolicitacoes } from "../../providers/Solicitacoes";
 import { useAssociados } from "../../providers/Associados";
 
-const ModalInfoMedidores = ({
+const ModalInfoSolicitacoes = ({
   setShowInfos,
   infos,
   handleClick,
@@ -19,18 +19,21 @@ const ModalInfoMedidores = ({
   const [status, setStatus] = useState("Ativo");
   const [nome, setNome] = useState('')
   const { associados} = useAssociados();
-  const { updateMedidor } = useMedidores();
+  const {solicitacoes} = useSolicitacoes();
+  const { updateSolicitacoes } = useSolicitacoes();
 
-console.log(associados)
-  const buscaCPF = (e) => {
-    e.preventDefault()
+console.log(solicitacoes)
+  // const buscaCPF = (e) => {
+  //   e.preventDefault()
   
-    // const nomeBusca = associados.filter((associado) => associado.cpf === e.target.value)
-    const nomeBusca = associados.filter((associado) => associado.cpf.includes(e.target.value))
-    if(nomeBusca.length !== 0){setNome(nomeBusca[0].name)}
+  //   const nomeBusca = solicitacoes.filter((solicitacao) => solicitacao.name === e.target.value)
+  //   // const nomeBusca = associados.filter((associado) => associado.cpf.includes(e.target.value))
+  //   if(nomeBusca.length !== 0){setNome(nomeBusca[0].name)}
     
 
-  }
+  // }
+
+  console.log(nome)
 
   const schema = yup.object().shape({
     cpf: yup.string().required("Cpf Obrigatório"),
@@ -45,57 +48,60 @@ console.log(associados)
     resolver: yupResolver(schema),
   });
 
-  console.log(register.value)
+  console.log(infos)
 
   const handleUpdate = (data) => {
     data.status = status;
-    updateMedidor(data, infos._id);
+    updateSolicitacoes(data, infos._id);
     setShowInfos(false);
   };
 
-
+  const options = { year: 'numeric', month: 'long', day: 'numeric' };
+  const date = new Date(infos.createdAt).toLocaleDateString("pt-BR", options)
 
   return (
     <Section>
       {
         <Form onSubmit={handleSubmit(handleUpdate)}>
           <ButtonAdd onClick={handleClick} icon={AiOutlineCloseCircle} />
-          <h2>Informações do medidor</h2>
+          <h2>Informações da Solicitação</h2>
           
           <InputDefault
             width="90%"
-            value={infos.numero}
+            // value={infos.createdAt.slice(0,10).split('-').reverse().join('/')}
+            value={date}
             disabled={true}
-            label="Número do medidor"
+            label="Data da Solicitação"
             bordercolor={'var(--background-menus)'}
             backgrd={'var(--white)'}      
           />
           
 
-          <Input
-            label="CPF Associado"
-            name="cpf"
-            error={errors.cpf?.message}
-            register={register}
-            onChange={buscaCPF}
+          <InputDefault
+            width="90%"
+            value={infos.name}
+            disabled={true}
+            label="Associado"
+            bordercolor={'var(--background-menus)'}
+            backgrd={'var(--white)'}      
             
           />
       
 
           <InputDefault
             width="90%"
-            value={nome}
+            value={infos.title}
             disabled={true}
-            label="Nome do associado"
+            label="Titulo"
             bordercolor={'var(--background-menus)'}
             backgrd={'var(--white)'}
           />
 
           <InputDefault
             width="90%"
-            value={infos.endereco}
+            value={infos.description}
             disabled={true}
-            label="Endereço"
+            label="Solicitação"
             bordercolor={'var(--background-menus)'}
             backgrd={'var(--white)'}
           />
@@ -125,4 +131,4 @@ console.log(associados)
   );
 };
 
-export default ModalInfoMedidores;
+export default ModalInfoSolicitacoes;

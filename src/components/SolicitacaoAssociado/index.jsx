@@ -1,13 +1,13 @@
 import { Section, Form, Div } from "./style";
-import Input from "../../components/Input";
-import Button from "../../components/Button";
-import Header from "../../components/Header";
+import Input from "../Input";
+import Button from "../Button";
+import Header from "../Header";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useSolicitacoes } from "../../providers/Solicitacoes";
 import { AiOutlineMenu } from "react-icons/ai";
-import Main from "../../components/Main";
+import Main from "../Main";
 
 
 const SolicitacaoAssociado = () => {
@@ -26,10 +26,8 @@ const SolicitacaoAssociado = () => {
     resolver: yupResolver(schema),
   });
 
-  const {id} = JSON.parse(localStorage.getItem('ARAP:User:'))
-
   const onSubmit = (data) => {
-    sendRequest(data, id);
+    sendRequest(data, "62350c952104a4a99aed3247");
   };
 
   return (

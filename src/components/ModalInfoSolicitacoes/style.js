@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const Section = styled.section`
   width: 100%;
@@ -62,26 +62,24 @@ button:first-child {
     svg{
       background-color: var(--color-secondary);
       font-size: 20px;
-      border-radius: 50%; 
+      border-radius: 50%;
+      
     }
   }
-<<<<<<< HEAD
 
-=======
->>>>>>> d446e6bb269fd9b6054d35fe12c6220360849981
 `;
 
 export const Div = styled.div`
-  width: 90%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-  select {
-    background-color: var(--color-secondary);
+    select {
+        background-color: var(--color-secondary);
     color: var(--white);
     height: 40px;
     width: 30%;
     border-radius: 5px;
-  }
-`;
+    }
+`

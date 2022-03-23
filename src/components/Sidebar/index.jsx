@@ -37,7 +37,7 @@ const Sidebar = ({ click, setClick }) => {
             activeClassName="active"
           >
             <AiOutlineHome size={40} />
-            <Text clicked={click}>Página Inicial</Text>
+            <Text clicked={click}>Home</Text>
           </Item>
           <Item
             onClick={() => {

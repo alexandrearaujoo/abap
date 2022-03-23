@@ -77,6 +77,9 @@ export const Text = styled.span`
   overflow: hidden;
   margin-left: ${(props) => (props.clicked ? "1.5rem" : "0")};
   transition: all 0.3s ease;
+  height: 50px;
+  display: flex;
+  align-items: center;
 `;
 
 export const Profile = styled.div`

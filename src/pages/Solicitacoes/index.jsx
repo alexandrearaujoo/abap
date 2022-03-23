@@ -1,32 +1,138 @@
 import Sidebar from "../../components/Sidebar";
 import MotionDiv from "../../components/MotionDiv";
-import { Container} from "./style";
+import { Container } from "./style";
 import Lista from "../../components/Listas";
 import Header from "../../components/Header";
 import { useSolicitacoes } from "../../providers/Solicitacoes";
-import {AiOutlineMenu} from 'react-icons/ai'
+import { AiOutlineMenu } from "react-icons/ai";
+import Main from "../../components/Main";
+import Blocker from "../../components/Blocker";
+import FormModalAssociados from "../../components/FormModalAssociados";
+import Busca from "../../components/Busca";
+import ModalInfoUser from "../../components/ModalInfoUser";
+import DivLista from "../../components/DivLista";
+import { useEffect, useState } from "react";
+import toast from "react-hot-toast";
+import { MdPersonAdd } from "react-icons/md";
+import { BsInfoSquare } from "react-icons/bs";
+import ButtonAdd from "../../components/ButtonAdd";
+import ModalInfoSolicitacoes from "../../components/ModalInfoSolicitacoes";
 
 const Solicitacoes = () => {
-  const { solicitacoes } = useSolicitacoes();
+  const [showForm, setShowForm] = useState(false);
+  const [showInfos, setShowInfos] = useState(false);
+  const { solicitacoes} = useSolicitacoes();
+
+  const [busca, setBusca] = useState(""); // Armazena dados da busca
+  const [arrayBusca, setArrayBusca] = useState([]);
+  const [status, setStatus] = useState("");
+ 
+  let array = solicitacoes;
+
+  const handleClick = () => {
+    setShowForm(!showForm);
+  };
+
+  const onSubmitBsk = (e) => {
+    e.preventDefault();
+    const filter = solicitacoes.filter((associado) =>
+      associado.name.toLocaleLowerCase().includes(busca.toLocaleLowerCase().trim())
+    );
+    setArrayBusca(filter);
+    setBusca("");
+    filter.length < 1 && toast.error("Não encontrei nenhuma referência!");
+  };
+
+  const changeStatus = (e) => {
+    setStatus(e.target.value);
+    let status = e.target.value;
+    status === "Status..." || status === "Todos"
+      ? setArrayBusca(solicitacoes)
+      : setArrayBusca(
+          solicitacoes.filter((associado) => associado.status === status)
+        );
+  };
+
+  arrayBusca.length > 0
+    ? (array = arrayBusca)
+    : status
+    ? (array = arrayBusca)
+    : (array = solicitacoes);
+
+  const handleShowInfos = () => setShowInfos(!showInfos);
+
+  const handleInfoSolicitacoes = (id) => {
+    solicitacoes(id);
+  };
+
+  console.log(array);
 
   return (
     <>
-       <Header icon={<AiOutlineMenu />} />
+      <Header icon={<AiOutlineMenu />} />
       <Sidebar />
+      <Main colunm>
+        <Container>
+          <MotionDiv>
+            {showForm && (
+              <Blocker>
+                <FormModalAssociados handleClick={handleClick} />
+              </Blocker>
+            )}
 
-      <Container>
-        <MotionDiv>
-          <h2>Solicitações</h2>
-          {solicitacoes.map((itens) => (
-            <Lista
-              info1={<span>{itens.name}</span>}
-              info2={<span>{itens.title}</span>}
-              info3={itens.status === "Pendente" ? <div className="inativo"></div> : <div className="ativo"></div>}
-              info4={<span>{itens.description}</span>}
+            <Busca
+              handleClick={handleClick} // Componente de busca
+              setBusca={setBusca}
+              busca={busca}
+              setStatus={setStatus}
+              status={status}
+              changeStatus={changeStatus}
+              onSubmit={onSubmitBsk}
+              label="Associado"
+              icon={MdPersonAdd}
             />
-          ))}
-        </MotionDiv>
-      </Container>
+
+            {showInfos && (
+              <ModalInfoSolicitacoes 
+              setShowInfos={setShowInfos}
+              infos={solicitacoes} 
+              handleClick={handleShowInfos} />
+            )}
+            <DivLista
+              title1="Nome"
+              title2="Data"
+              title3="Status"
+              title4="Ações"
+            >
+              {array.map((itens) => (
+                <Lista
+                  info1={<span>{itens.name}</span>}
+                  info2={<span>{itens.createdAt.slice(0,10).split('-').reverse().join('/')}</span>}
+                  info3={
+                    itens.status === "Pendente" ? (
+                      <div className="inativo"></div>
+                    ) : (
+                      <div className="ativo"></div>
+                    )
+                  }
+                  info4={
+                    <div>
+                      <ButtonAdd
+                        color="#000"
+                        icon={BsInfoSquare}
+                        onClick={() => {
+                        handleShowInfos();
+                        handleInfoSolicitacoes(itens._id);
+                        }}
+                      ></ButtonAdd>
+                    </div>
+                  }
+                />
+              ))}
+            </DivLista>
+          </MotionDiv>
+        </Container>
+      </Main>
     </>
   );
 };

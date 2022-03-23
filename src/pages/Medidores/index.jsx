@@ -51,15 +51,15 @@ const CadastroMedidores = () => {
       : setArrayBusca(medidores.filter((medidor) => medidor.status === status));
   };
 
+
+
   arrayBusca.length > 0
     ? (array = arrayBusca)
     : status
     ? (array = arrayBusca)
     : (array = medidores);
 
-  const handleShowInfos = () => {
-    setShowInfos(!showInfos);
-  };
+  const handleShowInfos = () => {setShowInfos(!showInfos)};
 
   const handleInfoMedidor = (id) => {
     infosMedidor(id);
@@ -76,7 +76,7 @@ const CadastroMedidores = () => {
             <h2>Cadastrar Medidor</h2>
             {showForm && (
               <Blocker>
-                <FormModalMedidor handleClick={handleClick} />
+                <FormModalMedidor handleClick={handleClick} setShowForm={setShowForm}/>
               </Blocker>
             )}
 
@@ -94,7 +94,6 @@ const CadastroMedidores = () => {
             {showInfos && (
               <ModalInfoMedidor
                 setShowInfos={setShowInfos}
-                showInfos={showInfos}
                 infos={infoMedidor}
                 handleClick={handleShowInfos}
               />

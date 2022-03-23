@@ -1,4 +1,3 @@
-import { useMedidores } from "../../providers/Medidores";
 import { useState } from "react";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
@@ -9,24 +8,24 @@ import Button from "../Button";
 import ButtonAdd from "../ButtonAdd";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import { Section, Form, Div } from "./style";
-import { useAssociados } from "../../providers/Associados";
+import { useSolicitacoes } from "../../providers/Solicitacoes";
 
-const ModalInfoMedidores = ({
+const ModalInfoSolicitacoes = ({
   setShowInfos,
   infos,
   handleClick,
 }) => {
   const [status, setStatus] = useState("Ativo");
   const [nome, setNome] = useState('')
-  const { associados, infosUser, infoUser } = useAssociados();
-  const { updateMedidor } = useMedidores();
+  const {solicitacoes} = useSolicitacoes();
+  // const { updateSolicitacao } = useSolicitacoes();
 
-console.log(associados)
+console.log(solicitacoes)
   const buscaCPF = (e) => {
     e.preventDefault()
   
-    // const nomeBusca = associados.filter((associado) => associado.cpf === e.target.value)
-    const nomeBusca = associados.filter((associado) => associado.cpf.includes(e.target.value))
+    const nomeBusca = solicitacoes.filter((solicitacao) => solicitacao.name === e.target.value)
+    // const nomeBusca = associados.filter((associado) => associado.cpf.includes(e.target.value))
     if(nomeBusca.length !== 0){setNome(nomeBusca[0].name)}
     
 
@@ -51,7 +50,7 @@ console.log(associados)
 
   const handleUpdate = (data) => {
     data.status = status;
-    updateMedidor(data, infos._id);
+    // updateMedidor(data, infos._id);
     setShowInfos(false);
   };
 
@@ -62,20 +61,20 @@ console.log(associados)
       {
         <Form onSubmit={handleSubmit(handleUpdate)}>
           <ButtonAdd onClick={handleClick} icon={AiOutlineCloseCircle} />
-          <h2>Informações do medidor</h2>
+          <h2>Informações da Solicitação</h2>
           
           <InputDefault
             width="90%"
             value={infos.numero}
             disabled={true}
-            label="Número do medidor"
+            label="Data da Solicitação"
             bordercolor={'var(--background-menus)'}
             backgrd={'var(--white)'}      
           />
           
 
           <Input
-            label="CPF Associado"
+            label="Nome Associado"
             name="cpf"
             error={errors.cpf?.message}
             register={register}
@@ -88,7 +87,7 @@ console.log(associados)
             width="90%"
             value={nome}
             disabled={true}
-            label="Nome do associado"
+            label="Solicitação"
             bordercolor={'var(--background-menus)'}
             backgrd={'var(--white)'}
           />
@@ -127,4 +126,4 @@ console.log(associados)
   );
 };
 
-export default ModalInfoMedidores;
+export default ModalInfoSolicitacoes;

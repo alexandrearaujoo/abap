@@ -27,7 +27,7 @@ const Header = ({ icon, text, link = "", user }) => {
         <img src={Logo} alt="Logo" />
         <Button type="button" onClick={handleClick} margin="0px" padding="5px">
           {icon}
-          {text}
+          <span>{text}</span>
         </Button>
       </StyledContainer>
     </StyledHeader>

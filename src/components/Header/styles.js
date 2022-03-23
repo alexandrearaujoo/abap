@@ -28,11 +28,19 @@ export const StyledHeader = styled.header`
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
+    padding: 10px;
+    gap: ${(props) => props.space && "10px"};
 
     svg {
-      width: 25px;
-      height: 25px;
+      width: 30px;
+      height: 30px;
+      margin: 0 3px 0 ;
+    }
+
+    @media (max-width: 425px) {
+      span {
+        display: none;
+      }
     }
   }
 `;

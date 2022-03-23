@@ -15,13 +15,18 @@ import { useHistory } from "react-router-dom";
 import { MdAttachMoney } from "react-icons/md";
 import { BiPhoneCall } from "react-icons/bi";
 import { BsUpcScan } from "react-icons/bs";
-import { AiOutlineHome } from "react-icons/ai";
+import { AiOutlineHome, AiOutlinePoweroff } from "react-icons/ai";
 
 const SidebarAssociado = ({ click, setClick }) => {
   const history = useHistory();
 
   const [profileClick, setprofileClick] = useState(false);
   const handleProfileClick = () => setprofileClick(!profileClick);
+
+
+  const logout = () => [
+    history.push("/")
+  ]
 
   return (
     <>
@@ -67,8 +72,15 @@ const SidebarAssociado = ({ click, setClick }) => {
             <BsUpcScan size={40} />
             <Text clicked={click}>Auto-leitura</Text>
           </Item>
+          <Item
+            onClick={() => logout()}
+            activeClassName="active"
+          >
+            <AiOutlinePoweroff size={40} />
+            <Text clicked={click}>Sair</Text>
+          </Item>
         </SlickBar>
-      </Container>
+      </Container> 
     </>
   );
 };

@@ -13,7 +13,7 @@ import {
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 
-import { AiOutlineHome } from "react-icons/ai";
+import { AiOutlineHome, AiOutlinePoweroff } from "react-icons/ai";
 import { RiGroupLine } from "react-icons/ri";
 import { MdAttachMoney } from "react-icons/md";
 import { CgPerformance } from "react-icons/cg";
@@ -24,6 +24,10 @@ const Sidebar = ({ click, setClick }) => {
 
   const [profileClick, setprofileClick] = useState(false);
   const handleProfileClick = () => setprofileClick(!profileClick);
+
+  const logout = () => [
+    history.push("/")
+  ]
 
   return (
     <>
@@ -77,6 +81,13 @@ const Sidebar = ({ click, setClick }) => {
           >
             <CgPerformance size={40} />
             <Text clicked={click}>Medidores</Text>
+          </Item>
+          <Item
+            onClick={() => logout()}
+            activeClassName="active"
+          >
+            <AiOutlinePoweroff size={40} />
+            <Text clicked={click}>Sair</Text>
           </Item>
         </SlickBar>
       </Container>

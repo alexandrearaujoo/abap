@@ -30,16 +30,26 @@ export const StyledSection = styled.div `
   article {
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 15px;
 
     p {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         font-size: var(--body);
+        
+        span {
+          margin: 5px 0 0 0;
+          font-size: var(--headline);
+        }
 
-        @media (min-width: 768px) {
-            flex-direction: row;
+        @media (min-width: 425px) {
+          flex-direction: row;
+
+          span {
+            margin: 0;
+            font-size: var(--body);
+          }
         }
     }
   }

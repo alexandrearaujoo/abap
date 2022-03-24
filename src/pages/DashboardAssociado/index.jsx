@@ -3,7 +3,7 @@ import {AiOutlineMenu} from "react-icons/ai"
 import Main from "../../components/Main";
 import SidebarAssociado from "../../components/SidebarAssociado";
 import { StyledSection, DivNoticias } from "./styles";
-import {Carousel} from '3d-react-carousal';
+import {Carousel} from '3d-react-carousal'
 
 const DashboardAssociado = () => {
 
@@ -39,7 +39,7 @@ const DashboardAssociado = () => {
           </article>
 
           <h3>Notícias</h3>
-          <Carousel slides={slides} autoplay={true} interval={4000} style={{width: '100%'}}/>
+          <Carousel slides={slides} autoplay={true} interval={4000} id="carousel"/>
         </StyledSection>
       </Main>
     </div>

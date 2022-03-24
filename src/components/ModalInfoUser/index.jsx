@@ -99,7 +99,7 @@ const ModalInfoUser = ({ infos, handleClick, setShowInfos }) => {
             width="65%"
             value={infos.tipo_user}
             disabled={true}
-            label="Status"
+            label="Tipo de usuário"
             bordercolor={"var(--background-menus)"}
             backgrd={"var(--white)"}
           />

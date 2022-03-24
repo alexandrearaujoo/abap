@@ -8,12 +8,13 @@ import ButtonAdd from "../ButtonAdd";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import { useMedidores } from "../../providers/Medidores";
 
-const FormModalMedidor = ({ handleClick, setShowForm}) => {
+const FormModalMedidor = ({ handleClick, setShowForm }) => {
   const { addMedidores } = useMedidores();
 
   const schema = yup.object().shape({
     codigo: yup.string().required("Código Obrigatório"),
-    id_associado: yup.string().required("Id Obrigatório"),
+    valorAtual: yup.string().required("Valor atual Obrigatório"),
+    cpf: yup.string().required("Id Obrigatório"),
     endereco: yup.string().required("End. Obrigatório"),
     numero: yup.string().required("Número Obrigatório"),
     bairro: yup.string().required("Bairro Obrigatório"),
@@ -31,7 +32,7 @@ const FormModalMedidor = ({ handleClick, setShowForm}) => {
 
   const onSubmit = (data) => {
     addMedidores(data);
-    setShowForm(false)
+    setShowForm(false);
   };
 
   return (
@@ -47,9 +48,16 @@ const FormModalMedidor = ({ handleClick, setShowForm}) => {
         />
 
         <Input
-          label="Id do associado"
-          name="id_associado"
-          error={errors.id_associado?.message}
+          label="Valor atual do medidor"
+          name="valorAtual"
+          error={errors.valorAtual?.message}
+          register={register}
+        />
+
+        <Input
+          label="CPF do associado"
+          name="cpf"
+          error={errors.cpf?.message}
           register={register}
         />
 
@@ -90,9 +98,14 @@ const FormModalMedidor = ({ handleClick, setShowForm}) => {
             />
           </DivLocal>
         </DivInfos>
-        <Button backgroundColor='#4A5292' type="submit" margin="0px" padding="0px 5px">
-            Cadastrar
-          </Button>
+        <Button
+          backgroundColor="#4A5292"
+          type="submit"
+          margin="0px"
+          padding="0px 5px"
+        >
+          Cadastrar
+        </Button>
       </Form>
     </Section>
   );

@@ -1,4 +1,4 @@
-import { Section, Form, Div } from "./style";
+import { Section, Form } from "./style";
 import Input from "../../components/Input";
 import Button from "../../components/Button";
 import Header from "../../components/Header";
@@ -9,7 +9,6 @@ import { useSolicitacoes } from "../../providers/Solicitacoes";
 import { AiOutlineMenu } from "react-icons/ai";
 import Main from "../../components/Main";
 
-
 const SolicitacaoAssociado = () => {
   const { sendRequest } = useSolicitacoes();
 
@@ -18,18 +17,25 @@ const SolicitacaoAssociado = () => {
     description: yup.string().required("Campo Obrigatorio"),
     tel: yup.string().required("Campo obrigatorio"),
   });
+
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm({
     resolver: yupResolver(schema),
   });
 
-  const {id} = JSON.parse(localStorage.getItem('ARAP:User:'))
+  const { id } = JSON.parse(localStorage.getItem("ARAP:User:"));
 
   const onSubmit = (data) => {
     sendRequest(data, id);
+    reset({
+        title: "",
+        description: "", 
+        tel: ""
+    })
   };
 
   return (
@@ -46,6 +52,7 @@ const SolicitacaoAssociado = () => {
               error={errors.title?.message}
               register={register}
               bordercolor={`var(--color-secondary)`}
+              type="text"
             />
             <Input
               label="Descrição"
@@ -61,7 +68,12 @@ const SolicitacaoAssociado = () => {
               register={register}
               bordercolor={`var(--color-secondary)`}
             />
-            <Button backgroundColor='#4A5292'type="submit" margin="0px" padding="0px 5px">
+            <Button
+              backgroundColor="#4A5292"
+              type="submit"
+              margin="0px"
+              padding="0px 5px"
+            >
               Salvar
             </Button>
           </Form>

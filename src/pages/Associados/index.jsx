@@ -74,7 +74,7 @@ const Associados = () => {
       <Main colunm>
         <Container>
           <MotionDiv>
-            
+          <h2>Gerenciar Associados</h2>
             {showForm && (
               <Blocker>
                 <FormModalAssociados handleClick={handleClick} setShowForm={setShowForm}/>

@@ -9,6 +9,7 @@ import { useEffect, useState } from "react";
 import { usePagamentos } from "../../providers/Pagamentos";
 import QrCode from "../QrCode";
 import { toast } from "react-hot-toast";
+import { RiSettingsLine } from "react-icons/ri";
 
 const AutoLeitura = () => {
   const [teste, setTeste] = useState("");
@@ -17,13 +18,7 @@ const AutoLeitura = () => {
     usePagamentos();
 
   const schema = yup.object().shape({
-    medidor: yup
-      .string()
-      .required("Campo Obrigatorio")
-      .isValid(historicoUser && Number(teste) > historicoUser[historicoUser.length -1].medidor)
-      .then(
-         (churros) => console.log("Valor válido:", churros)
-      )
+    medidor: yup.string().required("Campo Obrigatorio"),
   });
   const { id } = JSON.parse(localStorage.getItem("ARAP:User:"));
 
@@ -49,13 +44,22 @@ const AutoLeitura = () => {
   });
 
   const onSubmit = (data) => {
-    const m3 =
-      Number(data.medidor) - historicoUser[historicoUser.length - 1].medidor;
-    const auxM3 = m3 <= 10 ? 18 : 18 + (m3 - 10) * 2;
-    data.valor = auxM3;
-    setValorAPagar(auxM3);
-    gerarQRcode(data, id);
-    toast.success("Autoleitura realizada com sucesso!");
+    if (
+      teste &&
+      Number(teste) > historicoUser[historicoUser.length - 1].medidor
+    ) {
+      const m3 =
+        Number(data.medidor) - historicoUser[historicoUser.length - 1].medidor;
+      const auxM3 = m3 <= 10 ? 18 : 18 + (m3 - 10) * 2;
+      data.valor = auxM3;
+      setValorAPagar(auxM3);
+      gerarQRcode(data, id);
+      toast.success("Autoleitura realizada com sucesso!");
+    } else {
+      toast.error(
+        "O valor informado deve ser maior que o valor da leitura anterior!"
+      );
+    }
   };
 
   return (

@@ -13,7 +13,6 @@ import ModalInfoPagamentos from "../../components/ModalInfoPagamentos";
 import { BsInfoSquare } from "react-icons/bs";
 import Blocker from "../../components/Blocker";
 import toast from "react-hot-toast";
-import {MdPersonAdd} from 'react-icons/md'
 import Busca from "../../components/Busca";
 
 const GerenciarPagamentos = () => {
@@ -84,7 +83,7 @@ const GerenciarPagamentos = () => {
             )}
             
             <Busca
-              handleClick={handleClick} // Componente de busca
+              handleClick={handleClick}
               setBusca={setBusca}
               busca={busca}
               setStatus={setStatus}
@@ -92,7 +91,6 @@ const GerenciarPagamentos = () => {
               changeStatus={changeStatus}
               onSubmit={onSubmitBsk}
               label="Associado"
-              // icon={MdPersonAdd}
               ger={1}
             />
 
@@ -107,7 +105,10 @@ const GerenciarPagamentos = () => {
                 <Lista
                   key={index}
                   info1={<span>{item.name}</span>}
-                  info2={<span>{item.valor}</span>}
+                  info2={<span>{item.valor.toLocaleString("pt-BR", {
+                    style: "currency",
+                    currency: "BRL",
+                  })}</span>}
                   info3={<span>{item.status}</span>}
                   info4={
                     <ButtonAdd

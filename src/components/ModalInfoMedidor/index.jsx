@@ -15,12 +15,11 @@ const ModalInfoMedidores = ({ setShowInfos, infos, handleClick }) => {
   const [status, setStatus] = useState("Ativo");
   const [nome, setNome] = useState("");
   const { associados } = useAssociados();
-  const { updateMedidor } = useMedidores();
+  const { updateMedidor} = useMedidores();
 
   const buscaCPF = (e) => {
     e.preventDefault();
 
-    // const nomeBusca = associados.filter((associado) => associado.cpf === e.target.value)
     const nomeBusca = associados.filter((associado) =>
       associado.cpf.includes(e.target.value)
     );
@@ -41,8 +40,6 @@ const ModalInfoMedidores = ({ setShowInfos, infos, handleClick }) => {
   } = useForm({
     resolver: yupResolver(schema),
   });
-
-  console.log(register.value);
 
   const handleUpdate = (data) => {
     data.status = status;

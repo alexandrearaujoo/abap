@@ -23,7 +23,8 @@ export const StyledSectionNews = styled.section `
 
 export const StyledSection = styled.div `
   width: 80%;
-  height: 100%;
+  height: 400px;
+  max-height: 400px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -45,6 +46,19 @@ export const StyledSection = styled.div `
         margin-bottom: 2px;
     }
   }
+
+
+  .react-3d-carousel {
+      width: 100%;
+      border-radius: 5px;
+
+      .slider-left div {
+        border: none;
+      }
+      .slider-right div {
+        border: none;
+      }
+    }
 `
 export const DivNoticias = styled.div`
   width: 100%;

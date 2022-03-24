@@ -15,7 +15,7 @@ export const AssociadoProvider = ({ children }) => {
     const loadAssociado = () => {
         api.get('/users', {
             headers: {
-                Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyM2IxNzdmOGFmYjBkODBhNTRmMTQxZCIsImlhdCI6MTY0ODA5Mjk1OCwiZXhwIjoxNjQ4MTc5MzU4fQ.3W1kgNeid_FH7vDAfpLRSZHbuKW7MmDFsRx8YPCC4do'
+                Authorization: `Bearer ${tokenUser}`
             }
         })
             .then(res => setAssociados(res.data))

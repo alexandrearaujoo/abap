@@ -20,7 +20,7 @@ const AutoLeitura = () => {
 
   const [valorAPagar, setValorAPagar] = useState(0);
   const [date] = useState(new Date().getDate());
-  console.log(date);
+
   useEffect(() => {
     getHistoricoAssociado(id);
     {(date < 5 || date > 10)  && toast.error("A página de autoleitura é liberada apenas do dia 5 ao dia 10 de todo mês!")}

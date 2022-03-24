@@ -3,13 +3,11 @@ import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import InputDefault from "../InputDefault";
-import Input from "../Input";
 import Button from "../Button";
 import ButtonAdd from "../ButtonAdd";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import { Section, Form, Div } from "./style";
 import { useSolicitacoes } from "../../providers/Solicitacoes";
-import { useAssociados } from "../../providers/Associados";
 
 const ModalInfoSolicitacoes = ({
   setShowInfos,
@@ -17,21 +15,7 @@ const ModalInfoSolicitacoes = ({
   handleClick,
 }) => {
   const [status, setStatus] = useState("Ativo");
-  const [nome, setNome] = useState('')
-  const { associados} = useAssociados();
-  const {solicitacoes} = useSolicitacoes();
   const { updateSolicitacoes } = useSolicitacoes();
-
-  // const buscaCPF = (e) => {
-  //   e.preventDefault()
-  
-  //   const nomeBusca = solicitacoes.filter((solicitacao) => solicitacao.name === e.target.value)
-  //   // const nomeBusca = associados.filter((associado) => associado.cpf.includes(e.target.value))
-  //   if(nomeBusca.length !== 0){setNome(nomeBusca[0].name)}
-    
-
-  // }
-
 
   const schema = yup.object().shape({
     status: yup.string(),
@@ -62,7 +46,7 @@ const ModalInfoSolicitacoes = ({
           
           <InputDefault
             width="90%"
-            value={date}
+            defaultValue={date}
             disabled={true}
             label="Data da Solicitação"
             bordercolor={'var(--background-menus)'}
@@ -72,7 +56,7 @@ const ModalInfoSolicitacoes = ({
 
           <InputDefault
             width="90%"
-            value={infos.name}
+            defaultValue={infos.name}
             disabled={true}
             label="Associado"
             bordercolor={'var(--background-menus)'}
@@ -83,7 +67,7 @@ const ModalInfoSolicitacoes = ({
 
           <InputDefault
             width="90%"
-            value={infos.title}
+            defaultValue={infos.title}
             disabled={true}
             label="Titulo"
             bordercolor={'var(--background-menus)'}
@@ -92,7 +76,7 @@ const ModalInfoSolicitacoes = ({
 
           <InputDefault
             width="90%"
-            value={infos.description}
+            defaultValue={infos.description}
             disabled={true}
             label="Solicitação"
             bordercolor={'var(--background-menus)'}
@@ -100,7 +84,7 @@ const ModalInfoSolicitacoes = ({
           />
             <InputDefault
             width="90%"
-            value={infos.tel}
+            defaultValue={infos.tel}
             disabled={true}
             label="Telefone"
             bordercolor={'var(--background-menus)'}
@@ -110,7 +94,7 @@ const ModalInfoSolicitacoes = ({
           <Div>
             <InputDefault
               width="65%"
-              value={infos.status}
+              defaultValue={infos.status}
               disabled={true}
               label="Status"
               bordercolor={'var(--background-menus)'}

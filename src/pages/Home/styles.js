@@ -23,8 +23,22 @@ export const Main = styled.main`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 80%;
+    width: 100%;
     margin-top: 20px;
+
+
+    .react-3d-carousel {
+      width: 100%;
+      border-radius: 5px;
+
+      .slider-left div {
+        border: none;
+      }
+      .slider-right div {
+        border: none;
+      }
+    }
+
 
     @media (min-width: 768px) {
       flex-direction: row;
@@ -42,17 +56,8 @@ export const Main = styled.main`
       line-height: 15px;
 
       h2 {
-        font-size: var(--fontsize-h3);
         margin: 0 0 10px;
       }
-
-      p {
-        font-size: 12px;
-        text-align: justify;
-        word-break: break-all;
-        word-spacing: 3px;
-      }
-
       li {
         font-size: 12px;
         line-height: 20px;
@@ -82,3 +87,22 @@ export const StyledFigure = styled.figure`
     }
   }
 `;
+export const DivNoticias = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 200px;
+  background-color: var(--background-menus);
+  border-radius: 5px;
+
+  p {
+    width: 90%;
+    text-align: center;
+    line-height: 1.3;
+  }
+  h2 {
+    font-size: 24px;
+  }
+`

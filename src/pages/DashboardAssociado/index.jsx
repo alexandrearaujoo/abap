@@ -11,15 +11,15 @@ const DashboardAssociado = () => {
   let slides = [
     <DivNoticias>
       <h3>Data de leitura</h3>
-      <p>do dia 05 até dia 10</p>
+      <p>Do dia 05 até dia 10</p>
     </DivNoticias>,
     <DivNoticias>
-    <h3>Titulo 2</h3>
-    <p>Notícia 2</p>
+    <h3>Limpeza periódica da caixa d'água</h3>
+    <p>Dia 15, das 15h até 17h</p>
   </DivNoticias>,
      <DivNoticias>
-     <h3>Titulo 2</h3>
-     <p>Notícia 3</p>
+     <h3>Valor em caixa da associação</h3>
+     <p>R$: 15000,00</p>
    </DivNoticias>]
 
   return (

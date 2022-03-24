@@ -1,5 +1,4 @@
 import { AiOutlineMenu } from "react-icons/ai";
-import DivLista from "../../components/DivLista";
 import {Section} from './style'
 import FormModalAutoLeitura from "../../components/FormModalAutoLeitura";
 import Header from "../../components/Header";

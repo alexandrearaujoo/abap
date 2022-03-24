@@ -47,7 +47,7 @@ const ModalInfoPagamento = ({handleClick, setInfosPagamentos}) => {
         <Div>
           <InputDefault
             width="65%"
-            value={infoPagamento.status}
+            defaultValue={infoPagamento.status}
             disabled={true}
             label="Status"
             bordercolor={'var(--background-menus)'}

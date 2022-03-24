@@ -1,9 +1,8 @@
 import { useAssociados } from "../../providers/Associados";
-import { useState } from "react";
+import {  useState } from "react";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import Input from "../Input";
 import InputDefault from "../InputDefault";
 import Button from "../Button";
 import ButtonAdd from "../ButtonAdd";
@@ -42,7 +41,7 @@ const ModalInfoUser = ({ infos, handleClick, setShowInfos }) => {
         <h2>Informações do usuario</h2>
         <InputDefault
           width="90%"
-          value={infos._id}
+          defaultValue={infos._id}
           disabled={true}
           label="ID do usuario"
           bordercolor={"var(--background-menus)"}
@@ -51,7 +50,7 @@ const ModalInfoUser = ({ infos, handleClick, setShowInfos }) => {
 
         <InputDefault
           width="90%"
-          value={infos.email}
+          defaultValue={infos.email}
           disabled={true}
           label="Email"
           bordercolor={"var(--background-menus)"}
@@ -60,7 +59,7 @@ const ModalInfoUser = ({ infos, handleClick, setShowInfos }) => {
 
         <InputDefault
           width="90%"
-          value={infos.endereco}
+          defaultValue={infos.endereco}
           disabled={true}
           label="Endereço"
           bordercolor={"var(--background-menus)"}
@@ -69,7 +68,7 @@ const ModalInfoUser = ({ infos, handleClick, setShowInfos }) => {
 
         <InputDefault
           width="90%"
-          value={infos.cpf}
+          defaultValue={infos.cpf}
           disabled={true}
           label="CPF"
           bordercolor={"var(--background-menus)"}
@@ -79,7 +78,7 @@ const ModalInfoUser = ({ infos, handleClick, setShowInfos }) => {
         <Div>
           <InputDefault
             width="65%"
-            value={infos.status}
+            defaultValue={infos.status}
             disabled={true}
             label="Status"
             bordercolor={"var(--background-menus)"}
@@ -97,14 +96,14 @@ const ModalInfoUser = ({ infos, handleClick, setShowInfos }) => {
         <Div>
         <InputDefault
             width="65%"
-            value={infos.tipo_user}
+            defaultValue={infos.tipo_user}
             disabled={true}
             label="Tipo de usuário"
             bordercolor={"var(--background-menus)"}
             backgrd={"var(--white)"}
           />
           <select onChange={(e) => setTipoUser(e.currentTarget.value)}>
-            <option selected disabled>
+            <option>
               Tipo User...
             </option>
             <option value="Gestor">Gestor</option>

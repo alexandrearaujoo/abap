@@ -21,7 +21,6 @@ const CadastroMedidores = () => {
   const [showForm, setShowForm] = useState(false);
   const [showInfos, setShowInfos] = useState(false);
   const { medidores, infosMedidor, infoMedidor } = useMedidores();
-  console.log(infoMedidor)
 
   const [busca, setBusca] = useState(""); // Armazena dados da busca
   const [arrayBusca, setArrayBusca] = useState([]);
@@ -52,21 +51,19 @@ const CadastroMedidores = () => {
       : setArrayBusca(medidores.filter((medidor) => medidor.status === status));
   };
 
-
-
   arrayBusca.length > 0
     ? (array = arrayBusca)
     : status
     ? (array = arrayBusca)
     : (array = medidores);
 
-  const handleShowInfos = () => {setShowInfos(!showInfos)};
+  const handleShowInfos = () => {
+    setShowInfos(!showInfos);
+  };
 
   const handleInfoMedidor = (id) => {
     infosMedidor(id);
   };
-
-  console.log(medidores);
   return (
     <>
       <Header icon={<AiOutlineMenu />} />
@@ -77,7 +74,10 @@ const CadastroMedidores = () => {
             <h2>Cadastrar Medidor</h2>
             {showForm && (
               <Blocker>
-                <FormModalMedidor handleClick={handleClick} setShowForm={setShowForm}/>
+                <FormModalMedidor
+                  handleClick={handleClick}
+                  setShowForm={setShowForm}
+                />
               </Blocker>
             )}
 
@@ -93,11 +93,13 @@ const CadastroMedidores = () => {
               icon={GiSpeedometer}
             />
             {showInfos && (
-              <ModalInfoMedidor
-                setShowInfos={setShowInfos}
-                infos={infoMedidor}
-                handleClick={handleShowInfos}
-              />
+              <Blocker>
+                <ModalInfoMedidor
+                  setShowInfos={setShowInfos}
+                  infos={infoMedidor}
+                  handleClick={handleShowInfos}
+                />
+              </Blocker>
             )}
             <DivLista
               title1="Código"
@@ -122,8 +124,8 @@ const CadastroMedidores = () => {
                       color="#000"
                       icon={BsInfoSquare}
                       onClick={() => {
-                      handleShowInfos();
-                      handleInfoMedidor(item._id);
+                        handleShowInfos();
+                        handleInfoMedidor(item._id);
                       }}
                     ></ButtonAdd>
                   }

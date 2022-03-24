@@ -1,14 +1,12 @@
-import { Section, Form, Div } from "./style";
+import {Form} from "./style";
 import Input from "../Input";
 import Button from "../Button";
 import ButtonAdd from "../ButtonAdd";
-import Header from "../Header";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useSolicitacoes } from "../../providers/Solicitacoes";
-import { AiOutlineMenu, AiOutlineCloseCircle } from "react-icons/ai";
-import Main from "../Main";
+import {AiOutlineCloseCircle } from "react-icons/ai";
 
 const ModalSolicitacaoNovoAssociado = ({ setShowModalNovoAssociado }) => {
   const { sendRequest } = useSolicitacoes();

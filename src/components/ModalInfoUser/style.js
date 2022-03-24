@@ -1,16 +1,15 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 export const Section = styled.section`
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  
 `;
 
 export const Form = styled.form`
   width: 80%;
-  height:500px;
+  height: 450px;
   max-width: 500px;
   display: flex;
   flex-direction: column;
@@ -20,15 +19,10 @@ export const Form = styled.form`
   align-items: center;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   position: absolute;
-  top: 0;
+  top: 10%;
   z-index: 1;
   animation: slide-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 
-  h2 {
-    margin-top: -50px;
-    text-align: center;
-    color: var(--black);
-  }
 
   @keyframes slide-bottom {
 0% {
@@ -36,50 +30,53 @@ export const Form = styled.form`
           transform: translateY(0);
     }
     100% {
-  -webkit-transform: translateY(100px);
-          transform: translateY(100px);
+  -webkit-transform: translateY(30px);
+          transform: translateY(30px);
     }
 }
-    button:first-child {
-        align-self: flex-end;
-        margin-right: 10px;
-        width: 50px;
-        height: 50px;
-        svg {
-          color: var(--black);
-        }
-      }
+  h2 {
+    font-size: 15px;
+    text-align: center;
+    color: var(--black);
+  }
+  button:first-child {
+    align-self: flex-end;
+    margin-right: 10px;
+    width: 50px;
+    height: 50px;
+    svg {
+      color: var(--black);
+    }
+  }
 
-      button:first-child:hover{
-        background-color:transparent;
-        svg{
-          color: var(--color-primary);
-          font-size: 30px;
-        }
-      }
-      button:first-child:active{
-        background-color:transparent;
-        svg{
-          background-color: var(--color-secondary);
-          font-size: 20px;
-          border-radius: 50%;
-          
-        }
-      }
-
+  button:first-child:hover {
+    background-color: transparent;
+    svg {
+      color: var(--color-primary);
+      font-size: 30px;
+    }
+  }
+  button:first-child:active {
+    background-color: transparent;
+    svg {
+      background-color: var(--color-secondary);
+      font-size: 20px;
+      border-radius: 50%;
+    }
+  }
 `;
 
 export const Div = styled.div`
-    width: 90%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
-    select {
-        background-color: var(--color-secondary);
-        color: var(--white);
-        height: 40px;
-        border-radius: 5px;
-        width: 30%;
-    }
-`
+  select {
+    background-color: var(--color-secondary);
+    color: var(--white);
+    height: 40px;
+    border-radius: 5px;
+    width: 30%;
+  }
+`;

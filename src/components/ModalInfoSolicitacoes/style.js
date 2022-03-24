@@ -1,11 +1,10 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 export const Section = styled.section`
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  
 `;
 
 export const Form = styled.form`
@@ -20,27 +19,27 @@ export const Form = styled.form`
   align-items: center;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   position: absolute;
-  top: -10px;
+  top: 2%;
   z-index: 1;
-  animation: slide-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  animation: slide-bottom 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+
+  @keyframes slide-bottom {
+    0% {
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+    }
+    100% {
+      -webkit-transform: translateY(25px);
+      transform: translateY(25px);
+    }
+  }
 
   h2 {
     text-align: center;
     color: var(--black);
   }
 
-  @keyframes slide-bottom {
-    0% {
-  -webkit-transform: translateY(0);
-          transform: translateY(0);
-    }
-    100% {
-  -webkit-transform: translateY(100px);
-          transform: translateY(100px);
-    }
-}
-
-button:first-child {
+  button:first-child {
     align-self: flex-end;
     margin-right: 10px;
     width: 50px;
@@ -50,36 +49,34 @@ button:first-child {
     }
   }
 
-  button:first-child:hover{
-    background-color:transparent;
-    svg{
+  button:first-child:hover {
+    background-color: transparent;
+    svg {
       color: var(--color-primary);
       font-size: 30px;
     }
   }
-  button:first-child:active{
-    background-color:transparent;
-    svg{
+  button:first-child:active {
+    background-color: transparent;
+    svg {
       background-color: var(--color-secondary);
       font-size: 20px;
       border-radius: 50%;
-      
     }
   }
-
 `;
 
 export const Div = styled.div`
-    width: 90%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
-    select {
-        background-color: var(--color-secondary);
+  select {
+    background-color: var(--color-secondary);
     color: var(--white);
     height: 40px;
     width: 30%;
     border-radius: 5px;
-    }
-`
+  }
+`;

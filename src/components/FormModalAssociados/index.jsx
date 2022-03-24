@@ -1,5 +1,4 @@
 import { Form, DivInfos, DivLocal, Section } from "./style";
-import { useState } from "react";
 import Button from "../Button";
 import Input from "../Input";
 import { useForm } from "react-hook-form";
@@ -9,7 +8,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import { useAssociados } from "../../providers/Associados";
 
-const FormModalAssociados = ({ handleClick, setShowForm}) => {
+const FormModalAssociados = ({ handleClick, setShowForm }) => {
   const { addAssociado } = useAssociados();
 
   const schema = yup.object().shape({
@@ -27,14 +26,14 @@ const FormModalAssociados = ({ handleClick, setShowForm}) => {
   const {
     register,
     handleSubmit,
-    formState: { errors },  
+    formState: { errors },
   } = useForm({
     resolver: yupResolver(schema),
   });
 
   const onSubmit = (data) => {
     addAssociado(data);
-    setShowForm(false)
+    setShowForm(false);
   };
 
   return (
@@ -55,9 +54,10 @@ const FormModalAssociados = ({ handleClick, setShowForm}) => {
           register={register}
         />
         <Input
-          label="CPF"
-          name="cpf"
           error={errors.cpf?.message}
+          label="CPF"
+          type="tel"
+          name="cpf"
           register={register}
         />
         <Input
@@ -67,8 +67,9 @@ const FormModalAssociados = ({ handleClick, setShowForm}) => {
           register={register}
         />
         <Input
-          label="Senha"
+          label="Password"
           name="password"
+          type="password"
           error={errors.password?.message}
           register={register}
         />

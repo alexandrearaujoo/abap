@@ -36,6 +36,7 @@ export const Inputs = styled.div`
     margin-left: 3px;
     font-size: 18px;
     
+    
     color: var(--color-secondary);
   }
   input:focus + label {

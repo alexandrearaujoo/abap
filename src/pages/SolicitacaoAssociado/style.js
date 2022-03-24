@@ -46,7 +46,7 @@ export const Form = styled.form`
 }
 `;
 
-export const Div = styled.div`
+/* export const Div = styled.div`
     width: 90%;
     display: flex;
     justify-content: space-between;
@@ -58,7 +58,7 @@ export const Div = styled.div`
       height: 30px;
       border-radius: 5px;
     }
-`
+` */
 
 export const Container = styled.section`
     display: flex;

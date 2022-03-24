@@ -19,6 +19,8 @@ const HistoricoPagamentos = () => {
     getHistoricoAssociado(id)
   },[])
 
+  console.log(historicoUser)
+
   return (
     <>
       <Header icon={<AiOutlineMenu />} user="associado" />

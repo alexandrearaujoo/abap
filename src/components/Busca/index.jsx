@@ -36,8 +36,13 @@ const Busca = ({ icon, ...rest }) => {
           <FormOptions>
                 <select value={rest.status} onChange={rest.changeStatus}>
                   <option value="Todos">Todos</option>
-                  <option value="Ativo">Ativo</option>
-                  <option value="Inativo">Inativo</option>
+                  {rest.ger === 1 ?
+                  <option value="Pendente">Pendente</option>:
+                  <option value="Ativo">Ativo</option>}
+
+                  {rest.ger === 1 ?
+                  <option value="Pago">Pago</option>:
+                  <option value="Inativo">Inativo</option>}
                 </select>
           {icon && 
                 <ButtonAdd

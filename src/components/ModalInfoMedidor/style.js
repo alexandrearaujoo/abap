@@ -65,13 +65,9 @@ button:first-child {
       border-radius: 50%; 
     }
   }
-<<<<<<< HEAD
-
-=======
->>>>>>> d446e6bb269fd9b6054d35fe12c6220360849981
 `;
 
-export const Div = styled.div`
+export const Div = styled.div`  
   width: 90%;
   display: flex;
   justify-content: space-between;

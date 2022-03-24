@@ -18,6 +18,7 @@ const LoginAssociado = () => {
   const history = useHistory();
   const { loginAssociado, tokenUser, infosUser } = useAssociados();
 
+
   const formSchema = yup.object().shape({
     cpf: yup
       .string()

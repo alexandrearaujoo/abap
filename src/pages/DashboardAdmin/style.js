@@ -4,8 +4,6 @@ export const StyledSectionNews = styled.section `
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 10px;
-
 
   div {
     display: flex;
@@ -26,21 +24,34 @@ export const StyledSectionNews = styled.section `
 export const StyledSection = styled.div `
   width: 80%;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+  h2 {
+    text-align: center;
+  }
+  h3{
+    text-align: center;
+    padding: 0;
+  }
 
   article {
     display: flex;
     flex-direction: column;
-    gap: 5px;
-
     p {
         display: flex;
-        flex-direction: column;
         justify-content: space-between;
-        font-size: var(--body);
-
-        @media (min-width: 768px) {
-            flex-direction: row;
-        }
+        margin-bottom: 2px;
     }
   }
+`
+export const DivNoticias = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 200px;
+  background-color: var(--background-menus);
 `

@@ -40,13 +40,14 @@ export const UsuarioProvider = ({ children }) => {
             })
             .then((res) => {
                 localStorage.setItem('ARAP:ADM', JSON.stringify(res.data))
+                toast.success('Login Realizado')
                 changeTokenUser(res.data.token)
                 changeIdUsuario(res.data.id)
                 getOne(res.data.id);
             })
             .catch((err) => {
 
-                toast.error("Verifique o CPF informado.")
+                toast.error("Verifique o email ou senha.")
 
             })
     }
@@ -74,6 +75,12 @@ export const UsuarioProvider = ({ children }) => {
             .then(res => setUsuario(res.data))
             .catch(err => console.log(err))
     }
+
+    const logout = () => {
+        localStorage.clear()
+        setTokenUser('')
+    }
+
     useEffect(() => {
         getAll()
         if (tokenUser !== "") {
@@ -81,7 +88,7 @@ export const UsuarioProvider = ({ children }) => {
         }
     }, [])
     return (
-        <UsuarioContext.Provider value={{ usuarios, usuario, addUsuario, updateUsuario, loginUsuario, tokenUser, changeTokenUser  }}>
+        <UsuarioContext.Provider value={{ usuarios, usuario, addUsuario, updateUsuario, loginUsuario, tokenUser, changeTokenUser, logout }}>
             {children}
         </UsuarioContext.Provider>
     )

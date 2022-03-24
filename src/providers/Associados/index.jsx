@@ -81,8 +81,13 @@ export const AssociadoProvider = ({ children }) => {
             })
             .catch(err => console.log(err))
     }
+
+    const logout = () => {
+        localStorage.clear()
+        setTokenUser('')
+    }
     return (
-        <AssociadoContext.Provider value={{ associados, infoUser, addAssociado, infosUser, updateUser, loginAssociado, tokenUser }}>
+        <AssociadoContext.Provider value={{ associados, infoUser, addAssociado, infosUser, updateUser, loginAssociado, tokenUser, logout }}>
             {children}
         </AssociadoContext.Provider>
     )

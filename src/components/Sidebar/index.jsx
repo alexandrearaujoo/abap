@@ -6,14 +6,22 @@ import {
 } from "./style";
 import { useHistory } from "react-router-dom";
 
-import { AiOutlineHome } from "react-icons/ai";
+import { AiOutlineHome, AiOutlinePoweroff } from "react-icons/ai";
 import { RiGroupLine } from "react-icons/ri";
 import { MdAttachMoney } from "react-icons/md";
 import { CgPerformance } from "react-icons/cg";
 import { BiPhoneCall } from "react-icons/bi";
+import { useUsuarios } from "../../providers/Usuarios";
 
 const Sidebar = ({ click, setClick }) => {
   const history = useHistory();
+
+  const {logout} = useUsuarios()
+
+  const Logout = () => {
+    logout()
+    history.push('/loginAdm')
+  }
 
   return (
     <>
@@ -67,6 +75,13 @@ const Sidebar = ({ click, setClick }) => {
           >
             <CgPerformance size={40} />
             <Text clicked={click}>Medidores</Text>
+          </Item>
+          <Item
+            onClick={() => Logout()}
+            activeClassName="active"
+          >
+            <AiOutlinePoweroff size={40} />
+            <Text clicked={click}>Sair</Text>
           </Item>
         </SlickBar>
       </Container>

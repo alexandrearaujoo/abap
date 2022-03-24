@@ -2,12 +2,25 @@ import Header from "../../components/Header";
 import {AiOutlineMenu} from "react-icons/ai"
 import Main from "../../components/Main";
 import SidebarAssociado from "../../components/SidebarAssociado";
-import { StyledSection, StyledSectionNews } from "./styles";
+import { StyledSection, DivNoticias } from "./styles";
+import {Carousel} from '3d-react-carousal';
 
 const DashboardAssociado = () => {
 
   const user = JSON.parse(localStorage.getItem("ARAP:User:"))
-
+  let slides = [
+    <DivNoticias>
+      <h3>Data de leitura</h3>
+      <p>do dia 05 até dia 10</p>
+    </DivNoticias>,
+    <DivNoticias>
+    <h3>Titulo 2</h3>
+    <p>Notícia 2</p>
+  </DivNoticias>,
+     <DivNoticias>
+     <h3>Titulo 2</h3>
+     <p>Notícia 3</p>
+   </DivNoticias>]
 
   return (
     <div>
@@ -26,21 +39,7 @@ const DashboardAssociado = () => {
           </article>
 
           <h3>Notícias</h3>
-          <StyledSectionNews>
-            <div>
-              <h3>Data de leitura</h3>
-              <p>do dia 05 até dia 10</p>
-            </div>
-            <div>
-              <h3>Titulo 2</h3>
-              <p>Notícia 2</p>
-            </div>
-            <div>
-              <h3>Titulo 2</h3>
-              <p>Notícia 3</p>
-            </div>
-          </StyledSectionNews>
-
+          <Carousel slides={slides} autoplay={true} interval={4000} style={{width: '100%'}}/>
         </StyledSection>
       </Main>
     </div>

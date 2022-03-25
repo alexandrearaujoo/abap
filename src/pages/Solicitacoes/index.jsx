@@ -1,3 +1,4 @@
+
 import Sidebar from "../../components/Sidebar";
 import MotionDiv from "../../components/MotionDiv";
 import { Container } from "./style";
@@ -131,4 +132,4 @@ const Solicitacoes = () => {
   );
 };
 
-export default Solicitacoes;
+export default Solicitacoes

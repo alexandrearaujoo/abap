@@ -15,5 +15,5 @@ const Input = ({ label, name, error, register, bordercolor, onChange, ...rest })
     </Inputs>
   );
 };
+export default Input
 
-export default Input;

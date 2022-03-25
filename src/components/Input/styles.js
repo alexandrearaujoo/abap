@@ -1,3 +1,4 @@
+
 import styled, { css } from "styled-components";
 
 export const Inputs = styled.div`
@@ -10,6 +11,13 @@ export const Inputs = styled.div`
   line-height: 10px;
   margin: 0 auto;
 
+
+
+    ${(props) =>
+            props.isErrored &&
+            css`
+            border-color: orange;
+        `}
 
   ${(props) =>
     props.isErrored &&
@@ -39,7 +47,6 @@ export const Inputs = styled.div`
     border: 0 none;
     outline: 0;
   }
-
   label {
     pointer-events: none;
     position: absolute;

@@ -36,7 +36,7 @@ const ModalInfoSolicitacoes = ({
 
   const options = { year: 'numeric', month: 'long', day: 'numeric' };
   const date = new Date(infos.createdAt).toLocaleDateString("pt-BR", options)
-
+  
   return (
     <Section>
       {

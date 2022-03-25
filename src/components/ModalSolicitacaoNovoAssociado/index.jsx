@@ -25,7 +25,7 @@ const ModalSolicitacaoNovoAssociado = ({ setShowModalNovoAssociado }) => {
   });
 
   const onSubmit = (data) => {
-    sendRequest(data, "62350c952104a4a99aed3247");
+    sendRequest(data, "623d15e7c2c87d2dedd7bd19");
     setShowModalNovoAssociado(false)
   };
 

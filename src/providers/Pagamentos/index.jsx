@@ -43,6 +43,7 @@ export const PagamentosProvider = ({ children }) => {
       .patch(`pagamentos/${id}`, data)
       .then((_) => {
         toast.success("Dados atualizados");
+        loadPagamentos()
       })
       .catch((err) => console.log(err));
   };

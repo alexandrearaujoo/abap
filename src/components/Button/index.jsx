@@ -1,12 +1,18 @@
-import {ButtonStyled} from './style'
+import { ButtonStyled } from "./style";
 
-const Button = ({span, ...rest}) => {
-    return (
-    <ButtonStyled rest={rest}>
-        <span>{span}</span>
-        <div></div>
+const Button = ({
+  children,
+  margin = "15px",
+  padding = "5px 30px",
+  width = '90%',
+  backgroundColor,
+  ...rest
+}) => {
+  return (
+    <ButtonStyled width={width} backgroundColor={backgroundColor} margin={margin} padding={padding} {...rest}>
+      {children}
     </ButtonStyled>
-    )
-}
+  );
+};
 
-export default Button 
+export default Button;

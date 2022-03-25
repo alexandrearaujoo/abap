@@ -1,38 +1,145 @@
-import Sidebar from "../../components/Sidebar"
-import MotionDiv from "../../components/MotionDiv"
-import {Container, List} from './style'
-import WaveAdm from "../../components/WaveAdm"
-import DivLista from "../../components/DivLista"
-import Input from '../../components/Input'
-import Lista from "../../components/Listas"
-
-const array = [{nome:'hamart'}, {nome:'david'}, {nome:'jean'}]
+import Sidebar from "../../components/Sidebar";
+import MotionDiv from "../../components/MotionDiv";
+import { Container } from "./style";
+import DivLista from "../../components/DivLista";
+import Lista from "../../components/Listas";
+import FormModalAssociados from "../../components/FormModalAssociados";
+import Blocker from "../../components/Blocker";
+import { useState } from "react";
+import Header from "../../components/Header";
+import { BsInfoSquare } from "react-icons/bs";
+import ButtonAdd from "../../components/ButtonAdd";
+import Busca from "../../components/Busca";
+import { AiOutlineMenu } from "react-icons/ai";
+import {MdPersonAdd} from 'react-icons/md'
+import { useAssociados } from "../../providers/Associados";
+import ModalInfoUser from "../../components/ModalInfoUser";
+import toast from "react-hot-toast";
+import Main from "../../components/Main";
 
 const Associados = () => {
-    return (
-        <>
-        <Sidebar />
-            <Container>
-            
-            <MotionDiv>
-                <DivLista>
+  const [showForm, setShowForm] = useState(false);
+  const [showInfos, setShowInfos] = useState(false);
+  const { associados, infosUser, infoUser } = useAssociados();
 
-                {array.map((item) => <Lista info1={item.nome} info2={<input type='checkbox'></input>} info3={'david'} info4={'wagner'}/>)
-        }
-                  
-                </DivLista>
-            
-                
-            
-                
-                </MotionDiv>
+  const [busca, setBusca] = useState(""); // Armazena dados da busca
+  const [arrayBusca, setArrayBusca] = useState([]);
+  const [status, setStatus] = useState("");
 
-                
-            </Container>
+  let array = associados;
 
-            <WaveAdm />
-        </>
-    )
-}
+  // Exibe o Formulario de cadastro associado
+  const handleClick = () => {
+    setShowForm(!showForm);
+  };
 
-export default Associados
+  const onSubmitBsk = (e) => {
+    e.preventDefault();
+    const filter = associados.filter((associado) =>
+      associado.name
+        .toLocaleLowerCase()
+        .includes(busca.toLocaleLowerCase().trim())
+    );
+    setArrayBusca(filter);
+    setBusca("");
+    filter.length < 1 && toast.error("Não encontrei nenhuma referência!");
+  };
+
+  const changeStatus = (e) => {
+    setStatus(e.target.value);
+    let status = e.target.value;
+    status === "Status..." || status === "Todos"
+      ? setArrayBusca(associados)
+      : setArrayBusca(
+          associados.filter((associado) => associado.status === status)
+        );
+  };
+
+  arrayBusca.length > 0
+    ? (array = arrayBusca)
+    : status
+    ? (array = arrayBusca)
+    : (array = associados);
+
+  const handleShowInfos = () => setShowInfos(!showInfos);
+
+  const handleInfoUser = (id) => {
+    infosUser(id);
+  };
+
+  return (
+    <>
+      <Header icon={<AiOutlineMenu />} />
+      <Sidebar />
+      <Main colunm>
+        <Container>
+          <MotionDiv>
+          <h2>Gerenciar Associados</h2>
+            {showForm && (
+              <Blocker>
+                <FormModalAssociados handleClick={handleClick} setShowForm={setShowForm}/>
+              </Blocker>
+            )}
+
+            <Busca
+              handleClick={handleClick} // Componente de busca
+              setBusca={setBusca}
+              busca={busca}
+              setStatus={setStatus}
+              status={status}
+              changeStatus={changeStatus}
+              onSubmit={onSubmitBsk}
+              label="Associado"
+              icon={MdPersonAdd}
+            />
+
+            {showInfos && (
+              <Blocker>
+                <ModalInfoUser infos={infoUser} handleClick={handleShowInfos} setShowInfos={setShowInfos}/>
+              </Blocker>
+            )}
+            <DivLista
+              title1="Nome"
+              title2="Status"
+              title3="Débitos"
+              title4="Ações"
+            >
+              {array.map((itens) => (
+                <Lista
+                  key={itens._id}
+                  info1={<span>{itens.name}</span>}
+                  info2={
+                    itens.status === "Ativo" ? (
+                      <div className="ativo"></div>
+                    ) : (
+                      <div className="inativo"></div>
+                    )
+                  }
+                  info3={itens.status === "Ativo" ? (
+                    <div className="ativo"></div>
+                  ) : (
+                    <div className="inativo"></div>
+                  )}
+                  info4={
+                    <div>
+                      <ButtonAdd
+                        color="#000"
+                        icon={BsInfoSquare}
+                        onClick={() => {
+                          handleShowInfos();
+                          handleInfoUser(itens._id);
+                        }}
+                      ></ButtonAdd>
+                    </div>
+                  }
+                />
+              ))}
+            </DivLista>
+          </MotionDiv>
+          </Container>
+      </Main>
+    </>
+  );
+};
+
+export default Associados;

@@ -1,41 +1,49 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
-export const Container = styled.div`
+export const Container = styled.li`
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  margin: 8px auto;
+  background-color: var(--white);
+  border-radius: 3px;
+  padding: 5px;
+  box-shadow: 3px 3px 10px -2px rgba(0, 0, 0, 0.5);
+  align-items: center;
 
+  span {
+    width: 43%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
 
-        width: 95%;
-        height: 30px;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        background: white;
-        margin-top: 15px;
-        padding-left: 5px;
-        padding-right: 5px;
+  .ativo {
+    background-color: #008000;
+    box-shadow: inset -2px -1px 6px -1px rgba(255, 255, 255, 1);
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+  }
+  .inativo {
+    background-color: #ff0000;
+    box-shadow: inset -2px -1px 6px -1px rgba(255, 255, 255, 1);
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+  }
 
+  span:first-child{
+    width: 60%;
+    text-align: center;
+   
+  }
 
-    .info1{
-        width: 50%;
-        
-       
-    }
+  span:nth-child(n+2):nth-child(-n+5){
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    width: 20%;
 
-    .info2{
-
-
-    }
-
-    .info3{
-
-    }
-
-    .info4{
-
-    }
-
-
-
-
-
-`
+  }
+`;

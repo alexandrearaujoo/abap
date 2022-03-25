@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from "styled-components";
 
 export const StyledHeader = styled.header`
   display: flex;
@@ -6,15 +6,34 @@ export const StyledHeader = styled.header`
   justify-content: center;
   background-color: var(--color-primary);
   width: 100vw;
-  height: 10vh;
+  height: 12vh;
   color: var(--white);
-  box-shadow: 3px 5px 12px -4px rgba(0, 0, 0, 0.91);
-
-  svg {
-    font-size: 30px;
-  }
+  box-shadow: 0px 4px 4px var(--black);
+  position: fixed;
+  z-index: 1;
 
   h1 {
     font-size: var(--fontsize-h3);
   }
-`
+
+  img {
+    width: 60px;
+    margin-left: 10px;
+
+    @media (min-width: 768px) {
+      width: 72px;
+    }
+  }
+
+  button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    svg {
+      width: 25px;
+      height: 25px;
+    }
+  }
+`;

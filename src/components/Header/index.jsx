@@ -1,22 +1,45 @@
-import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
-
+import { useHistory } from "react-router-dom";
+import { useState } from "react";
+import Button from "../Button";
 import { StyledContainer } from "../../style/global";
 import { StyledHeader } from "./styles";
 
-import Logo from "../../assets/svg/logo.svg";
+import Logo from "../../assets/svg/logo-full-size.png";
+import Sidebar from "../Sidebar";
+import SidebarAssociado from "../SidebarAssociado";
 
-const Header = () => {
+const Header = ({ icon, text, link = "", user }) => {
   const history = useHistory();
+  const [click, setClick] = useState(false);
 
-  const handleLogin = () => {
-    history.push("/login");
+  const handleClick = () => {
+    if (link !== "") {
+      history.push(link);
+    } else {
+      setClick(!click);
+    }
   };
 
   return (
     <StyledHeader>
+      {user === "associado" ? (
+        <SidebarAssociado click={click} setClick={setClick} />
+      ) : (
+        <Sidebar click={click} setClick={setClick} />
+      )}
       <StyledContainer>
-        <img width={40} src={Logo} alt="Logo" />
-        <button onClick={handleLogin}>Login</button>
+        <img src={Logo} alt="Logo" />
+        <Button
+          type="button"
+          onClick={handleClick}
+          margin="0px"
+          padding="5px"
+          backgroundColor="transparent"
+          width="50px"
+        >
+          {icon}
+          {text}
+        </Button>
       </StyledContainer>
     </StyledHeader>
   );

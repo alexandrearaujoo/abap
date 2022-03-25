@@ -22,7 +22,7 @@ const AutoLeitura = () => {
   const { id } = JSON.parse(localStorage.getItem("ARAP:User:"));
 
   const [valorAPagar, setValorAPagar] = useState(0);
-  const [date] = useState(5);
+  const [date] = useState(new Date().getDate());
 
   useEffect(() => {
     getHistoricoAssociado(id);

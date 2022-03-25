@@ -9,7 +9,7 @@ export const AssociadoProvider = ({ children }) => {
 
     const [associados, setAssociados] = useState([])
     const [infoUser, setInfoUser] = useState([]) // <-- Deveria ser associado 
-    const [tokenUser, setTokenUser] = useState(localStorage.getItem("@arap.tokenUser") || "");
+    const [tokenUser, setTokenUser] = useState(localStorage.getItem("@arap.tokenUsuario") || "");
     const [setIdAssociado] = useState(localStorage.getItem("@arap.idAssociado") || "");
 
     const loadAssociado = () => {

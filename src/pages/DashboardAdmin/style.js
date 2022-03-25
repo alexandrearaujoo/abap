@@ -29,10 +29,11 @@ export const StyledSection = styled.div`
 
   h2 {
     text-align: center;
-    margin-bottom: 10%;
+    margin-bottom: 25px
   }
   h3 {
     text-align: center;
+    margin-bottom: 20px;
     padding: 0;
   }
 

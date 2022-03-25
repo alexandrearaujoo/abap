@@ -10,7 +10,7 @@ export const UsuarioProvider = ({ children }) => {
     const [usuarios, setUsuarios] = useState([])
     const [usuario, setUsuario] = useState({}) 
     const [tokenUser, setTokenUser] = useState(localStorage.getItem("@arap.tokenUsuario") || "");
-    const [setIdUsuario] = useState(localStorage.getItem("@arap.idUsuario") || "");
+    const [idUsuario, setIdUsuario] = useState(localStorage.getItem("@arap.idUsuario") || "");
 
 
     const changeTokenUser = (item) => {
@@ -38,7 +38,7 @@ export const UsuarioProvider = ({ children }) => {
                 getOne(res.data.id);
             })
             .catch((err) => {
-
+                console.log(err)
                 toast.error("Verifique o email ou senha.")
 
             })
@@ -51,7 +51,6 @@ export const UsuarioProvider = ({ children }) => {
                 setUsuarios([...usuarios, res.data])
             })
             .catch((error) => {
-                console.log(error)
                 toast.error('Não foi possivel incluir o usuário tente novamente.')
             })
     }

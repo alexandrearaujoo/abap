@@ -10,7 +10,7 @@ export const UsuarioProvider = ({ children }) => {
     const [usuarios, setUsuarios] = useState([])
     const [usuario, setUsuario] = useState({}) 
     const [tokenUser, setTokenUser] = useState(localStorage.getItem("@arap.tokenUsuario") || "");
-    const [idUsuario, setIdUsuario] = useState(localStorage.getItem("@arap.idUsuario") || "");
+    const [setIdUsuario] = useState(localStorage.getItem("@arap.idUsuario") || "");
 
 
     const changeTokenUser = (item) => {

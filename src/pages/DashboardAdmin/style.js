@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
-export const StyledSectionNews = styled.section `
+export const StyledSectionNews = styled.section`
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
 
   div {
     display: flex;
@@ -19,20 +19,19 @@ export const StyledSectionNews = styled.section `
   @media (min-width: 768px) {
     flex-direction: row;
   }
-`
+`;
 
-export const StyledSection = styled.div `
+export const StyledSection = styled.div`
   width: 80%;
-  height: 400px;
-  max-height: 400px;
+  height: 340px;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
 
   h2 {
     text-align: center;
+    margin-bottom: 10%;
   }
-  h3{
+  h3 {
     text-align: center;
     padding: 0;
   }
@@ -40,32 +39,35 @@ export const StyledSection = styled.div `
   article {
     display: flex;
     flex-direction: column;
+    margin-bottom: 5%;
+
     p {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 2px;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
     }
   }
 
-
   .react-3d-carousel {
-      width: 100%;
-      border-radius: 5px;
+    width: 100%;
+    border-radius: 5px;
+    margin-top: 5%;
 
-      .slider-left div {
-        border: none;
-      }
-      .slider-right div {
-        border: none;
-      }
+    .slider-left div {
+      border: none;
     }
-`
+    .slider-right div {
+      border: none;
+    }
+  }
+`;
+
 export const DivNoticias = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  height: 200px;
+  height: 150px;
   background-color: var(--background-menus);
-`
+`;

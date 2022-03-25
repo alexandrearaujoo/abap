@@ -16,8 +16,9 @@ import ModalInfoMedidor from "../../components/ModalInfoMedidor";
 import toast from "react-hot-toast";
 import Main from "../../components/Main";
 import Busca from "../../components/Busca";
+import { Redirect } from "react-router-dom";
 
-const CadastroMedidores = () => {
+const CadastroMedidores = ({authAdm}) => {
   const [showForm, setShowForm] = useState(false);
   const [showInfos, setShowInfos] = useState(false);
   const { medidores, infosMedidor, infoMedidor } = useMedidores();
@@ -27,6 +28,10 @@ const CadastroMedidores = () => {
   const [status, setStatus] = useState("");
 
   let array = medidores;
+
+  if (!authAdm) {
+    return <Redirect to="/loginAdm" />;
+  }
 
   // Exibe o Formulario de cadastro associado
   const handleClick = () => {

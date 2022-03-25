@@ -12,12 +12,11 @@ import { Container, ContainerForm } from "./style";
 import ModalSolicitacaoNovoAssociado from "../../components/ModalSolicitacaoNovoAssociado";
 import Blocker from "../../components/Blocker";
 
-const LoginAssociado = () => {
+const LoginAssociado = ({ setAuth }) => {
   const [showModalNovoAssociado, setShowModalNovoAssociado] = useState(false);
 
   const history = useHistory();
   const { loginAssociado, tokenUser, infosUser } = useAssociados();
-
 
   const formSchema = yup.object().shape({
     cpf: yup
@@ -35,6 +34,7 @@ const LoginAssociado = () => {
 
   const onSubmitFunction = (data) => {
     loginAssociado(data);
+    setAuth(true);
   };
 
   useEffect(() => {

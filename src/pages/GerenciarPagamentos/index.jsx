@@ -14,22 +14,25 @@ import { BsInfoSquare } from "react-icons/bs";
 import Blocker from "../../components/Blocker";
 import toast from "react-hot-toast";
 import Busca from "../../components/Busca";
+import { Redirect } from "react-router-dom";
 
-const GerenciarPagamentos = () => {
+const GerenciarPagamentos = ({authAdm}) => {
   const [showInfosPagamentos, setInfosPagamentos] = useState(false);
   const { pagamentos, getPagamento } = usePagamentos();
- 
-  const [busca, setBusca] = useState('');                 // Armazena dados digitados na busca
-  const [arrayBusca, setArrayBusca] = useState([]);     //armazena buscas
-  const [status, setStatus] = useState('');       //estado no select
-  
-  
-  let array = pagamentos
-  
+
+  const [busca, setBusca] = useState(""); // Armazena dados digitados na busca
+  const [arrayBusca, setArrayBusca] = useState([]); //armazena buscas
+  const [status, setStatus] = useState(""); //estado no select
+
+  let array = pagamentos;
+
+  if (!authAdm) {
+    return <Redirect to="/loginAdm" />;
+  }
 
   const onSubmitBsk = (e) => {
     e.preventDefault();
-    const filter =pagamentos.filter((associado) =>
+    const filter = pagamentos.filter((associado) =>
       associado.name
         .toLocaleLowerCase()
         .includes(busca.toLocaleLowerCase().trim())
@@ -45,7 +48,7 @@ const GerenciarPagamentos = () => {
     status === "Status..." || status === "Todos"
       ? setArrayBusca(pagamentos)
       : setArrayBusca(
-        pagamentos.filter((associado) => associado.status === status)
+          pagamentos.filter((associado) => associado.status === status)
         );
   };
 
@@ -53,11 +56,7 @@ const GerenciarPagamentos = () => {
     ? (array = arrayBusca)
     : status
     ? (array = arrayBusca)
-    : (array =pagamentos);
-
-   
-
-
+    : (array = pagamentos);
 
   const handleClick = () => setInfosPagamentos(!showInfosPagamentos);
 
@@ -81,7 +80,7 @@ const GerenciarPagamentos = () => {
                 />
               </Blocker>
             )}
-            
+
             <Busca
               handleClick={handleClick}
               setBusca={setBusca}
@@ -94,7 +93,6 @@ const GerenciarPagamentos = () => {
               ger={1}
             />
 
-
             <DivLista
               title1="Nome"
               title2="Valor"
@@ -105,19 +103,22 @@ const GerenciarPagamentos = () => {
                 <Lista
                   key={index}
                   info1={<span>{item.name}</span>}
-                  info2={<span>{item.valor.toLocaleString("pt-BR", {
-                    style: "currency",
-                    currency: "BRL",
-                  })}</span>}
+                  info2={
+                    <span>
+                      {item.valor.toLocaleString("pt-BR", {
+                        style: "currency",
+                        currency: "BRL",
+                      })}
+                    </span>
+                  }
                   info3={<span>{item.status}</span>}
                   info4={
                     <ButtonAdd
                       color="#000"
                       icon={BsInfoSquare}
                       onClick={() => {
-                      handleClick();
-                      handleInfoPagamento(item._id);
-
+                        handleClick();
+                        handleInfoPagamento(item._id);
                       }}
                     ></ButtonAdd>
                   }

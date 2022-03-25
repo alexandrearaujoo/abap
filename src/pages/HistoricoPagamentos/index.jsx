@@ -13,6 +13,8 @@ const HistoricoPagamentos = () => {
   const { id } = JSON.parse(localStorage.getItem("ARAP:User:"));
   const { getHistoricoAssociado, historicoUser } = usePagamentos();
 
+    
+
   useEffect(() => {
     getHistoricoAssociado(id);
   }, []);
@@ -24,7 +26,7 @@ const HistoricoPagamentos = () => {
         <Container>
           <h2>Historico de pagamentos</h2>
           <MotionDiv>
-            <Busca />
+          <Busca ger={1}/>
             <DivLista
               title1="Mês"
               title2="Consumo"

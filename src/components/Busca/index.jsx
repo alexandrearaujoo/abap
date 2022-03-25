@@ -1,5 +1,4 @@
 import ButtonAdd from "../ButtonAdd";
-import { MdPersonAdd } from "react-icons/md";
 import { Container, DivBusca, FormOptions } from "./style";
 import InputDefault from "../InputDefault";
 import {FaSearch} from 'react-icons/fa' 

@@ -9,7 +9,6 @@ import { useEffect, useState } from "react";
 import { usePagamentos } from "../../providers/Pagamentos";
 import QrCode from "../QrCode";
 import { toast } from "react-hot-toast";
-import { RiSettingsLine } from "react-icons/ri";
 
 const AutoLeitura = () => {
   const [teste, setTeste] = useState("");
